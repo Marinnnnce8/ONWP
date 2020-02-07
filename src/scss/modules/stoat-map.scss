@@ -1,0 +1,26 @@
+.stoat-map {
+    padding-top: 240px;
+
+    h1 {
+        color: $brown;
+        font-weight: $light;
+    }
+
+    p {
+        font-size: 34px;
+        margin-bottom: 40px;
+    }
+}
+
+.map-container {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+
+    .shape {
+        height: auto;
+        transform: translateY(-100%);
+        color: $blue-light;
+        fill: $blue-light;
+    }
+}

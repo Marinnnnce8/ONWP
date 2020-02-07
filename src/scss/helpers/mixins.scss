@@ -1,0 +1,76 @@
+//----------  input placeholder
+//------------------------------------------------------------------------------
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+//----------  base float
+//------------------------------------------------------------------------------
+@mixin base-float {
+	width: 100%;
+	float: left;
+}
+
+//----------  Text Overflow
+//------------------------------------------------------------------------------
+@mixin text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+//----------  Vertical / horizontal alignment
+//------------------------------------------------------------------------------
+@mixin align($position: relative, $direction: x) {
+	position: $position;
+	@if ($direction == 'y') {
+		top: 50%;
+		transform: translateY(-50%);
+	} @else if ($direction == 'xy') {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	} @else {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+
+// example: @include align(absolute, xy); for centering both axis'
+// default @include align(); will be relative on x axis
+
+//	Visually hidden mixin for accessibility
+@mixin visually-hidden() {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+
+@mixin hover {
+
+	&:hover,
+	&:focus,
+	&:active {
+		@content;
+	}
+}
+

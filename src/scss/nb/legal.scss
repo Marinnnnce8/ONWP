@@ -1,0 +1,44 @@
+.nb-legal {
+	padding: $nbGutterSmall 0;
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		li {
+			display: inline-block;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			a {
+				color: $brown;
+				font-size: 13px;
+				font-weight: $light;
+
+				@include hover {
+					color: $nbBlack;
+				}
+			}
+
+			&:after {
+				content: "|";
+				color: $brown;
+				display: inline-block;
+				padding: 0 $nbGutter;
+			}
+
+			&:last-child:after {
+				content: "";
+			}
+
+			@media (max-width: $breakpointMobile) {
+				display: block;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
+	}
+}

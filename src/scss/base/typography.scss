@@ -1,0 +1,148 @@
+//----------  typography
+//------------------------------------------------------------------------------
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $font-default;
+	font-weight: normal;
+	line-height: 1.35em;
+}
+
+h1 {
+	font-size: 67px;
+	font-weight: $bold;
+	color: $white;
+}
+
+h2 {
+	font-size: 34px;
+	color: $brown;
+	font-weight: $light;
+}
+
+h3 {
+	font-size: 26px;
+	color: $brown;
+	font-weight: $light;
+}
+
+h4 {
+	font-size: 20px;
+	color: $brown;
+}
+
+h5 {
+	font-size: 18px;
+	font-weight: $bold;
+	color: $brown;
+}
+
+h6 {
+	font-size: 14px;
+	font-weight: $bold;
+	color: $brown;
+}
+
+
+p {
+	font-size: 18px;
+	font-weight: $light;
+	margin-bottom: 15px;
+	color: $brown;
+}
+
+a {
+	font-size: 18px;
+}
+
+strong,
+em,
+sup {
+	color: inherit;
+}
+
+strong {
+	font-weight: $bold;
+}
+
+em {
+	font-weight: 400;
+}
+
+sup {
+	font-size: 58%;
+}
+
+blockquote {
+	border-left: 3px solid $green-golden;
+	padding: 25px 60px 0;
+	position: relative;
+	&::before {
+		content: url('../img/quotes.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 40px;
+		z-index: 1;
+		width: 100px;
+	}
+
+	p,
+	span {
+		font-weight: $light;
+		font-style: normal;
+	}
+
+	p {
+		font-size: 26px;
+		color: $green-dark;
+		margin-bottom: 25px;
+		&:last-of-type {
+			margin-bottom: 25px;
+		}
+	}
+
+	span {
+		font-size: 18px;
+		color: $brown;
+	}
+}
+
+ul {
+	padding-left: 20px;
+}
+
+ol {
+	padding-left: 20px;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+ol li {
+	list-style-type: decimal;
+	padding-left: 10px;
+	font-size: 18px;
+	font-weight: $light;
+	color: $brown;
+}
+
+abbr[title] {
+	border-bottom: 0;
+	cursor: inherit;
+	text-decoration: none;
+	font-weight: inherit;
+	font-size: inherit;
+}
+
+img {
+	max-width: 100%;
+}

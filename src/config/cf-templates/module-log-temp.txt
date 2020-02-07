@@ -1,0 +1,10 @@
+
+------------------------------------------------------------------------
+
+	CREATED MODULE -------------------------------------- @{str}
+
+	- created SCSS file: '_@{str}.scss' in dir 'src/scss/modules/@{str}'
+
+	- updated theme.scss file: '@import modules/@{str};' in dir 'src/scss'
+
+------------------------------------------------------------------------

@@ -1,0 +1,12 @@
+@media print {
+	.header,
+	.footer,
+	.nb-block-form,
+	.TextformatterVideoEmbed,
+	.uk-button,
+	.uk-breadcrumb,
+	.uk-pagination,
+	.uk-modal {
+		display: none !important;
+	}
+}

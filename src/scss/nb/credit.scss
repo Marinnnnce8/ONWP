@@ -1,0 +1,20 @@
+.nb-credit {
+	line-height: 1;
+	padding-top: $nbGutterSmall;
+
+	a {
+		color: $brown;
+		font-size: 13px;
+		font-weight: $bold;
+
+		@include hover {
+			color: $nbRed;
+			text-decoration: none;
+		}
+
+		img {
+			height: 0.9rem;
+			vertical-align: bottom;
+		}
+	}
+}

@@ -1,0 +1,214 @@
+//
+// Theme
+//
+// Config
+@import 'config/variables.scss';
+
+// Base
+@import 'base/fonts.scss';
+@import 'base/layout.scss';
+@import 'base/typography.scss';
+
+// Helpers
+@import 'helpers/mixins.scss';
+
+// Layout / Helpers
+@import 'layout/_icon-font.scss';
+@import 'helpers/helpers.scss';
+@import 'layout/buttons.scss';
+
+// UIkit
+@import "uikit/base.scss";
+@import "uikit/navbar.scss";
+@import "uikit/logo.scss";
+@import "uikit/breadcrumb.scss";
+@import "uikit/form.scss";
+
+// NB
+@import "nb/block.scss";
+@import "nb/responsive.scss";
+@import "nb/file-icon.scss";
+@import "nb/legal.scss";
+@import "nb/credit.scss";
+
+// Modules
+@import 'modules/banner.scss';
+@import 'modules/basic-block.scss';
+@import 'modules/slider.scss';
+@import 'modules/team-list.scss';
+@import 'modules/internal-section.scss';
+@import 'modules/timeline.scss';
+@import 'modules/stoat-map.scss';
+
+// Theme
+@import "theme/base.scss";
+@import "theme/header.scss";
+@import "theme/footer.scss";
+@import "theme/ie11.scss";
+@import "theme/print.scss";
+
+
+// Template | Remove or Integrate
+
+// uikit/base
+a,
+.uk-link {
+	color: $brick;
+}
+
+.uk-link-toggle:focus .uk-link,
+.uk-link-toggle:hover .uk-link,
+.uk-link:hover,
+a:hover {
+	color: $brick;
+}
+
+// uikit/logo
+.uk-logo {
+
+	img {
+		width: 228px;
+	}
+}
+
+// uikit/breadcrumb
+.uk-breadcrumb> :last-child>* {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
+
+	@media (max-width: $breakpointXsmallMax) {
+		max-width: 128px;
+	}
+}
+
+// uikit/form
+.uk-input:not(.uk-form-danger),
+.uk-select:not(.uk-form-danger),
+.uk-textarea:not(.uk-form-danger) {
+	border-color: $brown;
+	border-width: 2px;
+	color: $brown;
+	font-weight: $light;
+
+	&:focus {
+		border-color: $white;
+	}
+}
+
+.uk-checkbox:not(.uk-form-danger),
+.uk-radio:not(.uk-form-danger),
+.uk-checkbox:checked:not(.uk-form-danger) .uk-radio:checked:not(.uk-form-danger) {
+	border-color: $brown;
+	width: 30px;
+	height: 30px;
+}
+
+.uk-checkbox:checked,
+.uk-checkbox:indeterminate,
+.uk-radio:checked {
+	background-color: $brown;
+}
+
+.uk-checkbox:checked:focus,
+.uk-checkbox:indeterminate:focus,
+.uk-radio:checked:focus {
+	background-color: $brown;
+}
+
+// theme/header
+
+#nav {
+
+	@media (max-width: $breakpointXsmallMax) {
+		background-color: $nbWhite;
+		border-top: 1px solid $nbOffWhite;
+		height: calc(100% - 80px);
+		left: 0;
+		overflow: auto;
+		position: fixed;
+		top: 80px;
+		width: 100%;
+
+		&.nav-toggle {
+			display: none;
+		}
+
+		.uk-navbar-nav {
+			display: block;
+			padding-bottom: $nbGutter;
+			padding-top: $nbGutter;
+		}
+
+		.uk-navbar-item,
+		.uk-navbar-nav>li>a,
+		.uk-navbar-toggle {
+			display: block;
+			min-height: 0;
+			padding-bottom: $nbGutter;
+			padding-top: $nbGutter;
+		}
+	}
+}
+
+// theme/footer
+.footer {
+	font-size: 0.9rem;
+
+	@media (max-width: $breakpointMobile) {
+		font-size: 0.8rem;
+	}
+}
+
+.share-widget {
+	min-width: 100px;
+	overflow: hidden;
+
+	.uk-position-relative {
+		>svg {
+			color: $blue-light;
+			fill: $blue-light;
+			transform: translateX(-45%);
+		}
+	}
+
+	span {
+		font-size: 9px;
+		font-weight: $light;
+		padding-left: 8px;
+	}
+
+	a {
+		width: 45px;
+		height: 45px;
+		position: relative;
+
+		>svg,
+		&::before {
+			width: 22px;
+			font-size: 22px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+
+		&:first-of-type svg {
+			color: $blue-facebook;
+		}
+
+		&:nth-of-type(2) svg {
+			color: $blue-twitter;
+		}
+
+		&:last-of-type::before {
+			color: $brown;
+		}
+
+		@include hover {
+			opacity: .7;
+		}
+	}
+}

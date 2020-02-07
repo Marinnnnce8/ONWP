@@ -1,0 +1,139 @@
+//----------  variables
+//------------------------------------------------------------------------------
+
+$font-default: 'Ubuntu', sans-serif;
+$font-condensed: 'Ubuntu Condensed', sans-serif;
+$bold: bold;
+$semi-bold: 600;
+$medium: 500;
+$light: 300;
+$italic: italic;
+
+// Colors
+$white: #fff;
+$black: #000;
+$orange: #ff8813;
+$ochre: #f6ea8b;
+$ochre-dark: #c3ba6d;
+$brown-light: #8f857c;
+$brown-medium: #8b837b;
+$brown: #4b351c;
+$brick: #c75300;
+$orange: #ff8813;
+$orange-dark: #eb7501;
+$blue-light: #dce7f3;
+$blue-pastel: #d0e2fb;
+$blue-facebook: #3d599c;
+$blue-twitter: #1c9ccf;
+$violet-light: #8c2d76;
+$violet-dark: #4d3243;
+$gray: #bec0c1;
+$gray-form: #938e87;
+$gray-soft: #71675e;
+$gray-ice: #dcd8d3;
+$gray-secondary: #dbd7d2;
+$gray-light: #edeae8;
+$gray-medium: #c5c1bc;
+$purple: #a7358c;
+$green: #8a752f;
+$green-pastel: #d0e69b;
+$green-dark: #705f26;
+$green-golden: #b4a32b;
+$red: #ea4335;
+$red-light: #ffbb8e;
+
+$site-colors: (
+	'black': $black,
+	'white': $white,
+	'ochre': $ochre,
+	'brown': $brown,
+	'blue-light': $blue-light,
+	'violet-light': $violet-light,
+	'gray': $gray,
+	'violet-dark': $violet-dark,
+	'purple': $purple,
+	'green': $green
+) !default;
+
+//----------  Bootstrap grid
+//------------------------------------------------------------------------------
+
+$enable-grid-classes: true !default;
+
+//----------  Media queries breakpoints - Grid breakpoint
+//------------------------------------------------------------------------------
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+) !default;
+
+//----------  Grid containers
+//------------------------------------------------------------------------------
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px
+) !default;
+
+//----------  Grid columns
+//------------------------------------------------------------------------------
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+//
+// UIkit
+//
+
+// Breakpoints
+$breakpointSmall: 640px;
+$breakpointMedium: 960px;
+$breakpointLarge: 1200px;
+$breakpointXlarge: 1600px;
+$breakpointXsmallMax: ($breakpointSmall - 1);
+$breakpointSmallMax: ($breakpointMedium - 1);
+$breakpointMediumMax: ($breakpointLarge - 1);
+$breakpointLargeMax: ($breakpointXlarge - 1);
+$breakpointMobile: 479px;
+
+//
+// NB
+//
+
+$nbCent: 32%;
+$nbSec: 256ms;
+
+// Spacing
+$nbSpace: 2.5rem;
+$nbSpaceSmall: $nbSpace * 0.6;
+$nbSpaceXsmall: $nbSpace * 0.3;
+$nbSpaceLarge: $nbSpace * 1.4;
+$nbSpaceXlarge: $nbSpace * 2;
+$nbGutter: $nbSpace * 0.2;
+$nbGutterSmall: $nbGutter / 2;
+$nbGutterXsmall: $nbGutterSmall / 2;
+
+// Colour
+$nbWhite: #fff;
+$nbBlack: #241d1e;
+$nbRed: #e11e2f;
+$nbGrey: lighten($nbBlack, $nbCent);
+$nbLightGrey: lighten($nbGrey, $nbCent);
+$nbOffWhite: lighten($nbLightGrey, $nbCent / 2);
+
+// Animation
+$nbSpeed: $nbSec;
+$nbSpeedShort: $nbSpeed / 2;
+$nbSpeedLong: $nbSpeed * 2;
+
+//
+// Theme
+//
+
+$themeVar: 0; // Example, not used

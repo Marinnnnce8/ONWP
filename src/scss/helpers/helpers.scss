@@ -1,0 +1,50 @@
+//----------  helpers
+//------------------------------------------------------------------------------
+
+* {
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: border-box;
+	}
+}
+
+html, body {
+	overflow-x: hidden;
+	font-family: $font-default;
+	width: 100%;
+	position: relative;
+	font-size: 16px;
+}
+
+.shape {
+	width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+	height: 100%;
+	z-index: -1;
+}
+
+// Theming and colors iterator
+@each $colors-name in $site-colors {
+	$name: nth($colors-name, 1);
+	$color: nth($colors-name, 2);
+	.bg-#{$name} {
+		background-color: $color;
+	}
+	.color-#{$name} {
+		color: $color;
+	}
+	.svg-bg-#{$name} {
+		>svg {
+			color: $color;
+			fill: $color;
+		}
+	}
+	.info-color-#{$name} {
+		span, p {
+			color: $color;
+		}
+	}
+}

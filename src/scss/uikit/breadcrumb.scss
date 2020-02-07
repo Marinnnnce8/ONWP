@@ -1,0 +1,38 @@
+.uk-breadcrumb {
+    >:nth-child(n+2):not(.uk-first-column)::before {
+        display: none;
+    }
+
+    li {
+        &:not(:first-of-type) {
+            padding-left: 18px;
+        }
+
+        a, span {
+            font-size: 16px;
+            color: $black;
+            font-weight: $light;
+        }
+
+        a {
+            position: relative;
+
+            >svg {
+                right: -5px;
+                position: relative;
+                color: $ochre-dark;
+                fill: $ochre-dark;
+            }
+
+            &::after {
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: calc(100% - 18px);
+                content: '';
+                background-color: $black;
+                height: 1px;
+            }
+        }
+    }
+}

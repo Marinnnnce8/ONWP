@@ -1,0 +1,30 @@
+.nb-file-icon {
+	i, .uk-icon {
+		color: $nbGrey;
+		margin-right: $nbGutterSmall;
+	}
+
+	&-pdf {
+		i, .uk-icon {
+			color: #bb0706;
+		}
+	}
+
+	&-word {
+		i, .uk-icon {
+			color: #1041aa;
+		}
+	}
+
+	&-excel {
+		i, .uk-icon {
+			color: #0d6b3b;
+		}
+	}
+
+	&-powerpoint {
+		i, .uk-icon {
+			color: #d74507;
+		}
+	}
+}

@@ -1,0 +1,415 @@
+.header {
+    nav {
+        padding: 10px 50px;
+    }
+
+    .uk-logo img {
+        max-width: 130px;
+        width: 100%;
+        height: auto;
+    }
+
+    .nav-top {
+        li {
+            a {
+                font-size: 16px;
+            }
+
+            &:first-of-type a {
+                font-weight: $bold;
+                color: $brick;
+            }
+
+            &:not(:first-of-type) a {
+                font-weight: $light;
+                color: $brown;
+            }
+
+            .uk-icon {
+                display: inline-block;
+                margin-left: 5px;
+                position: relative;
+
+                svg {
+                    color: $white;
+                    fill: $white;
+                    width: 12px;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 15px;
+                    height: 15px;
+                    background-color: $brown;
+                    left: 50%;
+                    top: 50%;
+                    border-radius: 50%;
+                    z-index: -1;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }
+    }
+
+    .uk-dropdown {
+        background: transparent;
+        box-shadow: none;
+        min-width: 270px;
+        margin-top: 20px;
+        padding: 35px;
+
+        >img {
+            width: 100%;
+            height: auto;
+        }
+
+        svg {
+            color: $white;
+            fill: $white;
+            z-index: 0;
+        }
+
+        >ul {
+            position: relative;
+        }
+    }
+
+    @media (max-width: $breakpointLarge) {
+        nav {
+            padding: 15px 20px;
+        }
+
+        .uk-logo img {
+            max-width: 125px;
+        }
+    }
+
+    @media (max-width: $breakpointSmall) {
+        .uk-logo img {
+            max-width: 100px;
+        }
+    }
+}
+
+.header .nav-bottom,
+.nav-bottom {
+
+    button,
+    a {
+        color: $brown;
+        font-weight: $bold;
+        font-size: 20px;
+        line-height: 1.4;
+
+        @include hover {
+            color: $brick;
+        }
+    }
+
+    button {
+        position: relative;
+
+        svg {
+            margin-bottom: 3px;
+            margin-left: 5px;
+            width: 12px;
+            background-color: $gray-medium;
+            border-radius: 50%;
+            color: $white;
+            fill: $white;
+            transition: $nbSec ease-in-out;
+        }
+
+        @include hover {
+            svg {
+                background-color: $brick;
+            }
+        }
+    }
+
+    .uk-open {
+        svg[data-svg='chevron-down'] {
+            transform: rotate(180deg);
+            transition: $nbSec ease-in-out;
+        }
+    }
+
+    ul li a {
+        font-size: 18px;
+    }
+
+    @media (max-width: $breakpointLarge) {
+        .uk-dropdown {
+            background-color: transparent;
+        }
+
+        button,
+        a {
+            color: $white;
+            padding: 10px;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        button>svg {
+            width: 20px;
+            height: 20px;
+            color: $brown;
+            fill: $brown;
+            margin-left: 15px;
+        }
+
+        >li a,
+        >li button {
+            font-size: 34px;
+        }
+
+        .uk-navbar-dropdown {
+            top: 0 !important;
+            left: 0 !important;
+            bottom: 0;
+            width: 100%;
+            margin-top: 0;
+
+            >svg[data-svg] {
+                color: $brown;
+                fill: $brown;
+                z-index: -1;
+                width: 100%;
+                height: auto;
+            }
+
+            li {
+                padding-left: 35px;
+                padding-right: 35px;
+
+                &:not(:first-of-type) {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+
+                    a {
+                        font-weight: 400;
+                    }
+                }
+
+                &:first-of-type {
+                    margin-bottom: 15px;
+
+                    button {
+                        padding-left: 0;
+                        position: relative;
+
+                        svg {
+                            position: absolute;
+                            left: -45px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        li {
+
+            &:not(:first-of-type) a,
+            span {
+                color: $white;
+            }
+
+            &:not(:first-of-type) a {
+                font-size: 34px;
+            }
+
+            span {
+                font-size: 44px;
+                font-weight: $bold;
+            }
+
+            &:first-of-type button {
+                font-size: 26px;
+                font-weight: $light;
+            }
+        }
+    }
+
+    @media (max-width: $breakpointSmall) {
+        padding: 0 15px;
+
+        button,
+        a {
+            padding: 5px 25px;
+        }
+
+        >li a,
+        >li button {
+            font-size: 20px;
+        }
+
+        li {
+            &:not(:first-of-type) {
+                a {
+                    font-size: 20px;
+                }
+
+                button svg {
+                    width: 14px;
+                    height: 14px;
+                    margin-left: 10px;
+                }
+            }
+
+            span {
+                font-size: 26px;
+            }
+
+            &:first-of-type button {
+                font-size: 16px;
+            }
+        }
+
+        >li {
+            &:first-of-type a {
+                font-size: 12px;
+                padding-left: 10px;
+                position: relative;
+                z-index: 1025;
+                width: 50%;
+
+                i {
+                    left: 0;
+                    background-color: $white;
+                    border-radius: 50%;
+                    width: 18px;
+                    height: 18px;
+                    position: absolute;
+                    left: -15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                svg {
+                    color: $brown;
+                    fill: $brown;
+                    width: 14px;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+
+        .uk-navbar-dropdown {
+            padding: 70px 40px 0;
+
+            li {
+                padding-left: 0;
+                padding-right: 0;
+
+                &:first-of-type button {
+                    font-size: 16px;
+
+                    svg {
+                        width: 14px;
+                        height: 14px;
+                        left: -35px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.burger-menu {
+    background-color: transparent;
+    margin-left: 10px;
+    position: relative;
+    width: 60px;
+    height: 60px;
+
+    svg {
+        color: $brown;
+        fill: $brown;
+    }
+
+    span {
+        pointer-events: none;
+        z-index: 0;
+        position: absolute;
+        left: 50%;
+        width: 20px;
+        height: 4px;
+        background: $white;
+        content: '';
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .5s ease-in-out;
+
+        &::after,
+        &::before {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: $white;
+            content: '';
+            transition: .5s ease-in-out;
+        }
+
+        &::after {
+            top: -7px;
+        }
+
+        &::before {
+            top: 7px;
+        }
+    }
+}
+
+.uk-modal {
+    background-color: rgba($brown, .9);
+    padding: 10px;
+
+    @media (max-width: $breakpointSmall) {
+        padding: 10px;
+    }
+}
+
+.uk-modal-body {
+    @media (max-width: $breakpointSmall) {
+        padding: 0;
+    }
+}
+
+.uk-modal-dialog {
+    background-color: transparent;
+
+    >svg[data-svg] {
+        color: $brown;
+        fill: $brown;
+        z-index: -1;
+    }
+
+    .uk-modal-close-default {
+        padding: 20px;
+        margin-right: 40px;
+        margin-top: 25px;
+        z-index: 1025;
+
+        svg {
+            color: $white;
+            fill: $white;
+        }
+    }
+
+    @media(max-width: $breakpointSmall) {
+        .uk-modal-close-default {
+            padding: 7px;
+            margin-right: 25px;
+            margin-top: 17px;
+        }
+    }
+}

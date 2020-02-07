@@ -1,0 +1,204 @@
+@font-face {
+	font-family: 'svgicons';
+	src: url('../fonts/svgicons.woff2') format('woff2'),
+		url('../fonts/svgicons.woff') format('woff'),
+		url('../fonts/svgicons.ttf') format('truetype');
+}
+
+@mixin font-styles {
+	font-family: 'svgicons';
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+	display: block;
+	line-height: 1;
+}
+
+%font {
+	@include font-styles;
+}
+
+@function font-char($filename) {
+	$char: "";
+
+	@if $filename == binoculars {
+		$char: '\E001';
+	}
+	@if $filename == bird-logo {
+		$char: '\E002';
+	}
+	@if $filename == charity {
+		$char: '\E003';
+	}
+	@if $filename == chevron-arrow-down {
+		$char: '\E004';
+	}
+	@if $filename == envelope {
+		$char: '\E005';
+	}
+	@if $filename == ermine {
+		$char: '\E006';
+	}
+	@if $filename == external-link {
+		$char: '\E007';
+	}
+	@if $filename == family {
+		$char: '\E008';
+	}
+	@if $filename == farming-and-gardening {
+		$char: '\E009';
+	}
+	@if $filename == hills {
+		$char: '\E00A';
+	}
+	@if $filename == instagram-logo {
+		$char: '\E00B';
+	}
+	@if $filename == live-streaming {
+		$char: '\E00C';
+	}
+	@if $filename == man {
+		$char: '\E00D';
+	}
+	@if $filename == mission {
+		$char: '\E00E';
+	}
+	@if $filename == play-button-arrowhead {
+		$char: '\E00F';
+	}
+	@if $filename == professions-and-jobs {
+		$char: '\E010';
+	}
+	@if $filename == right-arrow {
+		$char: '\E011';
+	}
+	@if $filename == rounded-corner-white-1 {
+		$char: '\E012';
+	}
+	@if $filename == rounded-corner-white {
+		$char: '\E013';
+	}
+	@if $filename == sea-weasel-mammal-shape {
+		$char: '\E014';
+	}
+	@if $filename == stick-man {
+		$char: '\E015';
+	}
+	@if $filename == time {
+		$char: '\E016';
+	}
+	@if $filename == volunteer-1 {
+		$char: '\E017';
+	}
+	@if $filename == volunteer {
+		$char: '\E018';
+	}
+	@if $filename == weasel {
+		$char: '\E019';
+	}
+	@if $filename == witness {
+		$char: '\E01A';
+	}
+
+	@return $char;
+}
+
+@mixin font($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %font;
+		} @else {
+			@include font-styles;
+		}
+		content: font-char($filename);
+	}
+}
+
+[class*='font-ico'] {
+	display: inline-block;
+}
+
+.font-binoculars {
+	@include font(binoculars);
+}
+.font-bird-logo {
+	@include font(bird-logo);
+}
+.font-charity {
+	@include font(charity);
+}
+.font-chevron-arrow-down {
+	@include font(chevron-arrow-down);
+}
+.font-envelope {
+	@include font(envelope);
+}
+.font-ermine {
+	@include font(ermine);
+}
+.font-external-link {
+	@include font(external-link);
+}
+.font-family {
+	@include font(family);
+}
+.font-farming-and-gardening {
+	@include font(farming-and-gardening);
+}
+.font-hills {
+	@include font(hills);
+}
+.font-instagram-logo {
+	@include font(instagram-logo);
+}
+.font-live-streaming {
+	@include font(live-streaming);
+}
+.font-man {
+	@include font(man);
+}
+.font-mission {
+	@include font(mission);
+}
+.font-play-button-arrowhead {
+	@include font(play-button-arrowhead);
+}
+.font-professions-and-jobs {
+	@include font(professions-and-jobs);
+}
+.font-right-arrow {
+	@include font(right-arrow);
+}
+.font-rounded-corner-white-1 {
+	@include font(rounded-corner-white-1);
+}
+.font-rounded-corner-white {
+	@include font(rounded-corner-white);
+}
+.font-sea-weasel-mammal-shape {
+	@include font(sea-weasel-mammal-shape);
+}
+.font-stick-man {
+	@include font(stick-man);
+}
+.font-time {
+	@include font(time);
+}
+.font-volunteer-1 {
+	@include font(volunteer-1);
+}
+.font-volunteer {
+	@include font(volunteer);
+}
+.font-weasel {
+	@include font(weasel);
+}
+.font-witness {
+	@include font(witness);
+}
+

@@ -1,0 +1,145 @@
+//----------  button
+//------------------------------------------------------------------------------
+a,
+button {
+	appearance: none;
+	outline: none;
+	transition: $nbSec ease-in-out;
+
+	@include hover {
+		text-decoration: none;
+	}
+
+	// @include hover {
+	// 	outline: 1px dashed rgba($orange, .2);
+	// }
+}
+
+button,
+input[type='button'],
+input[type='submit'] {
+	background: none;
+	border: 0;
+	cursor: pointer;
+	outline: none;
+	padding: 0;
+}
+
+.btn {
+	background-color: $black;
+	color: $white;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 20px;
+	transition: 0.4s ease-out;
+
+	@include hover {
+		border-radius: 20px;
+	}
+}
+
+.uk-button {
+	background-color: transparent;
+	text-transform: none;
+	font-weight: $bold;
+	color: $brown;
+	font-size: 16px;
+	line-height: 50px;
+	position: relative;
+
+	&.uk-text-large {
+		font-size: 18px;
+	}
+	span {
+		z-index: 1;
+		position: relative;
+	}
+}
+
+.uk-button-text {
+	line-height: 2.3;
+
+	&::before {
+		border-width: 3px;
+	}
+}
+
+.uk-button-small {
+	font-size: 13px;
+	line-height: 40px;
+}
+
+.uk-button-large {
+	line-height: 56px;
+}
+
+.uk-button-primary {
+	>svg {
+		color: $orange;
+		fill: $orange;
+		transition: $nbSec ease-in-out;
+	}
+
+	@include hover {
+		background-color: transparent;
+		color: $brown;
+
+		>svg {
+			color: $orange-dark;
+			fill: $orange-dark;
+		}
+	}
+}
+
+.uk-button-secondary {
+	>svg {
+		color: $gray-secondary;
+		fill: $gray-secondary;
+		transition: $nbSec ease-in-out;
+	}
+
+	@include hover {
+		background-color: transparent;
+		color: $white;
+
+		>svg {
+			color: $brown;
+			fill: $brown;
+		}
+	}
+}
+
+.uk-button-default {
+	>svg {
+		color: transparent;
+		fill: transparent;
+		border: 2px solid $gray;
+	}
+}
+
+.btn-scroll {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: $ochre;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+
+	&::before {
+		position: absolute;
+		font-size: 30px;
+		color: $brown;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1;
+	}
+
+	@include hover {
+		transform: translate(-50%, -40%);
+	}
+}

@@ -1,0 +1,119 @@
+form {
+    position: relative;
+    width: 100%;
+
+    fieldset {
+        border: 0;
+        width: 100%;
+        &.uk-grid-margin:not(:first-of-type) {
+            margin-top: 70px;
+        }
+    }
+
+    .uk-textarea {
+        min-height: 155px;
+    }
+
+    .uk-checkbox, .uk-radio {
+        border-width: 2px;
+    }
+
+    .uk-select:not([multiple]):not([size]) {
+        background-image: none;
+    }
+
+    .uk-form-icon {
+        color: $brown;
+    }
+
+    &.uk-form-stacked .uk-form-label {
+        font-weight: $bold;
+        color: $brown;
+        line-height: 1;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+
+    button[type='button']:not(.uk-drop-close) {
+        background-color: $brown;
+        display: inline-block;
+        border-radius: 50%;
+        color: $white;
+        font-size: 12px;
+        height: 18px;
+        width: 18px;
+        text-align: center;
+        line-height: 1.8;
+        position: absolute;
+        margin-left: 5px;
+    }
+
+    .uk-drop {
+
+        &::after {
+            position: absolute;
+            top: 100%;
+            content: '';
+            width: 0;
+            height: 0;
+            left: -10px;
+            border-style: solid;
+            border-width: 18px 18px 0;
+            border-color: $brown transparent transparent;
+        }
+
+        span {
+            display: block;
+            background-color: $brown;
+            box-shadow: 0 10px 21px -8px rgba(0, 0, 0, .5);
+            border-radius: 3px;
+            color: $white;
+            font-size: 16px;
+            font-weight: $medium;
+            padding: 25px 20px;
+            max-width: 350px;
+            width: 100%;
+            position: relative;
+            left: -35px;
+        }
+    }
+    .uk-drop-close {
+        position: absolute;
+        right: 45px;
+        top: 15px;
+        color: $brown-medium;
+        svg {
+            width: 15px;
+        }
+    }
+    *+.uk-grid-margin, .uk-grid+.uk-grid, .uk-grid>.uk-grid-margin {
+        margin-top: 30px;
+    }
+    .terms {
+        font-size: 16px;
+        color: $brown;
+        left: 15px;
+        top: -2px;
+        position: relative;
+        a {
+            font-size: inherit;
+        }
+    }
+}
+
+.nb-form-required {
+    .uk-form-label, .terms {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: '*';
+            color: $red;
+            padding-left: 2px;
+        }
+    }
+
+    button[type='button']:not(.uk-drop-close) {
+        margin-left: 15px;
+    }
+}

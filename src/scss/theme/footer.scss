@@ -1,0 +1,167 @@
+.footer {
+    background-color: $blue-light;
+    padding: 0 30px;
+
+    @media (max-width: $breakpointSmall) {
+        padding: 0;
+
+        .uk-container {
+            padding: 0 20px;
+        }
+        .uk-first-column {
+            padding-bottom: 50px;
+        }
+    }
+}
+
+.footer-top,
+.footer-middle {
+    position: relative;
+
+    >svg {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        z-index: -1;
+    }
+}
+
+.footer-top {
+    padding: 110px 0;
+
+    >svg {
+        color: $brick;
+        fill: $brick;
+    }
+
+    h2,
+    h3,
+    span,
+    p {
+        color: $white;
+    }
+
+    h2,
+    p {
+        font-weight: $light;
+    }
+
+    h2 {
+        font-size: 57px;
+        margin-bottom: 35px;
+    }
+
+    h3 {
+        font-size: 26px;
+        font-weight: $bold;
+        margin: 15px 0;
+    }
+
+    p {
+        margin: 0 0 25px;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    span {
+        font-size: 64px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+        h2 {
+            font-size: 44px;
+        }
+    }
+}
+
+.footer-middle {
+    padding: 135px 0 60px;
+
+    >svg {
+        color: $blue-light;
+        fill: $blue-light;
+    }
+
+    h2 {
+        font-size: 34px;
+        margin-bottom: 25px;
+    }
+
+    h2,
+    p,
+    li,
+    span {
+        font-weight: $light;
+    }
+
+    h3 {
+        font-weight: $bold;
+        font-size: 18px;
+        margin: 0 0 10px 0;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    li,
+    a,
+    span {
+        font-size: 16px;
+    }
+
+    a {
+        color: $brick;
+        display: block;
+        margin-bottom: 30px;
+    }
+
+    span {
+        color: $brown;
+
+        a {
+            display: inline-block;
+            color: $brown;
+            font-weight: $bold;
+            position: relative;
+            line-height: 1.2;
+            padding-left: 17px;
+            margin-bottom: 0;
+
+            svg {
+                position: absolute;
+                left: 0;
+                width: 15px;
+                color: $brown;
+                top: 2px;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        margin: 0 0 20px 0;
+    }
+
+    .footer-middle-credit {
+        padding-top: 30px;
+
+        a,
+        p {
+            color: $brown;
+            font-size: 13px;
+            font-weight: $light;
+        }
+
+        .nb-credit a {
+            font-weight: $bold;
+        }
+    }
+}
+
+.footer-bottom {
+    span {
+        font-size: 26px;
+        font-weight: $light;
+    }
+}

@@ -1,0 +1,18 @@
+# ignore everything in the "dist" directory:
+dist
+
+# ignore node_modules files
+node_modules
+
+# ignore log files
+*.log
+
+# ignore ios files
+*.DS_Store
+
+# ignore Editor files
+.idea
+.vscode
+
+# ignore package-lock
+package-lock.json
