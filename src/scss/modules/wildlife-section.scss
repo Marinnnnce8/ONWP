@@ -1,0 +1,63 @@
+.wildlife-section {
+    position: relative;
+    .shape {
+        color: $brown;
+        fill: $brown;
+    }
+
+    >.shape {
+        width: 96%;
+        position: absolute;
+        top: -1px;
+        left: 35px;
+    }
+}
+
+.wildlife-inner {
+    padding: 15px 55px;
+    position: relative;
+    left: 7px;
+}
+
+.wildlife-box {
+    min-height: 335px;
+    .uk-background-cover {
+        height: 335px;
+    }
+
+    &:first-of-type {
+        clip-path: url('#svgPathWildlifeTopLeft');
+    }
+
+    &:nth-of-type(2) {
+        clip-path: url('#svgPathWildlifeTopRight');
+    }
+
+    &:nth-of-type(3) {
+        clip-path: url('#svgPathWildlifeBottomLeft');
+    }
+
+    &:last-of-type {
+        clip-path: url('#svgPathWildlifeBottomRight');
+    }
+}
+
+.wildlife-text {
+    max-width: 660px;
+    padding: 0 40px 35px;
+    z-index: 1;
+    h2, p {
+        color: $white;
+        text-align: center;
+    }
+    h2 {
+        font-size: 54px;
+    }
+    p {
+        font-size: 20px;
+    }
+    a {
+        display: block;
+        margin: 0 auto;
+    }
+}

@@ -6,7 +6,6 @@
 	.uk-text-lead {
 		font-size: 34px;
 		font-weight: $light;
-		margin-bottom: 80px;
 	}
 
 	.nb-btn-label {
@@ -113,9 +112,11 @@
 			display: flex;
 			align-items: center;
 			position: relative;
-			min-height: 425px;
 			margin-bottom: 75px;
 			padding: 50px 60px;
+			&:first-of-type {
+				margin-top: 75px;
+			}
 
 			>svg {
 				background-color: inherit;
@@ -364,14 +365,11 @@
 		}
 
 		.nb-form {
-			background-image: url('./../img/faq-bg.svg');
-			background-repeat: no-repeat;
-			background-size: cover;
 			padding: 60px 100px;
-			min-height: 760px;
 
 			.shape {
-				z-index: 0;
+				color: $blue-light;
+				fill: $blue-light;
 			}
 		}
 

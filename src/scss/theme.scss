@@ -32,11 +32,15 @@
 @import "nb/credit.scss";
 
 // Modules
-@import 'modules/banner.scss';
 @import 'modules/basic-block.scss';
 @import 'modules/slider.scss';
 @import 'modules/team-list.scss';
-@import 'modules/internal-section.scss';
+@import 'modules/banner.scss';
+@import 'modules/intro-section.scss';
+@import 'modules/links-section.scss';
+@import 'modules/sightings-section.scss';
+@import 'modules/wildlife-section.scss';
+@import 'modules/news-section.scss';
 @import 'modules/timeline.scss';
 @import 'modules/stoat-map.scss';
 
@@ -165,6 +169,7 @@ a:hover {
 .share-widget {
 	min-width: 100px;
 	overflow: hidden;
+	z-index: 2;
 
 	.uk-position-relative {
 		>svg {

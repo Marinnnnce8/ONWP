@@ -1,0 +1,182 @@
+.sightings-section {
+    position: relative;
+    padding-top: 100px;
+
+    .shape {
+        color: $green-grass;
+        fill: $green-grass;
+        width: calc(100% - 98px);
+        left: 55px;
+        top: -250px;
+        bottom: 0;
+        height: calc(100% + 250px);
+    }
+
+    h2,
+    p {
+        color: $white;
+    }
+
+    h2 {
+        font-size: 54px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+.sightings-inner {
+    clip-path: url('#svgPathSighting');
+    height: calc(100% + 250px);
+    position: absolute;
+    left: 50%;
+    width: 96%;
+    top: -250px;
+    bottom: 0;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.sightings-bckg {
+    background-image: url('../img/sighting-hero.png');
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.sightings-text {
+    padding-bottom: 115px;
+}
+
+.orkney-map {
+    position: relative;
+    max-width: 505px;
+}
+
+.sightings-pin {
+    background-color: $orange;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    position: absolute;
+    left: 36%;
+    top: 44%;
+    &::before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 55px;
+        color: $white;
+        z-index: 1;
+    }
+}
+
+.pulse {
+    background-color: transparent;
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    &::before,
+    &::after {
+        position: absolute;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        content: '';
+        opacity: 0;
+    }
+
+    &::before {
+        animation: shadow-pulse ease-in-out infinite;
+    }
+
+    &::after {
+        animation: border-pulse ease-in-out infinite;
+        border: 2px solid $orange;
+    }
+}
+
+
+$pulses: 4;
+
+@for $i from 1 through $pulses {
+    $num: 75 + (25 * $i);
+    $delay: $i * .25;
+    $duration: $i * 3;
+
+    .pulse:nth-of-type(#{$i}) {
+        background-color: $orange;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+            animation-name: border-pulse-#{$i};
+            animation-delay: #{$delay}s;
+            animation-duration: #{$duration}s;
+            animation-iteration-count: infinite;
+        }
+
+        &::before {
+            animation-name: shadow-pulse-#{$i};
+            animation-delay: #{$delay}s;
+            animation-duration: #{$duration}s;
+            animation-iteration-count: infinite;
+        }
+    }
+
+    @keyframes shadow-pulse-#{$i} {
+        0% {
+            box-shadow: 0 0 0 0 rgba($orange, .2);
+            opacity: .3;
+            width: 0;
+            height: 0;
+        }
+
+        50% {
+            // box-shadow: 0 0 (#{$num}/1.5)px rgba($orange, .2);
+            transform: scale(.5);
+            opacity: 1;
+        }
+
+        75% {
+            // box-shadow: 0 0 (#{$num}/1.5)px rgba($orange, .2);
+            transform: scale(1);
+        }
+
+        100% {
+            box-shadow: 0 0 #{$num}px rgba($orange, .2);
+            opacity: 0;
+            transform: scale(1.5);
+        }
+    }
+
+    @keyframes border-pulse-#{$i} {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        75% {
+            opacity: .5;
+            transform: scale(2);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(3);
+        }
+    }
+}

@@ -13,18 +13,19 @@ $italic: italic;
 $white: #fff;
 $black: #000;
 $orange: #ff8813;
+$orange-dark: #eb7501;
+$orange-light: #ffc489;
 $ochre: #f6ea8b;
 $ochre-dark: #c3ba6d;
 $brown-light: #8f857c;
 $brown-medium: #8b837b;
 $brown: #4b351c;
 $brick: #c75300;
-$orange: #ff8813;
-$orange-dark: #eb7501;
 $blue-light: #dce7f3;
 $blue-pastel: #d0e2fb;
 $blue-facebook: #3d599c;
 $blue-twitter: #1c9ccf;
+$blue-ice: #d7dadb;
 $violet-light: #8c2d76;
 $violet-dark: #4d3243;
 $gray: #bec0c1;
@@ -36,6 +37,7 @@ $gray-light: #edeae8;
 $gray-medium: #c5c1bc;
 $purple: #a7358c;
 $green: #8a752f;
+$green-grass: #ab9120;
 $green-pastel: #d0e69b;
 $green-dark: #705f26;
 $green-golden: #b4a32b;
@@ -46,6 +48,8 @@ $site-colors: (
 	'black': $black,
 	'white': $white,
 	'ochre': $ochre,
+	'orange': $orange,
+	'orange-light': $orange-light,
 	'brown': $brown,
 	'blue-light': $blue-light,
 	'violet-light': $violet-light,

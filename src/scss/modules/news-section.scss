@@ -1,0 +1,71 @@
+.news-section {
+
+    .left,
+    .right {
+        position: relative;
+        padding: 50px 65px;
+    }
+    .left {
+        max-width: 720px;
+        width: 100%;
+    }
+    .right {
+        max-width: 470px;
+    }
+    h3 {
+        font-size: 34px;
+    }
+    h4 {
+        margin: 0 0 15px;
+        font-weight: $bold;
+    }
+    p {
+        margin-top: 0;
+        font-size: 16px;
+    }
+}
+
+.news {
+    span {
+        font-size: 14px;
+        color: $black;
+    }
+}
+
+.news-img {
+    clip-path: url('#svgPathNewsImg');
+    width: 180px;
+    position: relative;
+
+    >.uk-background-cover {
+        height: 180px;
+    }
+}
+
+.news-text {
+    padding-left: 30px;
+}
+
+.donate {
+    h3 {
+        color: $black;
+    }
+}
+
+.donate-list {
+    padding: 0;
+    li {
+        position: relative;
+        min-width: 60px;
+        min-height: 60px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        font-size: 26px;
+        font-weight: $bold;
+        color: $brown;
+        &:not(:first-of-type) {
+            margin-left: 10px;
+        }
+    }
+}

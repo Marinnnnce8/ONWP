@@ -1,22 +1,37 @@
-//----------  banner
-//------------------------------------------------------------------------------
-.banner {
-	margin-bottom: 20px;
-}
-.banner__content {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	padding: 20px;
-	background-color: rgba($white, 0.5);
-}
-.banner__content--right {
-	left: auto;
-	right: 0;
-}
-.banner__title {
-	font-size: 24px;
-}
-.banner__holder {
-	position: relative;
+.banner-section {
+    position: relative;
+    top: 60px;
+    padding-top: 60px;
+    min-height: calc(100vh + 60px);
+
+    .banner-inner {
+        padding: 0 15px;
+        height: 100vh;
+    }
+
+    &.home {
+        .banner-inner {
+            clip-path: url('#svgPathHero');
+        }
+
+        h1 {
+            color: $brown;
+            font-weight: $light;
+        }
+
+        >.uk-container {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+        }
+        .banner-text {
+            padding-top: 100px;
+        }
+    }
+
+    &.internal {
+        .banner-inner {
+            clip-path: url('#svgPathHeroInternal');
+        }
+    }
 }

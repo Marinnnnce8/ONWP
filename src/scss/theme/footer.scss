@@ -1,5 +1,4 @@
 .footer {
-    background-color: $blue-light;
     padding: 0 30px;
 
     @media (max-width: $breakpointSmall) {
@@ -29,7 +28,7 @@
 .footer-top {
     padding: 110px 0;
 
-    >svg {
+    .shape {
         color: $brick;
         fill: $brick;
     }
@@ -75,9 +74,13 @@
 }
 
 .footer-middle {
+    top: -72px;
+    position: relative;
     padding: 135px 0 60px;
+    width: 101.6%;
+    left: -15px;
 
-    >svg {
+    .shape {
         color: $blue-light;
         fill: $blue-light;
     }

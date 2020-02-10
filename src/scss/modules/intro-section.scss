@@ -1,0 +1,42 @@
+.intro-section {
+    // top: -60px;
+    .intro-inner {
+        padding: 50px 0 80px;
+        .shape {
+            color: $ochre;
+            fill: $ochre;
+            left: 15px;
+            width: calc(100% - 13px);
+        }
+    }
+    &.home {
+        .intro-inner {
+            padding: 120px 0 100px;
+        }
+    }
+}
+
+.intro-left {
+    padding-right: 145px;
+    max-width: 890px;
+    width: 100%;
+    img {
+        position: absolute;
+        max-width: 270px;
+        top: 0;
+        height: auto;
+        width: 100%;
+        right: -5px;
+    }
+}
+
+.intro-right {
+    max-width: 310px;
+    padding-left: 40px;
+    width: 100%;
+
+    p {
+        padding-top: 75px;
+        font-size: 20px;
+    }
+}

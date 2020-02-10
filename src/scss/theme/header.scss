@@ -64,7 +64,7 @@
             height: auto;
         }
 
-        svg {
+        .shape {
             color: $white;
             fill: $white;
             z-index: 0;
@@ -167,19 +167,21 @@
         }
 
         .uk-navbar-dropdown {
+            clip-path: url('#svgPathMenuNav');
+            background-color: $brown;
             top: 0 !important;
             left: 0 !important;
             bottom: 0;
             width: 100%;
             margin-top: 0;
 
-            >svg[data-svg] {
-                color: $brown;
-                fill: $brown;
-                z-index: -1;
-                width: 100%;
-                height: auto;
-            }
+            // >svg[data-svg] {
+            //     color: $brown;
+            //     fill: $brown;
+            //     z-index: -1;
+            //     width: 100%;
+            //     height: auto;
+            // }
 
             li {
                 padding-left: 35px;

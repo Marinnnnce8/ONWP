@@ -1,0 +1,123 @@
+.links-section {
+    position: relative;
+    padding-top: 100px;
+
+    .shape {
+        top: -2px;
+        width: calc(100% - 18px);
+        left: 16px;
+        color: $blue-ice;
+    }
+}
+
+.links-text {
+    max-width: 660px;
+    width: 100%;
+
+    h2 {
+        font-size: 57px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+}
+
+.link-box {
+    clip-path: url('#svgPath');
+    min-height: 390px;
+    padding-bottom: 142px;
+    overflow: hidden;
+    position: relative;
+    background-color: $orange;
+
+    h3,
+    p {
+        color: $black;
+    }
+
+    h3 {
+        font-weight: $bold;
+        position: relative;
+        padding-bottom: 12px;
+        backface-visibility: hidden;
+    }
+
+    .uk-card-media-top {
+        backface-visibility: hidden;
+        transition: $nbSec ease-in-out;
+        position: absolute;
+        height: auto;
+        width: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        bottom: 0;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            backface-visibility: hidden;
+        }
+    }
+
+    .uk-card-body {
+        z-index: 10;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $orange;
+        backface-visibility: hidden;
+        padding: 30px 20px;
+        min-height: 1px;
+        transition: min-height .35s;
+    }
+
+    .link-box-text {
+        opacity: 0;
+        transition: opacity .25s, transform .45s ease;
+        transform: translateY(30px);
+    }
+
+    .uk-button {
+        left: 0;
+        bottom: 0;
+        margin-bottom: 30px;
+        z-index: 101;
+        transition: opacity .15s;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .read-more {
+        bottom: 30px;
+        height: calc(100% - 32px);
+    }
+
+    @include hover {
+        .uk-card-media-top {
+            transform: translateY(-60%);
+        }
+
+        .uk-card-body {
+            min-height: 81% !important; // sass-lint:disable-line no-important
+            transition: min-height 0.35s;
+        }
+
+        .link-box-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .uk-button {
+            opacity: 1;
+            transition: opacity .25s;
+        }
+    }
+}
