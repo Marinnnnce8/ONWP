@@ -1,26 +1,57 @@
 .wildlife-section {
     position: relative;
+
     .shape {
         color: $brown;
         fill: $brown;
     }
 
     >.shape {
-        width: 96%;
+        width: 95.2%;
         position: absolute;
         top: -1px;
-        left: 35px;
+        left: 50.4%;
+        transform: translateX(-50%);
+    }
+
+    @media (max-width: $breakpointLarge) {
+        >.shape {
+            width: 95.5%;
+            top: -3px;
+            left: 50.8%;
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        >.shape {
+            width: 95%;
+            left: 9px;
+            transform: none;
+        }
     }
 }
 
 .wildlife-inner {
     padding: 15px 55px;
     position: relative;
-    left: 7px;
+    left: 50%;
+    transform: translateX(-49%);
+
+    @media (max-width: $breakpointLarge) {
+        padding: 15px 60px;
+        .uk-grid-column-small>*,
+        .uk-grid-small>* {
+            padding-left: 10px;
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        padding: 15px 25px;
+    }
 }
 
 .wildlife-box {
-    min-height: 335px;
+    max-height: 335px;
+    height: 100%; 
+
     .uk-background-cover {
         height: 335px;
     }
@@ -40,24 +71,77 @@
     &:last-of-type {
         clip-path: url('#svgPathWildlifeBottomRight');
     }
+    @media (max-width: $breakpointLarge) {
+        max-height: 200px;
+        .uk-background-cover {
+            height: 200px;
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        max-height: 145px;
+        .uk-background-cover {
+            height: 145px;
+        }
+    }
 }
 
 .wildlife-text {
     max-width: 660px;
     padding: 0 40px 35px;
     z-index: 1;
-    h2, p {
+    text-align: center;
+
+    h2,
+    p {
         color: $white;
-        text-align: center;
     }
+
     h2 {
         font-size: 54px;
     }
+
     p {
         font-size: 20px;
     }
-    a {
-        display: block;
+
+    .uk-button {
+        &::after {
+            background-color: $white;
+        }
+    }
+
+    @media (max-width: $breakpointLarge) {
+        position: relative !important; // sass-lint:disable-line no-important
+        top: auto;
+        transform: none;
+        left: auto;
         margin: 0 auto;
+        padding: 10px 40px 50px;
+        max-width: 100%;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 15px;
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        margin: 0;
+        padding: 10px 0 50px;
+        h2 {
+            font-size: 44px;
+        }
+        p {
+            font-size: 18px;
+        }
+        .uk-button {
+            width: 100%;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }

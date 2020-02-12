@@ -5,6 +5,7 @@ form {
     fieldset {
         border: 0;
         width: 100%;
+
         &.uk-grid-margin:not(:first-of-type) {
             margin-top: 70px;
         }
@@ -14,7 +15,8 @@ form {
         min-height: 155px;
     }
 
-    .uk-checkbox, .uk-radio {
+    .uk-checkbox,
+    .uk-radio {
         border-width: 2px;
     }
 
@@ -77,32 +79,76 @@ form {
             left: -35px;
         }
     }
+
     .uk-drop-close {
         position: absolute;
         right: 45px;
         top: 15px;
         color: $brown-medium;
+
         svg {
             width: 15px;
         }
     }
-    *+.uk-grid-margin, .uk-grid+.uk-grid, .uk-grid>.uk-grid-margin {
+
+    *+.uk-grid-margin,
+    .uk-grid+.uk-grid,
+    .uk-grid>.uk-grid-margin {
         margin-top: 30px;
     }
+
     .terms {
         font-size: 16px;
         color: $brown;
         left: 15px;
+        width: 100%;
         top: -2px;
+        line-height: 1.6;
         position: relative;
-        a {
+
+        .uk-button-text {
             font-size: inherit;
+            font-weight: inherit;
+            color: $brick;
+            vertical-align: baseline;
+            line-height: inherit;
+
+            &::after,
+            &::before {
+                height: 1px;
+                background-color: $brick;
+            }
+        }
+    }
+
+    @media (max-width: $breakpointLarge) {
+        .terms {
+            max-width: calc(100% - 45px);
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        .uk-grid {
+            margin-left: 0;
+
+            >* {
+                padding-left: 0;
+            }
+        }
+
+        .uk-grid-column-small>*,
+        .uk-grid-small>* {
+            padding-right: 0;
+        }
+        .uk-inline {
+            width: 100%;
         }
     }
 }
 
 .nb-form-required {
-    .uk-form-label, .terms {
+
+    .uk-form-label,
+    .terms {
         position: relative;
 
         &::after {
@@ -113,7 +159,14 @@ form {
         }
     }
 
+    // sass-lint:disable-block no-vendor-prefixes
     button[type='button']:not(.uk-drop-close) {
         margin-left: 15px;
+    }
+
+    @media (max-width: $breakpointSmall) {
+        label:not(:first-of-type) {
+            padding-left: 10px;
+        }
     }
 }

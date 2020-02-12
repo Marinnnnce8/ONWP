@@ -6,12 +6,19 @@
 	.uk-text-lead {
 		font-size: 34px;
 		font-weight: $light;
+		color: $brown;
 	}
 
 	.nb-btn-label {
 		color: $brown;
 		font-weight: $light;
 		margin-bottom: 15px;
+	}
+
+	@media (max-width: $breakpointSmall) {
+		.uk-text-lead {
+			font-size: 26px;
+		}
 	}
 }
 
@@ -28,19 +35,38 @@
 		cursor: zoom-in;
 	}
 
+	h2 {
+		margin-top: 65px;
+	}
+
 	&-content {
 
-		p a {
-			position: relative;
+		h2 {
+			margin-top: 35px;
+		}
 
+		p .uk-button-text,
+		li .uk-button-text {
+			font-weight: $light;
+			color: $brick;
+			font-size: 18px;
+			vertical-align: inherit;
+			line-height: inherit;
+
+			&::before,
 			&::after {
-				position: absolute;
-				bottom: -3px;
-				left: 0;
-				width: 100%;
-				content: '';
-				height: 1px;
 				background-color: $brick;
+				height: 1px;
+				bottom: 2px;
+			}
+
+			@include hover {
+				color: $brick;
+
+				&::before,
+				&::after {
+					border: 0;
+				}
 			}
 		}
 
@@ -114,6 +140,7 @@
 			position: relative;
 			margin-bottom: 75px;
 			padding: 50px 60px;
+
 			&:first-of-type {
 				margin-top: 75px;
 			}
@@ -144,6 +171,7 @@
 				font-weight: $light;
 				line-height: 1.3;
 				font-size: 34px;
+				max-width: 500px;
 			}
 
 			&.svg-bg-ochre {
@@ -172,6 +200,55 @@
 
 				.txt {
 					max-width: 335px;
+				}
+			}
+
+			@media (max-width: $breakpointLarge) {
+				.data {
+					font-size: 54px;
+
+					span {
+						font-size: 78px;
+					}
+				}
+
+				&.svg-bg-ochre .data {
+					max-width: 350px;
+				}
+			}
+
+			@media (max-width: $breakpointSmall) {
+				padding: 40px 25px;
+				margin-bottom: 40px;
+				.uk-flex {
+					flex-direction: column;
+				}
+				.data {
+					display: block;
+					font-size: 28px;
+
+					span {
+						font-size: 34px;
+					}
+				}
+
+				.txt {
+					font-size: 22px;
+					margin-top: 15px;
+				}
+
+				&.svg-bg-ochre .txt,
+				&.svg-bg-green .txt,
+				&.svg-bg-ochre .data,
+				&.svg-bg-green .data,
+				&.svg-bg-gray .data,
+				&.svg-bg-purple .data {
+					max-width: 100%;
+				}
+				&.svg-bg-ochre .txt,
+				&.svg-bg-gray .data,
+				&.svg-bg-purple .data {
+					padding-left: 0;
 				}
 			}
 		}
@@ -274,6 +351,9 @@
 	}
 
 	&-gallery {
+		h2 {
+			margin-top: 0;
+		}
 
 		.nb-gallery-images {
 			margin: 0 -$nbGutterXsmall;
@@ -284,6 +364,7 @@
 				width: 100%;
 
 				.nb-gallery-image {
+					background-color: $white;
 					border: $nbGutterXsmall solid transparent;
 					display: table-cell;
 					margin: 0;
@@ -291,11 +372,19 @@
 					overflow: hidden;
 					position: relative;
 					vertical-align: top;
+					transition: $nbSec ease-in-out;
 
 					img {
 						height: auto;
 						width: 100%;
 						vertical-align: middle;
+						transition: $nbSec ease-in-out;
+					}
+
+					@include hover {
+						img {
+							transform: scale(.95);
+						}
 					}
 				}
 			}
@@ -313,6 +402,10 @@
 	}
 
 	&-slideshow {
+		h2 {
+			margin-top: 10px;
+		}
+
 		.uk-overlay-primary {
 			background: linear-gradient(to top, $black 0%, transparent 100%);
 			font-weight: $light;
@@ -322,6 +415,9 @@
 		li {
 			border-radius: 15px;
 			overflow: hidden;
+			a {
+				width: 100%;
+			}
 		}
 
 		a.uk-icon {
@@ -365,7 +461,11 @@
 		}
 
 		.nb-form {
-			padding: 60px 100px;
+			padding: 50px 100px;
+
+			h2 {
+				margin-top: 10px;
+			}
 
 			.shape {
 				color: $blue-light;

@@ -32,9 +32,6 @@
 @import "nb/credit.scss";
 
 // Modules
-@import 'modules/basic-block.scss';
-@import 'modules/slider.scss';
-@import 'modules/team-list.scss';
 @import 'modules/banner.scss';
 @import 'modules/intro-section.scss';
 @import 'modules/links-section.scss';
@@ -42,6 +39,7 @@
 @import 'modules/wildlife-section.scss';
 @import 'modules/news-section.scss';
 @import 'modules/timeline.scss';
+@import 'modules/gateway.scss';
 @import 'modules/stoat-map.scss';
 
 // Theme
@@ -106,8 +104,8 @@ a:hover {
 .uk-radio:not(.uk-form-danger),
 .uk-checkbox:checked:not(.uk-form-danger) .uk-radio:checked:not(.uk-form-danger) {
 	border-color: $brown;
-	width: 30px;
-	height: 30px;
+	min-width: 30px;
+	min-height: 30px;
 }
 
 .uk-checkbox:checked,
@@ -120,6 +118,10 @@ a:hover {
 .uk-checkbox:indeterminate:focus,
 .uk-radio:checked:focus {
 	background-color: $brown;
+}
+
+.uk-checkbox:focus, .uk-radio:focus {
+	border-color: rgba($brown, .6);
 }
 
 // theme/header
@@ -167,7 +169,7 @@ a:hover {
 }
 
 .share-widget {
-	min-width: 100px;
+	min-width: 90px;
 	overflow: hidden;
 	z-index: 2;
 
@@ -202,14 +204,17 @@ a:hover {
 
 		&:first-of-type svg {
 			color: $blue-facebook;
+			fill: $blue-facebook;
 		}
 
 		&:nth-of-type(2) svg {
 			color: $blue-twitter;
+			fill: $blue-twitter;
 		}
 
 		&:last-of-type::before {
 			color: $brown;
+			fill: $brown;
 		}
 
 		@include hover {

@@ -1,8 +1,7 @@
 .banner-section {
     position: relative;
-    top: 60px;
-    padding-top: 60px;
-    min-height: calc(100vh + 60px);
+    padding-top: 90px;
+    min-height: 100vh;
 
     .banner-inner {
         padding: 0 15px;
@@ -19,19 +18,48 @@
             font-weight: $light;
         }
 
-        >.uk-container {
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-        }
         .banner-text {
             padding-top: 100px;
+        }
+        .uk-button {
+            font-size: 18px;
+            padding: 0 35px;
         }
     }
 
     &.internal {
         .banner-inner {
             clip-path: url('#svgPathHeroInternal');
+        }
+    }
+    @media (max-width: $breakpointLarge) {
+        &.internal {
+            .uk-position-bottom {
+                bottom: 200px;
+            }
+        }
+        &.home {
+            >.uk-container {
+                padding: 0 60px;
+            }
+        }
+    }
+    @media (max-width: $breakpointSmall) {
+        padding-top: 240px;
+        .banner-inner {
+            padding: 0;
+        }
+        &.home {
+            >.uk-container {
+                padding: 0 20px;
+            }
+            .banner-text {
+                padding: 0;
+                top: -100px;
+            }
+            .btn-scroll {
+                bottom: 70px;
+            }
         }
     }
 }

@@ -1,3 +1,85 @@
 @media screen and (-ms-high-contrast: active),
 screen and (-ms-high-contrast: none) {
+    .header {
+        padding: 15px 0 25px;
+        background-color: $white;
+    }
+
+    .uk-background-fixed {
+        background-attachment: scroll;
+    }
+
+    .banner-section.home {
+        h1 {
+            color: $white;
+        }
+
+        .uk-button-primary {
+            background-color: $blue-light;
+            border: 0;
+            z-index: 1;
+        }
+    }
+
+    .footer-middle {
+        background-color: $blue-light;
+    }
+
+    .footer-top {
+        .uk-button-default {
+            background-color: $white;
+            z-index: 1;
+        }
+    }
+
+    .footer-middle-inner>.shape {
+        display: none;
+    }
+
+    .link-box .uk-card-body {
+        min-height: 153px;
+    }
+}
+
+
+//edge
+@supports (-ms-ime-align:auto) {
+    .banner-section.home {
+        h1 {
+            color: $white;
+        }
+
+        .uk-button-primary {
+            background-color: $blue-light;
+            border: 0;
+            z-index: 1;
+        }
+    }
+
+    .footer-top {
+        .uk-button-default {
+            background-color: $white;
+            z-index: 1;
+        }
+    }
+
+    .footer-middle {
+        background-color: $blue-light;
+    }
+
+    .footer-middle-inner>.shape {
+        display: none;
+    }
+
+    .nb-credit a {
+        position: relative;
+        padding-right: 25px;
+
+        img {
+            width: 15px;
+            position: absolute;
+            top: -2px;
+            right: 0;
+        }
+    }
 }

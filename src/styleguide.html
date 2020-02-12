@@ -22,10 +22,11 @@
 
 <body>
 
-	<header class='header uk-position-absolute uk-position-top uk-position-z-index'>
+	<header class='header uk-position-absolute uk-position-top'>
+		<img class='shape' src='./img/header-mobile-tablet.svg' data-uk-svg alt='image' class="uk-hidden@s">
 		<nav class='uk-flex uk-flex-between uk-flex-middle' data-uk-navbar>
 			<a href='#' class='uk-navbar-item uk-logo'>
-				<img src='./img/logo.png' alt='Orkney Native Wildlife Logo' title='Orkney Native Wildlife'>
+				<img src='./img/logo.png' alt='Orkney Native Wildlife Logo' title='Orkney Native Wildlife Project'>
 			</a>
 			<div class='uk-flex uk-flex-column'>
 				<ul class='uk-flex uk-flex-right nav-top'>
@@ -83,8 +84,8 @@
 						<li class='uk-padding-small uk-padding-remove-vertical'><a href='#'>News & Events</a></li>
 						<li class='uk-padding-small uk-padding-remove-vertical'><a href='#'>Stoat Map</a></li>
 					</ul>
-					<button class='uk-button uk-button-primary uk-visible@s' data-uk-icon='icon: arrow-right'>Report a
-						Sighting</button>
+					<a href="#" class='uk-button uk-button-primary uk-visible@s' data-uk-icon='icon: arrow-right'>Report a
+                        Sighting</a>
 					<button class='uk-hidden@l burger-menu' data-uk-toggle='target: #menu-nav'
 						aria-label='Open menu navigation'>
 						<img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'>
@@ -102,7 +103,7 @@
 								<li class='uk-parent'>
 									<button data-uk-icon='chevron-right'>About</button>
 									<div data-uk-dropdown='mode: click' class='uk-navbar-dropdown' id='nav-children-1'>
-										<!-- <img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'> -->
+										<img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'>
 										<ul class='uk-nav uk-navbar-dropdown-nav uk-position-z-index'>
 											<li class='uk-hidden@l'><button
 													data-uk-toggle='target: #nav-children-1; animation: true'
@@ -119,7 +120,7 @@
 								<li class='uk-parent'>
 									<button data-uk-icon='chevron-right'>Get Involved</button>
 									<div data-uk-dropdown='mode: click' class='uk-navbar-dropdown' id='nav-children-2'>
-										<!-- <img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'> -->
+										<img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'>
 										<ul class='uk-nav uk-navbar-dropdown-nav'>
 											<li class='uk-hidden@l'><button
 													data-uk-toggle='target: #nav-children-2; animation: true'
@@ -138,7 +139,7 @@
 									<button data-uk-icon='chevron-right'>Protecting
 										Wildlife</button>
 									<div data-uk-dropdown='mode: click' class='uk-navbar-dropdown' id='nav-children-3'>
-										<!-- <img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'> -->
+										<img class='shape' src='./img/menu-dropdown.svg' data-uk-svg alt='image'>
 										<ul class='uk-nav uk-navbar-dropdown-nav'>
 											<li class='uk-hidden@l'><button
 													data-uk-toggle='target: #nav-children-3; animation: true'
@@ -167,22 +168,28 @@
 		</nav>
 	</header>
 
-	<div class="share-widget uk-position-fixed uk-position-left uk-position-center-left">
-		<div class="uk-position-relative">
-			<img class='shape' src='./img/listing-images-frame-bg.svg' data-uk-svg alt='image'>
-			<span>share on</span>
-			<div class="share-widget-links uk-flex uk-flex-column">
-				<a href="#" data-uk-icon="facebook" aria-label="Visit our Facebook page"></a>
-				<a href="#" data-uk-icon="twitter" aria-label="Visit our Twitter page"></a>
-				<a href="#" class="font-envelope" aria-label="Contact us via emal"></a>
+	<main class='nb-main uk-margin-large-bottom'>
+		<div class="share-widget uk-position-fixed uk-position-left uk-position-center-left uk-visible@s">
+			<div class="uk-position-relative">
+				<img class='shape' src='./img/listing-images-frame-bg.svg' data-uk-svg alt='image'>
+				<span>share on</span>
+				<div class="share-widget-links uk-flex uk-flex-column">
+					<a href="#" data-uk-icon="facebook" aria-label="Visit our Facebook page"></a>
+					<a href="#" data-uk-icon="twitter" aria-label="Visit our Twitter page"></a>
+					<a href="#" class="font-envelope" aria-label="Contact us via emal"></a>
+				</div>
 			</div>
 		</div>
-	</div>
-
-	<main class='nb-main uk-margin-large-bottom'>
+		<div class="sighting-btn uk-hidden@s">
+			<img class='shape' src='./img/btn-report sighting-mobile.svg' data-uk-svg alt='image'
+				class="uk-hidden@s">
+			<a href="#" class='uk-button uk-button-primary' data-uk-icon='icon: arrow-right'>Report
+				a
+				Sighting</a>
+		</div>
 		<div class="banner-section internal" data-uk-height-viewport>
 			<div class="banner-inner">
-				<div class="uk-background-cover" data-src="./img/gallery-img-2.jpg" data-uk-img>
+				<div class="uk-background-cover uk-background-fixed" data-src="./img/gallery-img-2.jpg" data-uk-img>
 					<div class='uk-container uk-container-small'>
 						<div class="uk-inline uk-width-1-1" data-uk-height-viewport>
 							<div class="uk-position-bottom uk-padding-large uk-padding-remove-horizontal">
@@ -195,19 +202,19 @@
 			<a href="#scroll-target-1" class="btn-scroll font-chevron-arrow-down" aria-label="Scroll to next section"
 				data-uk-scroll></a>
 		</div>
-		<div class="intro-section uk-position-z-index uk-position-relative" id="#scroll-target-1">
+		<div class="intro-section internal uk-position-z-index uk-position-relative" id="scroll-target-1">
 			<div class="intro-inner">
 				<img class='shape' src='./img/intro-yellow-bg.svg' data-uk-svg alt='image'>
-				<div class='uk-container uk-container-small'>
-					<ul class="uk-breadcrumb uk-padding uk-padding-remove-horizontal">
-						<li><a href="#" data-uk-icon="arrow-right">Home</a></li>
-						<li><a href="#" data-uk-icon="arrow-right">Category</a></li>
-						<li><span>Standard internal page with style guide</span></li>
-					</ul>
-					<p class='uk-text-lead'>This is some lead text to introduce the styleguide. It should gently catch
-						the
-						user&#039;s eye, initiating the reading of the main page content.</p>
-				</div>
+			</div>
+			<div class='uk-container uk-container-small'>
+				<ul class="uk-breadcrumb uk-padding uk-padding-remove-horizontal">
+					<li><a href="#" data-uk-icon="arrow-right">Home</a></li>
+					<li><a href="#" data-uk-icon="arrow-right">Category</a></li>
+					<li><span>Standard internal page with style guide</span></li>
+				</ul>
+				<p class='uk-text-lead'>This is some lead text to introduce the styleguide. It should gently catch
+					the
+					user&#039;s eye, initiating the reading of the main page content.</p>
 			</div>
 		</div>
 		<div class='uk-container uk-container-small'>
@@ -219,7 +226,8 @@
 					<em><strong>here's some bold italic text</strong></em>. Vivamus et nulla<sub>2</sub>
 					ultricies<sup>2</sup>, auctor
 					tellus ac, fringilla quam. Pellentesque ut sollicitudin ante. Donec vel adipiscing sapien, at
-					euismod dui. Duis at eros magna <a href="#">example link</a>. Pellentesque nec porttitor dui. Etiam
+					euismod dui. Duis at eros magna <a href="#" class="uk-button uk-button-text">example link</a>.
+					Pellentesque nec porttitor dui. Etiam
 					sit amet venenatis enim. Praesent rutrum arcu eget tortor cursus rutrum.</p>
 
 				<figure class="align_center hidpi">
@@ -262,8 +270,9 @@
 				<p>Aliquam at ligula elit gravida placerat. Nulla facilisi. In in turpis non eros vehicula adipiscing in
 					feugiat ligula. Vivamus et nulla ultricies, auctor tellus ac, fringilla quam.</p>
 
-				<p>Pellentesque ut sollicitudin ante. This is an <a href="https://www.google.com/" target="_blank"
-						rel="noreferrer noopener">external link</a>. Donec vel adipiscing sapien, at euismod dui. Duis
+				<p>Pellentesque ut sollicitudin ante. This is an <a class="uk-button uk-button-text"
+						href="https://www.google.com/" target="_blank" rel="noreferrer noopener">external link</a>.
+					Donec vel adipiscing sapien, at euismod dui. Duis
 					at eros magna example link. Pellentesque nec porttitor dui. Etiam sit amet venenatis enim. Praesent
 					rutrum arcu eget tortor cursus rutrum.</p>
 
@@ -396,16 +405,20 @@
 
 				<ul>
 					<li><img src="./img/pdf-icon.png" alt="icon image" role="presentation" data-uk-img><a
+							class="uk-button uk-button-text"
 							href="https://aws.nbcommunication.com/template/files/test.pdf">PDF File</a>
 						- Download now!
 					</li>
 					<li><img src="./img/word-icon.png" alt="icon image" role="presentation" data-uk-img><a
+							class="uk-button uk-button-text"
 							href="https://aws.nbcommunication.com/template/files/test.docx">Word
 							Document</a></li>
 					<li><img src="./img/excel-icon.png" alt="icon image" role="presentation" data-uk-img><a
+							class="uk-button uk-button-text"
 							href="https://aws.nbcommunication.com/template/files/test.xlsx">Excel
 							Spreadsheet</a></li>
 					<li><img src="./img/pp-icon.png" alt="icon image" role="presentation" data-uk-img><a
+							class="uk-button uk-button-text"
 							href="https://aws.nbcommunication.com/template/files/test.pptx">Powerpoint
 							Presentation</a>
 					</li>
@@ -418,15 +431,16 @@
 				</ul>
 
 				<ol>
-					<li><a href="#">A list of ordered links</a> - a link with some further text</li>
-					<li><a href="#">A list of ordered links</a></li>
-					<li><a href="#">A list of ordered links</a></li>
+					<li><a class="uk-button uk-button-text" href="#">A list of ordered links</a> - a link with some
+						further text</li>
+					<li><a class="uk-button uk-button-text" href="#">A list of ordered links</a></li>
+					<li><a class="uk-button uk-button-text" href="#">A list of ordered links</a></li>
 				</ol>
 			</div>
 
 			<div class='nb-block nb-block-slideshow uk-clearfix' data-nb-block='slideshow'>
 
-				<h3>Slideshow</h3>
+				<h2>Slideshow</h2>
 
 				<div data-uk-slideshow='{"animation":"fade","autoplay":true,"autoplay-interval":4096,"ratio":"16:9"}'
 					id='uk-slideshow_gallery_1046'>
@@ -510,7 +524,7 @@
 				<table>
 					<thead>
 						<tr>
-							<th>Column 1</th>
+							<th>Main Column 1</th>
 							<th>Column 2</th>
 							<th>Column 3</th>
 							<th>Column 4</th>
@@ -591,48 +605,39 @@
 					<div class="uk-first-column">
 						<div class="uk-text-meta nb-btn-label">Primary</div>
 						<button type="button" class="uk-button uk-button-primary">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting <span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Primary Small</div>
 						<button type="button" class="uk-button uk-button-primary uk-button-small">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Primary Large</div>
 						<button type="button" class="uk-button uk-button-primary uk-button-large">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 					</div>
 					<div>
 						<div class="uk-text-meta nb-btn-label">Default</div>
 						<button type="button" class="uk-button uk-button-default">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting <span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Default Small</div>
 						<button type="button" class="uk-button uk-button-default uk-button-small">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Default Large</div>
 						<button type="button" class="uk-button uk-button-default uk-button-large">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 					</div>
 					<div>
 						<div class="uk-text-meta nb-btn-label">Secondary</div>
 						<button type="button" class="uk-button uk-button-secondary">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting <span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Secondary Small</div>
 						<button type="button" class="uk-button uk-button-secondary uk-button-small">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 						<div class="uk-text-meta nb-btn-label uk-margin-top">Secondary Large</div>
 						<button type="button" class="uk-button uk-button-secondary uk-button-large">
-							<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 							Report a Sighting
 							<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
 					</div>
@@ -642,12 +647,11 @@
 					<div class="uk-margin-medium-bottom">
 						<div class="uk-text-meta uk-form-label">Text Normal</div>
 						<button type="button" class="uk-button uk-button-text">
-							Continue reading <span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
+							Continue reading</button>
 					</div>
 					<div class="uk-margin-bottom">
 						<div class="uk-text-meta uk-form-label">Text Large</div>
-						<button type="button" class="uk-button uk-button-text uk-text-large">Continue reading <span
-								data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></button>
+						<button type="button" class="uk-button uk-button-text uk-text-large">Continue reading</button>
 					</div>
 				</div>
 			</div>
@@ -706,7 +710,6 @@
 								<div role='alert'></div>
 								<button id='nb-form-nb-styleguide_submit' class='uk-button uk-button-primary'
 									name='submit' value='Send' type='submit'>
-									<img class='shape' src='./img/button.svg' data-uk-svg alt='image'>
 									<span class='ui-button-text' data-uk-icon='{"icon":"arrow-right","ratio":1}'>Send
 										Message</span></button>
 							</div>
@@ -717,50 +720,67 @@
 		</div>
 	</main>
 
+
 	<footer class='footer'>
 		<div class='footer-top'>
+			<div class="footer-top-inner uk-background-cover" style="background-image: url('./img/footer-fox.png');"></div>
 			<div class='uk-container'>
-				<img class='shape' src='./img/how-can-you-help-orange-bg.svg' data-uk-svg alt='image'>
-				<h2>How can you help?</h2>
-				<div class='uk-grid-collapse uk-grid-match uk-child-width-1-4@l uk-child-width-1-2@s uk-child-width-1-1'
-					data-uk-grid>
-					<div>
+				<h2>How Can You Help?</h2>
+				<div
+					class='uk-flex uk-flex-wrap uk-flex-between uk-child-width-1-4@l uk-child-width-1-2@s uk-child-width-1-1'>
+					<div class="footer-top-box">
 						<span class='font-stick-man' role='presentation'></span>
 						<h3>Volunteer with Us</h3>
 						<p>A short description text should gently catch the user's eye.</p>
-						<button data-uk-icon='arrow-right'>Become a Volunteer</button>
+						<div>
+							<a class="uk-button uk-button-default" href="#" data-uk-icon='arrow-right'>Become a
+								Volunteer</a>
+						</div>
 					</div>
-					<div>
+					<div class="footer-top-box">
 						<span class='font-binoculars' role='presentation'></span>
 						<h3>Submit a Sighting</h3>
 						<p>A short description text should gently catch the user's eye.</p>
-						<button data-uk-icon='arrow-right'>Submit a Sighting</button>
+						<div>
+							<a class="uk-button uk-button-default" href="#" data-uk-icon='arrow-right'>Submit a
+								Sighting</a>
+						</div>
 					</div>
-					<div>
+					<div class="footer-top-box">
 						<span class='font-hills' role='presentation'></span>
 						<h3>Land Owner Support</h3>
 						<p>A short description text should gently catch the user's eye.</p>
-						<button data-uk-icon='arrow-right'>Support Us</button>
+						<div>
+							<a class="uk-button uk-button-default" href="#" data-uk-icon='arrow-right'>Support Us</a>
+						</div>
 					</div>
-					<div>
+					<div class="footer-top-box">
 						<span class='font-family' role='presentation'></span>
 						<h3>Fun & Learning</h3>
 						<p>A short description text should gently catch the user's eye.</p>
-						<button data-uk-icon='arrow-right'>Start Learning</button>
+						<div>
+							<a class="uk-button uk-button-default" href="#" data-uk-icon='arrow-right'>Start
+								Learning</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class='footer-middle'>
-			<div class='uk-container'>
+			<div class="footer-middle-inner">
 				<img class='shape' src='./img/footer-blue-bg.svg' data-uk-svg alt='image'>
-				<div class='uk-grid-collapse uk-grid-match uk-child-width-1-2@l uk-child-width-1-1' data-uk-grid>
-					<div>
+			</div>
+			<div class='uk-container'>
+				<div class='uk-flex uk-flex-between uk-child-width-1-2@l uk-child-width-1-1'>
+					<div class="uk-flex uk-flex-column uk-flex-between">
 						<div>
 							<h2>Please feel free to contact us if you have any questions or queries.</h2>
 							<p>Sign up to our mailing list to keep angaged with the project</p>
 						</div>
-						<button class='font'>Subscribe to Newsletter</button>
+						<div>
+							<a href="#" class='uk-button uk-button-primary uk-button-large blue'><span
+									class='font-newspaper-solid' role="presentation"></span>Subscribe to Newsletter</a>
+						</div>
 					</div>
 					<div class='uk-flex uk-flex-between'>
 						<div class='uk-width-1-2@s uk-width-1-1 uk-flex uk-flex-column uk-flex-between'>
@@ -773,17 +793,21 @@
 									<li>KW15 1GN</li>
 								</ul>
 							</div>
-							<button data-uk-icon='arrow-right'>Report a Sighting</button>
+							<div>
+								<a href="#" class="uk-button uk-button-primary uk-button-large">
+									Report a Sighting
+									<span data-uk-icon='{"icon":"arrow-right","ratio":1}'></span></a>
+							</div>
 						</div>
 						<div class='uk-width-1-2@s uk-width-1-1 uk-flex uk-flex-column uk-flex-between'>
-							<div>
+							<div class="enquiries">
 								<h3>General Enquiries:</h3>
-								<a href='tel:+4401856881451'>+44(0) 1856 881451</a>
+								<a class="uk-button uk-button-text" href='tel:+4401856881451'>+44(0) 1856 881451</a>
 
 								<h3>For media enquiries related to the project please contact:</h3>
-								<a href='tel:+4401856881452'>+44(0) 1856 881452</a>
+								<a class="uk-button uk-button-text" href='tel:+4401856881452'>+44(0) 1856 881452</a>
 							</div>
-							<span>Follow us on: <a href='#' data-uk-icon='facebook'>Facebook</a></span>
+							<span>Follow us on: <a href='#' class="font-facebook-box">Facebook</a></span>
 						</div>
 					</div>
 				</div>
@@ -801,7 +825,7 @@
 						<div class='nb-credit uk-width-1-2@s uk-width-1-1 uk-flex uk-flex-right'>Website by
 							<a href='https://www.nbcommunication.com/'
 								title='NB Communication - Digital Marketing Agency'>
-								NB <img
+								&nbsp; NB <img
 									src='data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
 									data-src='https://brand.nbcommunication.com/logo/web/nb.png'
 									alt='NB Communication Ltd Logo' data-uk-img>
@@ -820,6 +844,7 @@
 			</div>
 		</div>
 	</footer>
+
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1559.4 612" style="position:absolute;" height="0" width="0">
 		<defs>
 			<clipPath id="svgPathHeroInternal" clipPathUnits="objectBoundingBox" transform="scale(0.000641, 0.00163)">
@@ -847,6 +872,33 @@
 	c40.1-0.9,108.7-3.1,147-5.1c157.2-8.1,279.2-14.4,298.3-15c39.7-1.3,78.6-6.2,95.3-6.9c31.9-1.3,68.9-9.1,102.7,2.2
 	c19.3,6.4,15.9,31.1,19.3,48.3c3.4,17.1-5.7,37,20.1,65.2c10.8,11.7,26.8,22.8,40.4,34.1c1.6,1.3,3.1,2.8,3.7,4.2
 	c6.9,15.5,20.3,29.5,20.3,46.5c0,17-2.4,15.6-2.4,29.6C1557,248,1548.2,268.8,1539,289z" />
+			</clipPath>
+		</defs>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 228 56" style="position:absolute;" height="0" width="0">
+		<defs>
+			<clipPath id="svgPathButton" clipPathUnits="objectBoundingBox"
+				transform="scale(0.00438596491, 0.01785714285)">
+				<path class="st0" d="M222,52.4c0.8-1.5,1.1-3.3,1.4-5c0.8-5,1.4-10.1,2.2-15.1c0.2-1.2,1-2.3,1.3-3.6c0.4-1.6,0.7-3.3,1-5
+	c0.1-0.7,0.2-1.3,0.2-2c-0.3-2.3-0.8-4.6-0.9-6.9c-0.1-2.6-0.7-5-2.6-7.2c-0.9-1-1.6-2.8-1.9-5.3c-0.2-1.5-40-3-49.4-1.9
+	C170.2,0.8,47.7-1.1,5.8,1.3C1.3,1.6,2.3,3.8,0,4.7C0,9,0,13.3,0,17.6c0,0.6,0.1,1.2,0.2,1.8c0.2,1.8,0.6,3.6,0.6,5.4
+	c0.1,2.4-0.3,4.9-0.2,7.3C1,37,1.5,42,1.9,47C2,48.1,2,49.3,2.4,50.3c1.2,3.7,2,3.9,5.4,4.1c4.1,0.3,8.2,0.4,12.3,0.9
+	c3.9,0.5,8.1,0.1,12.1-0.4c6-0.7,152.2-1.1,158.2-0.2c5,0.8,9.9,1.5,15,1.1c4.6-0.4,9.1-0.9,13.6-1.6
+	C220.1,54.1,221.5,53.3,222,52.4z" />
+			</clipPath>
+		</defs>
+	</svg>
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1486 568.1" style="position:absolute;" height="0" width="0">
+		<defs>
+			<clipPath id="svgPathFooterTop" clipPathUnits="objectBoundingBox" transform="scale(0.0006729, 0.001760)">
+				<path class="st0" d="M105,5.3c18.6,0-0.7,0,27.8,0c19.3,0,73,12.9,96.2,12.9c54.8,0,87.2-12.9,157.9-12.9
+	c110.4,0,206.4,16.1,331,16.1c47.8,0,123.2-3.2,170-3.2c94.9,0,186.2-15.5,266.9-17.2c108-2.3,196.9-0.2,249.8,1.8
+	c9.4,0.4,17.4-6.8,24.7,1c7.3,7.8,41.5-19.2,34.2,50.5c9.9,16.9,38.5,34.9,11.1,66c-27.2,31-33.3,52.8-22.6,78.4
+	c10.9,25.8,29.2,66.6,31.7,77.7c2.5,11.3,4.1,25.2-3.1,52.6c-7.2,27.5-0.5,56.4-3.8,67.2c-3.3,10.7-0.7,36.2-16,48.2
+	c-15.2,11.9-9.4,105.1-9.4,121.5C1409.8,568.6,23,568,23,568s-0.4-52.5-5-73.8C13.5,473,4.1,464.7,2.8,460
+	c-1.2-4.7-5.3-11.7-0.6-18.4c4.7-6.8,32.3-30.9,33.1-51.5c0.8-20.4-3.1-54-0.6-59.9c2.5-5.9,1.6-21.8-1.4-36
+	c-2.9-14.1-8.6-41.4-4.9-53c3.7-11.7,6.2-20.9,3.7-34.2c-2.3-13.3-13.2-55.6-14-120.4c-0.1-16.8-2.7-30.8-0.2-41.3
+	C25.1,15.4,47.2,5.3,105,5.3z" />
 			</clipPath>
 		</defs>
 	</svg>

@@ -32,77 +32,92 @@
 	@if $filename == bird-logo {
 		$char: '\E002';
 	}
-	@if $filename == charity {
+	@if $filename == calendar {
 		$char: '\E003';
 	}
-	@if $filename == chevron-arrow-down {
+	@if $filename == charity {
 		$char: '\E004';
 	}
-	@if $filename == envelope {
+	@if $filename == chevron-arrow-down {
 		$char: '\E005';
 	}
-	@if $filename == ermine {
+	@if $filename == envelope {
 		$char: '\E006';
 	}
-	@if $filename == external-link {
+	@if $filename == ermine {
 		$char: '\E007';
 	}
-	@if $filename == family {
+	@if $filename == external-link {
 		$char: '\E008';
 	}
-	@if $filename == farming-and-gardening {
+	@if $filename == facebook-box {
 		$char: '\E009';
 	}
-	@if $filename == hills {
+	@if $filename == family {
 		$char: '\E00A';
 	}
-	@if $filename == instagram-logo {
+	@if $filename == farming-and-gardening {
 		$char: '\E00B';
 	}
-	@if $filename == live-streaming {
+	@if $filename == hills {
 		$char: '\E00C';
 	}
-	@if $filename == man {
+	@if $filename == instagram-logo {
 		$char: '\E00D';
 	}
-	@if $filename == mission {
+	@if $filename == live-streaming {
 		$char: '\E00E';
 	}
-	@if $filename == play-button-arrowhead {
+	@if $filename == man {
 		$char: '\E00F';
 	}
-	@if $filename == professions-and-jobs {
+	@if $filename == map-pin {
 		$char: '\E010';
 	}
-	@if $filename == right-arrow {
+	@if $filename == mission {
 		$char: '\E011';
 	}
-	@if $filename == rounded-corner-white-1 {
+	@if $filename == newspaper-solid {
 		$char: '\E012';
 	}
-	@if $filename == rounded-corner-white {
+	@if $filename == play-button-arrowhead {
 		$char: '\E013';
 	}
-	@if $filename == sea-weasel-mammal-shape {
+	@if $filename == professions-and-jobs {
 		$char: '\E014';
 	}
-	@if $filename == stick-man {
+	@if $filename == right-arrow {
 		$char: '\E015';
 	}
-	@if $filename == time {
+	@if $filename == rounded-corner-white-1 {
 		$char: '\E016';
 	}
-	@if $filename == volunteer-1 {
+	@if $filename == rounded-corner-white {
 		$char: '\E017';
 	}
-	@if $filename == volunteer {
+	@if $filename == sea-weasel-mammal-shape {
 		$char: '\E018';
 	}
-	@if $filename == weasel {
+	@if $filename == stick-man {
 		$char: '\E019';
 	}
-	@if $filename == witness {
+	@if $filename == stoat-orange-map-icon {
 		$char: '\E01A';
+	}
+	@if $filename == time {
+		$char: '\E01B';
+	}
+	@if $filename == volunteer-1 {
+		$char: '\E01C';
+	}
+	@if $filename == volunteer {
+		$char: '\E01D';
+	}
+	@if $filename == weasel {
+		$char: '\E01E';
+	}
+	@if $filename == witness {
+		$char: '\E01F';
 	}
 
 	@return $char;
@@ -129,6 +144,9 @@
 .font-bird-logo {
 	@include font(bird-logo);
 }
+.font-calendar {
+	@include font(calendar);
+}
 .font-charity {
 	@include font(charity);
 }
@@ -143,6 +161,9 @@
 }
 .font-external-link {
 	@include font(external-link);
+}
+.font-facebook-box {
+	@include font(facebook-box);
 }
 .font-family {
 	@include font(family);
@@ -162,8 +183,14 @@
 .font-man {
 	@include font(man);
 }
+.font-map-pin {
+	@include font(map-pin);
+}
 .font-mission {
 	@include font(mission);
+}
+.font-newspaper-solid {
+	@include font(newspaper-solid);
 }
 .font-play-button-arrowhead {
 	@include font(play-button-arrowhead);
@@ -185,6 +212,9 @@
 }
 .font-stick-man {
 	@include font(stick-man);
+}
+.font-stoat-orange-map-icon {
+	@include font(stoat-orange-map-icon);
 }
 .font-time {
 	@include font(time);

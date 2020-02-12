@@ -3,6 +3,10 @@
         display: none;
     }
 
+    >:last-child>* {
+        color: $black;
+    }
+
     li {
         &:not(:first-of-type) {
             padding-left: 18px;

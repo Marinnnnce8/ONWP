@@ -2,11 +2,37 @@
     position: relative;
     padding-top: 100px;
 
+    &.gateway {
+        padding-top: 0;
+        padding-bottom: 70px;
+    }
+
     .shape {
-        top: -2px;
+        top: -5px;
         width: calc(100% - 18px);
         left: 16px;
         color: $blue-ice;
+    }
+
+    @media (max-width: $breakpointLarge) {
+        padding-top: 90px;
+
+        >.uk-container {
+            padding: 0 60px;
+        }
+    }
+
+    @media (max-width: $breakpointSmall) {
+        padding-top: 110px;
+
+        .shape {
+            width: 100%;
+            left: 0;
+        }
+
+        >.uk-container {
+            padding: 0 20px;
+        }
     }
 }
 
@@ -21,10 +47,32 @@
     p {
         font-size: 20px;
     }
+
+    @media (max-width: $breakpointLarge) {
+        max-width: 580px;
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 10px 0 40px;
+        }
+    }
+
+    @media (max-width: $breakpointSmall) {
+        h2 {
+            font-size: 44px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    }
 }
 
 .link-box {
-    clip-path: url('#svgPath');
+    clip-path: url('#svgPathLinks');
     min-height: 390px;
     padding-bottom: 142px;
     overflow: hidden;
@@ -41,6 +89,7 @@
         position: relative;
         padding-bottom: 12px;
         backface-visibility: hidden;
+        margin-bottom: 0;
     }
 
     .uk-card-media-top {
@@ -74,9 +123,14 @@
         bottom: 0;
         background-color: $orange;
         backface-visibility: hidden;
-        padding: 30px 20px;
+        padding: 25px 20px;
         min-height: 1px;
         transition: min-height .35s;
+    }
+
+    .uk-card-title {
+        font-size: 26px;
+        line-height: 1.2;
     }
 
     .link-box-text {
@@ -86,13 +140,18 @@
     }
 
     .uk-button {
-        left: 0;
+        left: 20px;
         bottom: 0;
         margin-bottom: 30px;
         z-index: 101;
-        transition: opacity .15s;
+        transition: .25s;
         position: absolute;
         opacity: 0;
+        color: $black;
+
+        &::after {
+            background-color: $white;
+        }
     }
 
     .read-more {
@@ -106,7 +165,7 @@
         }
 
         .uk-card-body {
-            min-height: 81% !important; // sass-lint:disable-line no-important
+            min-height: 88% !important; // sass-lint:disable-line no-important
             transition: min-height 0.35s;
         }
 
@@ -117,7 +176,39 @@
 
         .uk-button {
             opacity: 1;
-            transition: opacity .25s;
+            transition: .25s;
         }
+    }
+
+    @media (max-width: $breakpointSmall) {
+
+        // min-height: 450px;
+        .uk-card-body {
+            padding: 20px 20px 30px;
+            min-height: 60% !important;// sass-lint:disable-line no-important
+        }
+
+        @include hover {
+            .uk-card-media-top {
+                transform: none;
+            }
+
+            .uk-card-body {
+                min-height: 60% !important; // sass-lint:disable-line no-important
+            }
+
+            .link-box-text,
+            .uk-button {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.gateway {
+
+    .link-box,
+    .uk-card-body {
+        background-color: $blue-light;
     }
 }
