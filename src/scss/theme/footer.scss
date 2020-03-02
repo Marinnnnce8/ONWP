@@ -9,7 +9,7 @@
         }
 
         .uk-first-column {
-            padding-bottom: 50px;
+            padding-bottom: 25px;
         }
     }
 }
@@ -91,28 +91,44 @@
         }
 
         &::before {
+            opacity: 0;
             background-color: $brown;
+        }
+
+        @include hover {
+            &::before {
+                opacity: 1;
+            }
         }
     }
 
     @media (max-width: $breakpointLarge) {
         background-position: right;
-        padding: 90px 0 110px;
+        padding: 90px 0 30vh;
 
         >.uk-container {
-            padding: 0 50px;
+            padding: 0 40px;
+        }
+
+        h2 {
+            padding: 0 5px;
         }
     }
 
+    @media (max-width: 667px) {
+        padding: 90px 0 200px;
+    }
+
     @media (max-width: $breakpointSmall) {
-        padding: 90px 0 110px;
+        padding: 90px 0 35vh;
 
         h2 {
             font-size: 44px;
+            padding: 0;
         }
 
         >.uk-container {
-            padding: 0 15px;
+            padding: 0 20px;
         }
     }
 }
@@ -128,13 +144,23 @@
 
     @media (max-width: $breakpointLarge) {
         margin-bottom: 45px;
+        padding: 0 10px;
+
+        &:not(:last-of-type) {
+            padding: 0 10px 0;
+        }
     }
 
     @media (max-width: $breakpointSmall) {
         margin-bottom: 50px;
+        padding: 0;
+
+        &:not(:last-of-type) {
+            padding: 0;
+        }
 
         .uk-button {
-            width: 100%;
+            min-width: 280px;
             text-align: left;
         }
     }
@@ -184,16 +210,15 @@
     }
 
     .uk-button.blue {
-        padding-left: 60px;
+        text-align: left;
 
-        span {
-            position: absolute;
-            left: 20px;
-            top: 20px;
+        .font-newspaper-solid {
+            color: $brown;
+            padding: 15px 26px 15px 55px;
 
             &::before {
-                color: $brown;
-                font-size: 24px;
+                left: 23px;
+                right: auto;
             }
         }
     }
@@ -257,7 +282,9 @@
             color: $brown;
             font-size: 13px;
             font-weight: $light;
+        }
 
+        a {
             @include hover {
                 color: $brick;
             }
@@ -283,24 +310,40 @@
             }
 
             .nb-copyright {
-                margin-bottom: 25px;
+                padding-bottom: 35px;
             }
         }
     }
+    @media (max-width: 667px) {
+        >.uk-container {
+            position: relative;
+            top: -30px;
+        }
+        
+    }
 
     @media (max-width: $breakpointSmall) {
-        padding: 50px 0;
+        padding: 5px 0 50px;
 
         >.uk-container {
             padding: 0 20px;
+            top: -50px;
 
             .uk-button-primary {
-                min-width: 280px;
                 width: 100%;
 
                 &:not(.blue) {
                     text-align: left;
                     margin-top: 25px;
+                }
+
+                &.blue .font-newspaper-solid {
+                    padding: 15px 19px 15px 50px;
+
+                    &::before {
+                        left: 20px;
+                        font-size: 18px;
+                    }
                 }
             }
 
@@ -338,13 +381,18 @@
     }
 
     @media (max-width: $breakpointLarge) {
-        height: calc(100% + 350px);
-        top: -350px;
+        height: calc(100% + 150px);
+        top: -150px;
+    }
+
+    @media (max-width: 667px) {
+        height: calc(100% + 280px);
+        top: -280px;
     }
 
     @media (max-width: $breakpointSmall) {
-        height: calc(100% + 350px);
-        top: -350px;
+        height: calc(100% + 310px);
+        top: -340px;
     }
 }
 
@@ -359,16 +407,16 @@
 
     @media (max-width: $breakpointLarge) {
         padding: 25px 0 45px;
-    }
 
-    @media (max-width: $breakpointSmall) {
         span {
             margin-bottom: 30px;
             display: block;
+        }
+    }
 
-            &.uk-first-column {
-                padding-bottom: 0;
-            }
+    @media (max-width: $breakpointSmall) {
+        span.uk-first-column {
+            padding-bottom: 0;
         }
 
         padding: 25px 0 20px;

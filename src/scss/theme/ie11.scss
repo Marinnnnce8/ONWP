@@ -19,6 +19,9 @@ screen and (-ms-high-contrast: none) {
             border: 0;
             z-index: 1;
         }
+        .banner-text {
+            padding-top: 300px;
+        }
     }
 
     .footer-middle {
@@ -44,6 +47,9 @@ screen and (-ms-high-contrast: none) {
 
 //edge
 @supports (-ms-ime-align:auto) {
+    .header {
+        background-color: $white;
+    }
     .banner-section.home {
         h1 {
             color: $white;
@@ -53,6 +59,9 @@ screen and (-ms-high-contrast: none) {
             background-color: $blue-light;
             border: 0;
             z-index: 1;
+        }
+        .banner-text {
+            padding-top: 300px;
         }
     }
 

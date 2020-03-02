@@ -35,9 +35,17 @@
     position: relative;
     left: 50%;
     transform: translateX(-49%);
-
+    >.uk-grid-small>.uk-grid-margin {
+        margin-top: 7px;
+    }
     @media (max-width: $breakpointLarge) {
         padding: 15px 60px;
+        >.uk-grid {
+            padding-bottom: 10px;
+        }
+        >.uk-grid-small>.uk-grid-margin {
+            margin-top: 5px;
+        }
         .uk-grid-column-small>*,
         .uk-grid-small>* {
             padding-left: 10px;
@@ -45,6 +53,10 @@
     }
     @media (max-width: $breakpointSmall) {
         padding: 15px 25px;
+        transform: translateX(-50%);
+        >.uk-grid-small>.uk-grid-margin {
+            margin-top: 7px;
+        }
     }
 }
 
@@ -102,6 +114,7 @@
 
     p {
         font-size: 20px;
+        margin-bottom: 20px;
     }
 
     .uk-button {
@@ -136,12 +149,8 @@
         p {
             font-size: 18px;
         }
-        .uk-button {
-            width: 100%;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .uk-button span {
+            min-width: 280px;
         }
     }
 }

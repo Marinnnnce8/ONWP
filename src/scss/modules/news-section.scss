@@ -34,7 +34,7 @@
     }
 
     @media (max-width: $breakpointLarge) {
-        padding: 70px 80px;
+        padding: 70px 0 80px;
 
         >.uk-container {
             padding: 0 40px;
@@ -49,7 +49,7 @@
 
         .left,
         .right {
-            padding: 50px 15px;
+            padding: 50px 20px;
         }
     }
 }
@@ -81,11 +81,9 @@
         flex-direction: column;
         margin-bottom: 30px;
 
-        .uk-button {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .uk-button span {
+            min-width: 280px;
+            text-align: left;
         }
     }
 }
@@ -163,18 +161,26 @@
 
         ul,
         .donate-btn,
-        .donate-btn .uk-button {
+        .donate-btn {
             width: 100%;
         }
 
         ul,
-        .donate-btn .uk-button {
+        .donate-btn {
             display: flex;
+        }
+
+        ul {
+            justify-content: flex-start;
+        }
+
+        .donate-btn {
             justify-content: space-between;
         }
 
-        .uk-button {
-            align-items: center;
+        .uk-button span {
+            text-align: left;
+            min-width: 280px;
         }
     }
 }
@@ -208,17 +214,28 @@
                 padding: 15px 0;
                 color: $brown;
                 font-weight: $bold;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
+                position: relative;
 
                 &::before {
                     display: none;
                 }
 
-                svg {
+                &::after {
+                    position: absolute;
+                    right: 12px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    content: font-char($chevron-down);
                     color: $gray;
-                    fill: $gray;
+                    font-size: 10px;
+                    font-family: 'svgicons';
+                    transition: .5s ease-in-out;
+                }
+            }
+            &.uk-open {
+                .uk-accordion-title::after {
+                    transform: translateY(-50%) rotate(180deg);
+                    transition: .5s ease-in-out;
                 }
             }
         }

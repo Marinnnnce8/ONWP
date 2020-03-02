@@ -15,6 +15,10 @@
 		margin-bottom: 15px;
 	}
 
+	.uk-text-meta {
+		color: $brown;
+	}
+
 	@media (max-width: $breakpointSmall) {
 		.uk-text-lead {
 			font-size: 26px;
@@ -94,8 +98,8 @@
 		figcaption {
 			caption-side: bottom;
 			display: table-caption;
+			color: $brown;
 			font-size: .875rem;
-			color: $brown-light;
 			padding: $nbGutterSmall * 3;
 			text-align: center;
 		}
@@ -116,6 +120,10 @@
 			clear: both;
 			margin: $nbSpace auto;
 			text-align: center;
+		}
+
+		ul {
+			padding-left: 0;
 		}
 
 		@media (max-width: $breakpointMobile) {
@@ -220,9 +228,11 @@
 			@media (max-width: $breakpointSmall) {
 				padding: 40px 25px;
 				margin-bottom: 40px;
+
 				.uk-flex {
 					flex-direction: column;
 				}
+
 				.data {
 					display: block;
 					font-size: 28px;
@@ -245,6 +255,7 @@
 				&.svg-bg-purple .data {
 					max-width: 100%;
 				}
+
 				&.svg-bg-ochre .txt,
 				&.svg-bg-gray .data,
 				&.svg-bg-purple .data {
@@ -292,15 +303,26 @@
 			th,
 			td {
 				font-size: 16px;
+				color: $brown;
+
+				&:first-of-type {
+					padding-left: 50px;
+				}
 			}
 
 			th {
 				padding: 20px;
 				text-align: left;
+				text-transform: none;
+				font-weight: $bold;
 			}
 
 			td {
 				padding: 15px 20px;
+
+				&:first-of-type {
+					font-weight: $bold;
+				}
 			}
 
 			thead {
@@ -397,7 +419,7 @@
 		.nb-gallery-caption {
 			font-size: 14px;
 			font-weight: $light;
-			color: $brown-light;
+			color: $brown;
 		}
 	}
 
@@ -415,6 +437,7 @@
 		li {
 			border-radius: 15px;
 			overflow: hidden;
+
 			a {
 				width: 100%;
 			}
@@ -477,6 +500,9 @@
 		.uk-select:not(.uk-form-danger),
 		.uk-textarea:not(.uk-form-danger) {
 			border-color: $gray-form;
+			&:focus {
+				border-color: $white;
+			}
 		}
 
 		label {
@@ -485,13 +511,6 @@
 			i {
 				margin-right: $nbGutterSmall;
 			}
-		}
-
-		.uk-text-small {
-			color: $gray-soft;
-			font-size: 16px;
-			margin-bottom: 5px;
-			display: block;
 		}
 
 		.uk-checkbox {
@@ -532,11 +551,39 @@
 		}
 	}
 
+	@media (max-width: $breakpointMedium) {
+
+		table th,
+		table td:first-of-type {
+			padding-left: 0;
+		}
+	}
+
 	@media (max-width: $breakpointSmall) {
 		&-form {
 			.nb-form {
 				padding: 35px;
 			}
+		}
+	}
+}
+
+.nb-no-hero {
+
+	h1 {
+		color: $brown;
+		margin-top: 200px;
+	}
+
+	@media (max-width: $breakpointLarge) {
+		h1 {
+			margin-bottom: 250px;
+		}
+	}
+
+	@media (max-width: $breakpointSmall) {
+		h1 {
+			margin-bottom: 220px;
 		}
 	}
 }

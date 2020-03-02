@@ -13,9 +13,19 @@
         margin-bottom: 40px;
         margin-top: 0;
     }
+    @media (max-width: $breakpointLarge) {
+        .uk-container {
+            padding-left: 60px;
+            padding-right: 60px;
+        }
+    }
     @media (max-width: $breakpointSmall) {
         padding-top: 150px;
         padding-bottom: 0;
+        .uk-container {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
         .uk-text-lead {
             font-size: 20px;
         }

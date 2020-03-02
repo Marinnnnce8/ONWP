@@ -2,8 +2,7 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		'theme': ['./src/js/theme.js'],
-		'nb': ['./src/js/nb.js'],
+		'theme': [''],
 	},
 	output: {
 		path: path.join(__dirname, './dist/js/'),

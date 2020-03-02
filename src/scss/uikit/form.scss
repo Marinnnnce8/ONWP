@@ -34,20 +34,22 @@ form {
         line-height: 1;
         margin-bottom: 10px;
         font-size: 18px;
+        position: relative;
     }
 
-    button[type='button']:not(.uk-drop-close) {
+    .uk-form-label a:not(.uk-drop-close) {
         background-color: $brown;
         display: inline-block;
         border-radius: 50%;
         color: $white;
         font-size: 12px;
-        height: 18px;
-        width: 18px;
+        height: 20px;
+        width: 20px;
         text-align: center;
         line-height: 1.8;
         position: absolute;
-        margin-left: 5px;
+        margin-left: 20px;
+        top: -5px;
     }
 
     .uk-drop {
@@ -58,7 +60,7 @@ form {
             content: '';
             width: 0;
             height: 0;
-            left: -10px;
+            left: -8px;
             border-style: solid;
             border-width: 18px 18px 0;
             border-color: $brown transparent transparent;
@@ -121,11 +123,43 @@ form {
         }
     }
 
+    .uk-input:not(.uk-form-danger):focus,
+    .uk-select:not(.uk-form-danger):focus,
+    .uk-textarea:not(.uk-form-danger):focus {
+        border-color: $brown-medium;
+    }
+
     @media (max-width: $breakpointLarge) {
         .terms {
             max-width: calc(100% - 45px);
         }
     }
+
+    @media (max-width: $breakpointMedium) {
+        .uk-inline {
+            width: 100%;
+        }
+
+        .uk-drop {
+            max-width: 280px;
+
+            &::after {
+                left: auto;
+                right: -10px;
+                top: calc(100% - 2px);
+            }
+
+            span {
+                left: auto;
+                right: -10px;
+            }
+        }
+
+        .uk-drop-close {
+            right: 15px;
+        }
+    }
+
     @media (max-width: $breakpointSmall) {
         .uk-grid {
             margin-left: 0;
@@ -138,9 +172,6 @@ form {
         .uk-grid-column-small>*,
         .uk-grid-small>* {
             padding-right: 0;
-        }
-        .uk-inline {
-            width: 100%;
         }
     }
 }
@@ -159,14 +190,16 @@ form {
         }
     }
 
-    // sass-lint:disable-block no-vendor-prefixes
-    button[type='button']:not(.uk-drop-close) {
-        margin-left: 15px;
-    }
-
     @media (max-width: $breakpointSmall) {
         label:not(:first-of-type) {
             padding-left: 10px;
         }
     }
+}
+
+.nb-form-description {
+    color: $gray-soft;
+    font-size: 16px;
+    position: relative;
+    top: -8px;
 }

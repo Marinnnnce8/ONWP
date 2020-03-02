@@ -80,10 +80,12 @@ strong {
 
 em {
 	font-weight: 400;
+	color: inherit !important; // sass-lint:disable-line no-important
 }
 
 sup {
 	font-size: 58%;
+	color: inherit !important; // sass-lint:disable-line no-important
 }
 
 blockquote {
@@ -111,7 +113,7 @@ blockquote {
 
 	p {
 		font-size: 26px;
-		color: $green-dark;
+		color: $green;
 		margin-bottom: 25px;
 		&:last-of-type {
 			margin-bottom: 10px;
@@ -121,6 +123,12 @@ blockquote {
 	span {
 		font-size: 18px;
 		color: $brown;
+	}
+	@media (max-width: $breakpointSmall) {
+		padding: 25px 25px 0;
+		&::before {
+			left: 25px;
+		}
 	}
 }
 
@@ -139,6 +147,7 @@ ul li {
 ol li {
 	list-style-type: decimal;
 	padding-left: 10px;
+	margin-bottom: 10px;
 	font-size: 18px;
 	font-weight: $light;
 	color: $brown;

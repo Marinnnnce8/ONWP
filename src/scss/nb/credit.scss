@@ -17,4 +17,8 @@
 			vertical-align: bottom;
 		}
 	}
+	@media (max-width: $breakpointSmall) {
+		justify-content: flex-start;
+		margin-top: 25px;
+	}
 }

@@ -39,4 +39,15 @@
             }
         }
     }
+    @media (max-width: $breakpointSmall) {
+        li {
+            margin-bottom: 18px;
+            padding-right: 18px;
+            padding-left: 0;
+            &:not(:first-of-type) {
+                padding-right: 18px;
+                padding-left: 0;
+            }
+        }
+    }
 }

@@ -13,6 +13,30 @@ var theme = {
 	init: function() {
 		this.ga();
 		this.blocks();
+		if(window.matchMedia('(max-width: 767px)').matches) {
+			this.stickyNavMob();
+		}
+	},
+
+	stickyNavMob: function() {
+		var header = document.getElementsByClassName('header')[0];
+		var lastScrollTop = 0;
+		
+		window.addEventListener("scroll", function() { 
+			var navScrollOffset = window.pageYOffset;
+			if(navScrollOffset === 0) {
+				header.classList.remove('header-sticky');
+				return;
+			}
+			if (navScrollOffset > lastScrollTop){
+				header.classList.remove('header-sticky');
+				header.classList.add('header-sticky-unactive');
+			} else {
+				header.classList.add('header-sticky');
+				header.classList.remove('header-sticky-unactive');
+			}
+			lastScrollTop = navScrollOffset <= 0 ? 0 : navScrollOffset; // For Mobile or negative scrolling
+		}, false);
 	},
 
 	ga: function() {
@@ -103,6 +127,7 @@ var theme = {
 			}
 		});
 	}
+
 };
 
 $uk.ready(function() {
@@ -189,3 +214,4 @@ function renderItems(items, config) {
 		}
 	}, "div");
 }
+

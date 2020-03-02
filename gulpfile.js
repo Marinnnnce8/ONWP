@@ -16,7 +16,7 @@ gulp.task('build', function() {
 gulp.task('build-dev', function() {
 	globalVars.createDistFolder();
 	globalVars.productionBuild = false;
-	runSequence('html', 'css', 'css-copy', 'js', 'assets');
+	runSequence('html', 'css', 'css-copy', 'assets');
 });
 
 // delete dist folder
@@ -29,7 +29,7 @@ gulp.task('reset-dev', function() {
 gulp.task('default', function() {
 	globalVars.createDistFolder();
 	globalVars.productionBuild = false;
-	runSequence('html', 'css', 'js', 'watch');
+	runSequence('html', 'css', 'watch');
 });
 
 // import gulp tasks

@@ -1,9 +1,11 @@
 .header {
     z-index: 5;
+
     >.shape {
-        color: $white;
-        fill: $white;
+        color: transparent;
+        fill: transparent;
     }
+
     nav {
         padding: 10px 50px;
     }
@@ -12,6 +14,10 @@
         max-width: 130px;
         width: 100%;
         height: auto;
+    }
+
+    .uk-button-primary {
+        margin-left: 35px;
     }
 
     .nav-top {
@@ -24,6 +30,7 @@
                 font-weight: $bold;
                 color: $brick;
                 position: relative;
+
                 &::after {
                     position: absolute;
                     content: '';
@@ -35,13 +42,14 @@
                     opacity: 0;
                     transition: $nbSec ease-in-out;
                 }
+
                 @include hover {
                     &::after {
                         opacity: 1;
                     }
                 }
             }
-            
+
             .uk-icon {
                 display: inline-block;
                 margin-left: 5px;
@@ -71,8 +79,10 @@
             &:not(:first-of-type) a {
                 font-weight: $light;
                 color: $brown;
+
                 @include hover {
                     color: $brick;
+
                     i::after {
                         background-color: $brick;
                     }
@@ -87,6 +97,7 @@
         min-width: 270px;
         margin-top: 20px;
         padding: 35px;
+
         &::after {
             background-color: transparent;
             position: absolute;
@@ -115,9 +126,38 @@
         }
     }
 
+    @media (max-width: $breakpointXlarge) {
+
+        .uk-button-primary {
+            margin-left: 0;
+            span {
+                padding: 16px 25px 16px 5px;
+                &::before {
+                    right: 10px;
+                    font-size: 15px;
+                }
+            }
+        }
+
+        .uk-logo img {
+            max-width: 110px;
+        }
+
+        .nav-bottom li {
+            padding: 10px;
+        }
+    }
+
     @media (max-width: $breakpointLarge) {
         nav {
-            padding: 15px 20px;
+            padding: 18px 20px;
+        }
+
+        .uk-button-primary span {
+            padding: 16px 53px 16px 28px;
+            &::before {
+                right: 30px;
+            }
         }
 
         .uk-logo img {
@@ -126,11 +166,41 @@
     }
 
     @media (max-width: $breakpointSmall) {
-        position: fixed !important; // sass-lint:disable-line no-important
         width: 100%;
+        &.header-sticky {
+            position: fixed !important; // sass-lint:disable-line no-important
+            top: 0;
+            animation: slideInSticky .5s ease-in-out forwards;
+            >.shape {
+                color: $white;
+                fill: $white;
+            }
+            &::after {
+                background-color: transparent;
+                position: absolute;
+                content: '';
+                left: 0;
+                width: 100%;
+                top: 0;
+                height: calc(100% - 20px);
+                z-index: -2;
+                box-shadow: 5px 15px 30px 0 rgba($black, .3);
+            }
+        }
+        &.header-sticky-unactive {
+            animation: slideOutSticky .5s ease-in-out forwards;
+            position: fixed !important;
+            top: 0;
+            >.shape {
+                color: $white;
+                fill: $white;
+            }
+        }
+
         .uk-logo img {
             max-width: 100px;
         }
+
         .nav-top li {
             padding: 0;
         }
@@ -185,7 +255,7 @@
         font-size: 18px;
     }
 
-    @media (max-width: $breakpointLarge) {
+    @media (max-width: $breakpointMediumMax) {
         .uk-dropdown {
             background-color: transparent;
         }
@@ -251,6 +321,13 @@
                             top: 50%;
                             transform: translateY(-50%);
                         }
+                    }
+                }
+
+                a,
+                button {
+                    @include hover {
+                        color: $brick;
                     }
                 }
             }
@@ -371,8 +448,8 @@
     background-color: transparent;
     margin-left: 10px;
     position: relative;
-    width: 60px;
-    height: 60px;
+    width: 58px;
+    height: 58px;
 
     svg {
         color: $brown;
@@ -455,5 +532,27 @@
             margin-right: 25px;
             margin-top: 17px;
         }
+    }
+}
+
+@keyframes slideInSticky {
+    0% {
+        transform: translateY(-105%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutSticky {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-105%);
     }
 }

@@ -18,9 +18,6 @@
 @import 'layout/buttons.scss';
 
 // UIkit
-@import "uikit/base.scss";
-@import "uikit/navbar.scss";
-@import "uikit/logo.scss";
 @import "uikit/breadcrumb.scss";
 @import "uikit/form.scss";
 
@@ -43,7 +40,6 @@
 @import 'modules/stoat-map.scss';
 
 // Theme
-@import "theme/base.scss";
 @import "theme/header.scss";
 @import "theme/footer.scss";
 @import "theme/ie11.scss";
@@ -94,10 +90,6 @@ a:hover {
 	border-width: 2px;
 	color: $brown;
 	font-weight: $light;
-
-	&:focus {
-		border-color: $white;
-	}
 }
 
 .uk-checkbox:not(.uk-form-danger),
@@ -171,7 +163,7 @@ a:hover {
 .share-widget {
 	min-width: 90px;
 	overflow: hidden;
-	z-index: 2;
+	z-index: 5;
 
 	.uk-position-relative {
 		>svg {
@@ -222,3 +214,4 @@ a:hover {
 		}
 	}
 }
+

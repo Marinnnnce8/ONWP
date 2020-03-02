@@ -17,6 +17,7 @@
         url('../fonts/Ubuntu-LightItalic.ttf') format('ttf');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -46,6 +47,7 @@
         url('../fonts/Ubuntu-MediumItalic.ttf') format('ttf');
     font-weight: 500;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -65,6 +67,7 @@
         url('../fonts/Ubuntu-BoldItalic.ttf') format('ttf');
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -84,4 +87,5 @@
         url('../fonts/Ubuntu-Italic.ttf') format('ttf');
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }

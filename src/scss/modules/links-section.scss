@@ -74,14 +74,17 @@
 .link-box {
     clip-path: url('#svgPathLinks');
     min-height: 390px;
-    padding-bottom: 142px;
     overflow: hidden;
     position: relative;
     background-color: $orange;
+    box-shadow: none;
+    z-index: 0;
 
     h3,
     p {
         color: $black;
+        padding-left: 7px;
+        padding-right: 7px;
     }
 
     h3 {
@@ -90,6 +93,10 @@
         padding-bottom: 12px;
         backface-visibility: hidden;
         margin-bottom: 0;
+    }
+
+    p {
+        font-size: 16px;
     }
 
     .uk-card-media-top {
@@ -140,7 +147,7 @@
     }
 
     .uk-button {
-        left: 20px;
+        left: 25px;
         bottom: 0;
         margin-bottom: 30px;
         z-index: 101;
@@ -180,26 +187,33 @@
         }
     }
 
+    @media (max-width: $breakpointLarge) {
+        min-height: 420px;
+        .uk-button span {
+            max-width: calc(100% - 15px);
+            padding-right: 20px;
+            &::before {
+                right: 10px;
+            }
+        }
+    }
+     
     @media (max-width: $breakpointSmall) {
-
-        // min-height: 450px;
+        min-height: 390px;
+        .uk-button span {
+            max-width: none;
+            padding-right: 40px;
+            &::before {
+                right: 20px;
+            }
+        }
         .uk-card-body {
-            padding: 20px 20px 30px;
-            min-height: 60% !important;// sass-lint:disable-line no-important
+            padding: 20px 20px 30px 30px;
         }
 
         @include hover {
-            .uk-card-media-top {
-                transform: none;
-            }
-
             .uk-card-body {
-                min-height: 60% !important; // sass-lint:disable-line no-important
-            }
-
-            .link-box-text,
-            .uk-button {
-                opacity: 0;
+                min-height: 68% !important; // sass-lint:disable-line no-important
             }
         }
     }

@@ -1,4 +1,5 @@
 @media print {
+
 	.header,
 	.footer,
 	.nb-block-form,
@@ -6,7 +7,129 @@
 	.uk-button,
 	.uk-breadcrumb,
 	.uk-pagination,
-	.uk-modal {
+	.uk-modal,
+	.intro-inner,
+	.intro-left img,
+	.shape,
+	.sightings-inner,
+	.orkney-map,
+	.wildlife-box,
+	.footer-top-box span,
+	.footer-bottom,
+	.uk-slideshow,
+	.stoat-map-wrap,
+	.uk-card-media-top,
+	.banner-section,
+	.news-section,
+	.intro-section,
+	.uk-form-stacked .uk-form-label a,
+	.timeline-line  {
 		display: none !important;
+	}
+
+	.intro-section.home,
+	.gateway-section,
+	.links-section,
+	.sightings-section,
+	.wildlife-section,
+	.sightings-text,
+	.sightings-section .uk-container,
+	.timeline-inner {
+		padding: 0;
+	}
+
+	.sightings-section .uk-width-1-2\@l {
+		width: 100%;
+	} 
+
+	.wildlife-inner {
+		left: auto;
+		transform: none;
+	}
+
+	.wildlife-text {
+		position: relative !important;
+		max-width: 1200px;
+		transform: none;
+		left: auto;
+		top: auto;
+		margin: 0 auto;
+	}
+
+	.gateway-section {
+
+		h1 {
+			font-size: 54px;
+		}
+
+		.uk-text-lead {
+			font-size: 28px;
+		}
+	}
+
+	.links-section {
+		.uk-grid-small {
+			margin-left: 0;
+		}
+		ul {
+			display: block;
+
+			li {
+				width: 100%;
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+
+	.link-box {
+		min-height: 0;
+		overflow: visible;
+		clip-path: none;
+		.uk-card-body,
+		.link-box-text {
+			position: relative !important;
+		}
+
+		.uk-card-body {
+			padding: 0;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		.link-box-text {
+			opacity: 1;
+			transform: none;
+		}
+
+		a {
+			display: none !important;
+		}
+	}
+	.timeline-inner {
+		.uk-flex {
+			flex-direction: column;
+			justify-content: flex-start;
+		}
+		img {
+			display: none !important;
+		}
+		.uk-width-1-2\@s {
+			width: 100%;
+		}
+		.timeline-date.left .num, .timeline-date.left .date {
+			text-align: left;
+		}
+		.timeline-date.right {
+			padding-left: 0;
+		}
+		.timeline-card, .timeline-date {
+			max-width: 100%;
+		}
+		.uk-margin-medium {
+			margin-bottom: 0;
+		}
 	}
 }

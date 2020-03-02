@@ -1,9 +1,9 @@
 /**
  * NB Communication JS
  *
- * @version 3.2.2
+ * @version 3.3.3
  * @author Chris Thomson
- * @copyright 2019 NB Communication Ltd
+ * @copyright 2020 NB Communication Ltd
  *
  */
 
@@ -15,7 +15,7 @@ if(typeof UIkit === "undefined") {
 	typeof exports === "object" && typeof module !== "undefined" ? module.exports = factory() :
 	typeof define === "function" && define.amd ? define("nb", factory) :
 	(global = global || self, global.NB = factory());
-}(this, function () { "use strict";
+}(this, function() { "use strict";
 
 	/**
 	 * UIkit utilities
@@ -24,28 +24,33 @@ if(typeof UIkit === "undefined") {
 	 *
 	 */
 	var $uk = UIkit.util;
+
+	/**
+	 * Javascript Promise
+	 *
+	 */
 	var Promise = "Promise" in window ? window.Promise : $uk.Promise;
 
 	/**
 	 * Select a single HTML element from name and context
-	 * 
+	 *
 	 * This extends `UIkit.util.$` by inferring the selector's prefix,
 	 * defaulting to the period for a class selector.
-	 * 
+	 *
 	 * This can be useful if selector names are defined as a variable
 	 * without a prefix.
-	 * 
+	 *
 	 * ```
 	 * var n = "name";
-	 * 
+	 *
 	 * // Get by class name (.name)
 	 * var element = $nb.$(n);
 	 * var element =  $uk.$("." + n);
-	 * 
+	 *
 	 * // Get by ID (#name)
 	 * var element = $nb.$(n, "#");
 	 * var element = $uk.$("#" + n);
-	 * 
+	 *
 	 * // Get by data attribute ([data-name]);
 	 * var element = $nb.$(n, "[data]");
 	 * var element = $uk.$("[data-" + n + "]");
@@ -60,7 +65,7 @@ if(typeof UIkit === "undefined") {
 
 	/**
 	 * Select multiple HTML elements from name and context
-	 * 
+	 *
 	 * This extends `UIkit.util.$$` by inferring the selector's prefix,
 	 * defaulting to the period for a class selector.
 	 *
@@ -72,7 +77,7 @@ if(typeof UIkit === "undefined") {
 	}
 
 	/**
-	 * Select a single or multiple HTML elements from name and context
+	 * Select single/multiple HTML elements from name and context
 	 *
 	 * @param {Array} args
 	 * @param {Boolean} [multiple]
@@ -205,6 +210,7 @@ if(typeof UIkit === "undefined") {
 						break;
 					default:
 						if(value !== false) {
+							if(key) key = $uk.hyphenate(key);
 							if(value == "" || $uk.isBoolean(value)) {
 								attributes.push(key);
 							} else {
@@ -269,7 +275,7 @@ if(typeof UIkit === "undefined") {
 
 	/**
 	 * Data
-	 * 
+	 *
 	 * Retrieve the value of a data-* prefixed attribute
 	 * and/or parse a data string to an object.
 	 *
@@ -279,10 +285,10 @@ if(typeof UIkit === "undefined") {
 	 *
 	 */
 	function data(value, key) {
-		
+
 		if($uk.isPlainObject(value)) return value;
 		if($uk.isNode(value)) value = $uk.data(value, key);
-		
+
 		try {
 			value = JSON.parse(value);
 		} catch(e) {
@@ -290,7 +296,7 @@ if(typeof UIkit === "undefined") {
 				value = value.split(key);
 			}
 		}
-		
+
 		return value;
 	}
 
@@ -363,7 +369,7 @@ if(typeof UIkit === "undefined") {
 
 		if($uk.isPlainObject(response)) {
 			if("errors" in response) {
-				response = response.errors;
+				response = getResponseErrors(response.errors);
 				if(status < 400) status = 0;
 			} else if("data" in response) {
 				response = response.data;
@@ -374,6 +380,38 @@ if(typeof UIkit === "undefined") {
 		}
 
 		return {status: parseInt(status), response: response};
+	}
+
+	/**
+	 * Parse response errors
+	 *
+	 * @param {Object} e
+	 * @return {Array}
+	 *
+	 */
+	function getResponseErrors(e) {
+		var errors = [];
+		for(var i = 0; i < e.length; i++) {
+			errors.push(e[i].message);
+		}
+		return errors;
+	}
+
+	/**
+	 * Perform an asynchronous request to a GraphQL API
+	 *
+	 * @param {string} query
+	 * @param {Object} [variables]
+	 * @return {Promise}
+	 *
+	 */
+	function graphql(query, variables) {
+		var data = {query: query};
+		if($uk.isPlainObject(variables)) data.variables = variables;
+		return ajax(NB.options.graphql, {
+			method: "POST",
+			data: JSON.stringify(data)
+		});
 	}
 
 	/**
@@ -396,7 +434,7 @@ if(typeof UIkit === "undefined") {
 		options = $uk.assign({
 			focus: false,
 			tag: "img",
-			"uk-img": true,
+			ukImg: true,
 			src: "url"
 		}, options);
 
@@ -408,7 +446,7 @@ if(typeof UIkit === "undefined") {
 		if($uk.isPlainObject(image)) {
 			if(image.focus && $uk.isPlainObject(image.focus)) focus = $uk.assign(focus, image.focus);
 			if(image.srcset) srcset = image.srcset;
-			if(image.sizes) sizes = image.sizes;
+			if(image.sizes && image.srcset) sizes = image.sizes;
 			image = image[options.src];
 		}
 
@@ -441,21 +479,22 @@ if(typeof UIkit === "undefined") {
 		if(attrs.width == 0 || !isImg) attrs.width = false;
 		if(attrs.height == 0 || !isImg) attrs.height = false;
 		if(!isImg) attrs.alt = false;
+		if(!srcset && "sizes" in attrs) delete(attrs.sizes);
 
 		// Set remaining attributes
-		if(options["uk-img"]) {
+		if(options.ukImg) {
 			var a = { // Use uk-img lazy loading
 				src: (isImg ? "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" : false),
-				"data-src": image,
-				"data-srcset": srcset,
-				"data-uk-img": options["uk-img"]
+				dataSrc: image,
+				dataSrcset: srcset,
+				dataUkImg: options.ukImg
 			};
-			if(sizes) a[(isImg ? "" : "data-") + "sizes"] = sizes;
+			if(sizes && srcset) a.dataSizes = sizes;
 			attrs = $uk.assign(a, attrs);
 		} else if(isImg) {
 			attrs.src = image;
 			attrs.srcset = srcset;
-			attrs.sizes = sizes;
+			if(srcset) attrs.sizes = sizes;
 		} else {
 			// Set background-image style
 			attrs.style = "background-image:url(" + image + ");" + (attrs.style ? attrs.style : "");
@@ -505,6 +544,60 @@ if(typeof UIkit === "undefined") {
 	}
 
 	/**
+	 * Load assets
+	 *
+	 * @param {Array} assets The src url of the script to be loaded.
+	 * @param {Promise}
+	 *
+	 */
+	function loadAssets(assets) {
+		var promises = [];
+		for(var i = 0; i < assets.length; i++) {
+			var asset = assets[i];
+			promises.push(asset.substr(-2) == "js" ? loadScript(asset) : loadStyle(asset));
+		}
+		return Promise.all(promises);
+	}
+
+	/**
+	 * Load a script and append it to the body
+	 *
+	 * @param {string} src The src url of the script to be loaded.
+	 * @return {Promise}
+	 *
+	 */
+	function loadScript(src) {
+		return new Promise(function(resolve) {
+			var tag = document.createElement("script");
+			tag.src = src;
+			tag.async = true;
+			tag.onload = function() {
+				resolve();
+			};
+			$uk.append("body", tag);
+		});
+	}
+	
+	/**
+	 * Load a style and append it to the head
+	 *
+	 * @param {string} src The src url of the style to be loaded.
+	 * @return {Promise}
+	 *
+	 */
+	function loadStyle(src) {
+		return new Promise(function(resolve) {
+			var tag = document.createElement("link");
+			tag.rel = "stylesheet";
+			tag.href = src;
+			tag.onload = function() {
+				resolve();
+			};
+			$uk.append("head", tag);
+		});
+	}
+
+	/**
 	 * Make a string a tag if it is not already
 	 *
 	 * @param {string} str The string to be processed.
@@ -529,6 +622,19 @@ if(typeof UIkit === "undefined") {
 		if(punctuation === void 0) punctuation = ".";
 		if(!/.*[.,\/!?\^&\*;:{}=]$/.test(str)) str = str + punctuation;
 		return str;
+	}
+
+	/**
+	 * Create a query string from data
+	 *
+	 * @param {Object} query
+	 * @return {string}
+	 *
+	 */
+	function queryString(query) {
+		return "?" + Object.keys(query).map(function(key) {
+			return key + "=" + query[key];
+		}).join("&");
 	}
 
 	/**
@@ -608,13 +714,13 @@ if(typeof UIkit === "undefined") {
 		attrs.class.push("uk-alert-" + style);
 
 		// Set options
-		attrs["data-uk-alert"] = close || Object.keys(options).length ?
+		attrs["dataUkAlert"] = close || Object.keys(options).length ?
 			$uk.assign({}, NB.options.ukAlert, options) : true;
 
 		return wrap(
 			(close ? attr({
 				class: "uk-alert-close",
-				"data-uk-close": true
+				dataUkClose: true
 			}, "a", true) : "") +
 			wrap(message, (isTag(message) ? "" : "p")),
 			attrs,
@@ -635,7 +741,7 @@ if(typeof UIkit === "undefined") {
 		var options = $uk.isString(icon) ? {icon: icon.replace("uk-", "")} : icon;
 		if(!$uk.isPlainObject(options)) return;
 
-		var a = "data-uk-icon";
+		var a = "dataUkIcon";
 		var attrs = {};
 		var tag = "span";
 
@@ -645,7 +751,7 @@ if(typeof UIkit === "undefined") {
 			if($uk.isNumeric(arg)) {
 				options.ratio = $uk.toNumber(arg);
 			} else if($uk.isString(arg)) {
-				if($uk.startsWith(arg, "data-uk")) {
+				if($uk.startsWith($uk.hyphenate(arg), "data-uk")) {
 					a = arg;
 				} else {
 					tag = arg;
@@ -702,7 +808,7 @@ if(typeof UIkit === "undefined") {
 	 *
 	 */
 	function ukSpinner() {
-		var args = [{}, "data-uk-spinner"];
+		var args = [{}, "dataUkSpinner"];
 		for(var i = 0; i < arguments.length; i++) args.push(arguments[i]);
 		return ukIcon.apply(null, args);
 	}
@@ -865,6 +971,28 @@ if(typeof UIkit === "undefined") {
 	};
 
 	/**
+	 * Debug Timer
+	 *
+	 */
+	function debugTimer() {
+		var end = false;
+		var label = [];
+		for(var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if($uk.isBoolean(arg)) {
+				end = arg;
+			} else if($uk.isObject(arg)) {
+				label.push(JSON.stringify(arg));
+			} else if($uk.isArray(arg)) {
+				label.push(arg);
+			} else {
+				label.push(arg);
+			}
+		}
+		console["time" + (end ? "End" : "")](label.join(" - "));
+	}
+
+	/**
 	 * Obfuscate
 	 *
 	 * Process and output obfuscated text.
@@ -879,15 +1007,15 @@ if(typeof UIkit === "undefined") {
 	 * Plain Text
 	 * ```
 	 * $nb.attr({
-	 *     "data-uk-nb-obfuscate": base64_encode("Text to obfuscate")
+	 *     dataUkNbObfuscate: base64_encode("Text to obfuscate")
 	 * }, "div", true);
 	 * ```
 	 *
 	 * Email address link (mailto:)
 	 * ```
 	 * $nb.attr({
-	 *     "aria-label": "Send an email",
-	 *     "data-uk-nb-obfuscate": $nb.base64_encode({
+	 *     ariaLabel: "Send an email",
+	 *     dataUkNbObfuscate: $nb.base64_encode({
 	 *         href: "mailto:info@nbcommunication.com",
 	 *         text: "Email Us"
 	 *     })
@@ -897,8 +1025,8 @@ if(typeof UIkit === "undefined") {
 	 * Telephone number link (tel:)
 	 * ```
 	 * $nb.attr({
-	 *     "aria-label": "Make a call",
-	 *     "data-uk-nb-obfuscate": {
+	 *     ariaLabel: "Make a call",
+	 *     dataUkNbObfuscate: {
 	 *         href: "tel:01595696155",
 	 *         text: "+44 (0) 1595 696155",
 	 *         class: "nb-tel"
@@ -927,7 +1055,7 @@ if(typeof UIkit === "undefined") {
 					}
 				}
 			}
-			
+
 			this.$el.innerHTML = text;
 			$uk.removeAttr(this.$el, "data-" + this.$name);
 		}
@@ -941,7 +1069,7 @@ if(typeof UIkit === "undefined") {
 	 * ### Example
 	 * ```
 	 * $nb.wrap(formFields, {
-	 *     "data-uk-nb-form": "This form requires confirmation to submit!"
+	 *     dataUkNbForm: "This form requires confirmation to submit!"
 	 * }, "form");
 	 * ```
 	 *
@@ -963,20 +1091,34 @@ if(typeof UIkit === "undefined") {
 
 		beforeConnect: function() {
 
+			var form = this.$el;
+
 			// Update the form's CSRF post token
-			var inputCSRF = $uk.$("input[type=hidden]._post_token", this.$el);
+			var inputCSRF = $uk.$("input[type=hidden]._post_token", form);
 			if(inputCSRF) {
-				ajax("?CSRF=1").then(function(result) {
+				graphql("{CSRF {tokenName tokenValue}}").then(function(result) {
 					if(result.status == 200) {
-						$uk.attr(inputCSRF, "name", result.response.name);
-						$uk.attr(inputCSRF, "value", result.response.value);
+						var CSRF = result.response.CSRF;
+						$uk.attr(inputCSRF, "name", CSRF.tokenName);
+						$uk.attr(inputCSRF, "value", CSRF.tokenValue);
 					}
-				});
+				}, $uk.noop);
 			}
+
+			// Handle Inputfield conditionals
+			formConditionals.call(form, "show");
+			formConditionals.call(form, "required");
 
 			// Add the scroller div
 			this.scroller = $uk.$(attr({hidden: true}, "div", true));
-			$uk.append(this.$el, this.scroller);
+			$uk.append(form, this.scroller);
+		},
+
+		connected: function() {
+			var form = this.$el;
+			setTimeout(function() {
+				$uk.trigger(form, "onload", this);
+			}, duration);
 		},
 
 		events: {
@@ -995,11 +1137,11 @@ if(typeof UIkit === "undefined") {
 				if(previous) $uk.remove(previous);
 
 				$uk.$$("input[required], select[required], textarea[required]", form).forEach(function(input) {
-
-					var inputWrap = input.closest(".nb-form-content");
-
 					$uk.attr(input, "aria-invalid", false);
-					$uk.remove($("nb-form-error", inputWrap));
+					$uk.remove($("nb-form-error", input.closest(".nb-form-content")));
+				});
+
+				$uk.$$("input[required], select[required], textarea[required]", form).forEach(function(input) {
 
 					if(!input.validity.valid) {
 
@@ -1013,17 +1155,17 @@ if(typeof UIkit === "undefined") {
 						errors.push(wrap((label ? label.innerHTML + ": " : "") + error, {
 							href: "#" + (id ? id : form.id),
 							class: "uk-link-reset",
-							"data-uk-scroll": {
+							dataUkScroll: {
 								duration: NB.options.speed,
 								offset: NB.options.offset
 							}
 						}, "a"));
 
 						var e = wrap(ukIcon("warning", 0.75) + " " + error, "uk-text-danger nb-form-error");
-						var alert = $uk.$("[role=alert]", inputWrap);
+						var alert = $uk.$("[role=alert]", input.closest(".nb-form-content"));
 
 						if(alert) {
-							$uk.html(alert, e);
+							$uk.append(alert, e);
 						} else {
 							$uk.before(input, e);
 						}
@@ -1095,6 +1237,8 @@ if(typeof UIkit === "undefined") {
 		// Captcha
 		this.captcha = $("g-recaptcha", form);
 
+		$uk.trigger(form, "beforeSend", this);
+
 		// Send the data
 		var this$1 = this;
 		ajax(form.action, {
@@ -1132,8 +1276,7 @@ if(typeof UIkit === "undefined") {
 
 		if($uk.includes([401, 412, 500], status)) {
 			// Unauthorised || Precondition failed || Server Error
-			$uk.html(this.button, this.buttonText);
-			if(this.captcha) grecaptcha.reset();
+			formReset.call(this);
 			UIkit.modal.alert(ukAlert(errors, "danger"));
 		} else {
 			formComplete.call(this);
@@ -1154,12 +1297,15 @@ if(typeof UIkit === "undefined") {
 
 		if($uk.isPlainObject(message)) {
 			if(message.notification) ukNotification(message.notification);
-			if(message.redirect) {
-				if($uk.isString(message.redirect)) {
-					window.location.href = message.redirect;
-				} else {
-					window.location.reload();
+			if("redirect" in message) {
+				if(message.redirect) {
+					if($uk.isString(message.redirect)) {
+						window.location.href = message.redirect;
+					} else {
+						window.location.reload();
+					}
 				}
+				formReset.call(this);
 				return;
 			}
 			message = message.message;
@@ -1190,6 +1336,225 @@ if(typeof UIkit === "undefined") {
 	}
 
 	/**
+	 * Reset the form
+	 *
+	 *
+	 */
+	function formReset() {
+		$uk.html(this.button, this.buttonText);
+		if(this.captcha) grecaptcha.reset();
+	}
+
+	/**
+	 * Evaluate Inputfield conditional
+	 *
+	 * @param {*} value1
+	 * @param {string} operator
+	 * @param {*} value2
+	 * @return {boolean}
+	 *
+	 */
+	function formConditional(value1, operator, value2) {
+		var match = false;
+		switch(operator) {
+			case "=":
+				match = value1 == value2;
+				break;
+			case '!=':
+				match = value1 != value2;
+				break;
+			case '>':
+				match = value1 > value2;
+				break;
+			case '<':
+				match = value1 < value2;
+				break;
+			case '>=':
+				match = value1 >= value2;
+				break;
+			case '<=':
+				match = value1 <= value2;
+				break;
+			case '*=':
+			case '%=':
+				match = $uk.includes(value1, value2);
+				break;
+		}
+		return match;
+	}
+
+	/**
+	 * Handle Inputfield conditionals
+	 *
+	 * @param {string} type
+	 *
+	 */
+	function formConditionals(type) {
+
+		var form = this;
+		var inputfields = $uk.$$("[data-" + type + "-if]", form); // Inputfields with if conditions
+		if(!inputfields.length) return;
+
+		var conditionals = [];
+		var inputs = []; // All inputs to attach the onchange event to
+		inputfields.forEach(function(inputfield) {
+
+			var conditional = {
+				inputfield: inputfield, // The inputfield with conditions
+				inputs: [], // The field names of the inputs used in the conditions
+				conditions: [] // The conditions
+			};
+
+			// Split conditions and cycle
+			var parts = $uk.data(inputfield, type + "-if").match(/(^|,)([^,]+)/g);
+			for(var n = 0; n < parts.length; n++) {
+
+				// Match condition
+				var match = parts[n].match(/^[,\s]*([_.|a-zA-Z0-9]+)(=|!=|<=|>=|<|>|%=)([^,]+),?$/);
+				if(!match) continue;
+
+				// Condition
+				var field = match[1];
+				var operator = match[2];
+				var value = match[3];
+
+				// Fields and values can be multiple
+				var fields = $uk.includes(field, "|") ? field.split("|") : [field];
+				var values = $uk.includes(value, "|") ? value.split("|") : [value];
+
+				// Remove quotes from values
+				for(var fv = 0; fv < values.length; fv++) {
+					values[fv] = values[fv].replace(/^('|")|('|")$/g, "");
+				}
+
+				// Add to conditional data
+				conditional.inputs = conditional.inputs.concat(fields);
+				inputs = inputs.concat(fields);
+				conditional.conditions.push({
+					fields: fields,
+					operator: operator,
+					values: values,
+				});
+			}
+
+			conditionals.push(conditional);
+		});
+
+		$uk.on(document, "UIkit_initialized", function() {
+
+			// Cycle through all the inputs used in conditions and attach the event handler
+			for(var i = 0; i < inputs.length; i++) {
+
+				var name = inputs[i];
+				var input = $uk.$$("[name=" + name + "]", form);
+				if(!input.length) input = $uk.$$("[name='" + name + "[]']", form);
+
+				if(input.length) {
+
+					// Attach onchange event
+					$uk.on(input, "change", function() {
+
+						for(var n = 0; n < conditionals.length; n++) {
+
+							var conditional = conditionals[n];
+							// If this input is not used in this inputfields conditions
+							if(!$uk.includes(conditional.inputs, this.name.replace("[]", ""))) continue;
+
+							var matches = 0;
+							var required = conditional.conditions.length; // The number of conditions to be met
+							for(var c = 0; c < required; c++) {
+
+								var condition = conditional.conditions[c];
+								var fields = condition.fields;
+								var operator = condition.operator;
+								var values = condition.values;
+
+								for(var fn = 0; fn < fields.length; fn++) {
+
+									var name = fields[fn];
+									var inputs = $uk.$$("[name=" + name + "]", form);
+
+									if(inputs.length == 1) {
+										// Single input
+										var input = inputs[0];
+										for(var fv = 0; fv < values.length; fv++) {
+											var value = values[fv];
+											if(input.type == "checkbox") {
+												if(formConditional((input.checked ? input.value : 0), operator, value)) matches++;
+											} else if(formConditional(input.value, operator, value)) {
+												matches++;
+											}
+										}
+									} else if(inputs.length > 1) {
+										// Radio
+										var checked = false;
+										inputs.forEach(function(input) {
+											if(input.checked) {
+												checked = true;
+												for(var fv = 0; fv < values.length; fv++) {
+													if(formConditional(input.value, operator, values[fv])) matches++;
+												}
+											}
+										});
+										if(!checked && formConditional("", operator, values[fv])) matches++;
+									} else {
+
+										// Select Multiple / Checkboxes
+										var inputs = $uk.$$("[name='" + name + "[]']");
+										if(inputs.length) {
+											var inputValues = [];
+											inputs.forEach(function(input) {
+												if(input.type == "checkbox") {
+													if(input.checked) inputValues.push(input.value);
+												} else {
+													var options = input.options;
+													for(var o = 0; o < options.length; o++) {
+														var option = options[o];
+														if(option.selected) inputValues.push(option.value);
+													}
+												}
+											});
+											if(!inputValues.length) inputValues.push("");
+											var matchesMultiple = 0;
+											for(var iv = 0; iv < inputValues.length; iv++) {
+												for(var fv = 0; fv < values.length; fv++) {
+													if(formConditional(inputValues[iv], operator, values[fv])) {
+														matchesMultiple++;
+													}
+												}
+											}
+											if(matchesMultiple) matches++;
+										}
+									}
+								}
+							}
+
+							var inputfield = conditional.inputfield;
+							var matched = matches >= required;
+							switch(type) {
+								case "show":
+									inputfield.style.display = matched ? "" : "none";
+									break;
+								case "required":
+									$uk[(matched ? "add" : "remove") + "Class"](inputfield, "nb-form-required");
+									$uk.$$("input, select, textarea", inputfield).forEach(function(input) {
+										if(input.offsetWidth > 0 || input.offsetHeight > 0) {
+											input.required = matches;
+										}
+									});
+									break;
+							}
+						}
+					});
+
+					// Trigger change event when UIkit is initialised
+					$uk.trigger(input, "change");
+				}
+			}
+		});
+	}
+
+	/**
 	 * JSON
 	 *
 	 * Initialise the JSON interface.
@@ -1201,15 +1566,17 @@ if(typeof UIkit === "undefined") {
 	 * All options:
 	 * ```
 	 * <div id='all-options' data-uk-nb-json='{
+	 *     "config": {"readMore": "Find Out More", "showTemplate": true},
 	 *     "clsMore": "uk-text-center uk-margin-large-top",
 	 *     "clsMoreButton": "uk-button-default",
+	 *     "error": "Sorry, the items cannot be rendered.",
 	 *     "form": "#query-form",
-	 *     "limit": 8,
-	 *     "more": "Find out more...",
-	 *     "query": {"key": "value"},
+	 *     "loadMore": "Find out more...",
+	 *     "message": "Found {count} of {total}",
+	 *     "noResults": "No items found",
+	 *     "query": "query($selectors: String, $start: Int) { post(selectors: $selectors, start: $start) { title } }",
 	 *     "render": "customRenderFunction",
-	 *     "start": 4,
-	 *     "url": "/"
+	 *     "variables": {"selectors": "title%=Lorem", "start": 0}
 	 * }'></div>
 	 * ```
 	 *
@@ -1218,7 +1585,7 @@ if(typeof UIkit === "undefined") {
 	 *
 	 * ### Rendering
 	 * To render the items returned, use the following in your theme's JS:
-	 * `function renderItems(items, config) {}`
+	 * `function renderItems(items) {}`
 	 * You can also specify a custom function by passing its name as the `render` parameter.
 	 *
 	 */
@@ -1227,35 +1594,68 @@ if(typeof UIkit === "undefined") {
 		args: "renderData",
 
 		props: {
-			clsMore: String, // Classes to use for the "Load More" element
-			clsMoreButton: String, // Classes to use for the "Load More" button
+			config: Object, // Configuration options.
+			clsMore: String, // Classes to use for the "Load More" element.
+			clsMoreButton: String, // Classes to use for the "Load More" button.
+			error: String, // The default error message.
 			form: String, // A selector for the query form.
-			limit: Number, // Limit results by this number.
-			more: String, // The text to use for the "Load More" button.
-			query: Object, // The query data (key: value).
+			loadMore: String, // The text to use for the "Load More" button.
+			message: String, // A message to be displayed after a successful request.
+			noResults: String, // A message to be displayed if no results are found.
+			query: String, // The GraphQL request query string.
 			render: String, // The name of the function used to render the data.
-			renderData: String, // Data to render instead of performing a request.
-			start: Number, // Start results from this number (default=0).
-			url: String // The url to request data from.
+			renderData: String, // Data to render instead of performing a request (default="renderItems").
+			variables: Object // The GraphQL request variables.
 		},
 
 		data: {
+			count: 0,
+			config: {},
+			clsMore: "uk-text-center uk-margin-large-top",
+			clsMoreButton: "uk-button-primary",
+			error: "Error",
 			errors: [],
+			init: 0,
+			initQuery: false,
+			items: [],
+			remaining: 0,
 			render: "renderItems",
 			response: {},
+			selectors: "",
 			start: 0,
 			status: 0,
-			url: ""
+			total: 0,
+			variables: {}
 		},
 
 		beforeConnect: function() {
 
+			// Set init values
+			var init = ["start", "selectors"];
+			for(var i = 0; i < init.length; i++) {
+				var key = init[i];
+				if(this.variables[key]) this[key] = this.variables[key];
+			}
+			this.init = this.start;
+
+			// Default error
+			this.errors = [this.error];
+
+			// Make sure classes are present
+			if(!$uk.includes(this.clsMore, "nb-json-more")) {
+				this.clsMore += " nb-json-more";
+			}
+			if($uk.includes(this.clsMoreButton, "uk-button-") && !$uk.includes(this.clsMoreButton, "uk-button ")) {
+				this.clsMoreButton += " uk-button";
+			}
+
 			var this$1 = this;
 			if(this.form && $uk.isUndefined(this._connected)) {
 
+				// Form filters
 				$uk.on(this.form, "submit reset", function(e) {
 
-					var query = {};
+					var selectors = [];
 					if(e.type == "submit") {
 
 						e.preventDefault();
@@ -1263,43 +1663,59 @@ if(typeof UIkit === "undefined") {
 
 						var formData = formDataEntries(this);
 						for(var i = 0; i < formData.length; i++) {
-							if(formData[i][1]) {
-								query[formData[i][0]] = formData[i][1];
+							var value = formData[i][1];
+							if(value) {
+								var name = formData[i][0];
+								var operator = "=";
+								var selectorData = data($uk.$("[name=" + name + "]", this), "json-selectors");
+								if($uk.isPlainObject(selectorData)) {
+									var selectorValues = selectorData.values[value];
+									for(var selectorKey in selectorData.selectors) {
+										selectors.push(selectorKey + selectorValues[selectorData.selectors[selectorKey]]);
+									}
+								} else {
+									if($uk.includes(name, operator)) operator = "";
+									selectors.push(name + operator + value);
+								}
 							}
 						}
 					}
 
-					jsonQuery.call(this$1, query);
+					jsonQuery.call(this$1, selectors.join(","));
 				});
 			}
 
-			if(!this.clsMore) this.clsMore = "uk-text-center uk-margin-large-top";
-			if(!$uk.includes(this.clsMore, "nb-json-more")) {
-				this.clsMore = "nb-json-more " + this.clsMore;
+			// Button Filters
+			var filters = $$("json-filter", "[data]");
+			if(filters.length)  {
+				$uk.on(filters, "click", function(e) {
+					e.preventDefault();
+					var selectors = $uk.data(this, "json-filter");
+					$uk.removeClass(filters, "uk-active");
+					if(selectors) $uk.addClass(this, "uk-active");
+					jsonQuery.call(this$1, selectors);
+				});
 			}
-
-			if(!this.clsMoreButton) this.clsMoreButton = "uk-button-primary";
-			if($uk.includes(this.clsMoreButton, "uk-button-") && !$uk.includes(this.clsMoreButton, "uk-button ")) {
-				this.clsMoreButton = "uk-button " + this.clsMoreButton;
-			}
-
-			this.init = this.start;
 		},
 
 		connected: function() {
 
 			var el = this.$el;
+			var this$1 = this;
+
+			$uk.on(el, "error", function() {
+				$uk.html(el, ukAlert(this$1.errors, this$1.status));
+			});
 
 			if(this.renderData) {
 
-				var out = jsonRender.call(this, base64_decode(this.renderData));
-				if(out) {
-					$uk.html(el, out);
+				this.response = base64_decode(this.renderData);
+				jsonParseResponse.call(this);
+
+				if(this.count) {
+					$uk.html(el, jsonRender.call(this));
 					$uk.trigger(el, "render", this);
 					$uk.trigger(el, "complete", this);
-				} else {
-					$uk.html(el, ukAlert(ukIcon("warning"), "danger"));
-					$uk.trigger(el, "error", this);
 				}
 
 				// Remove attribute and destroy
@@ -1307,13 +1723,24 @@ if(typeof UIkit === "undefined") {
 				this.$destroy();
 
 			} else {
-				jsonRequest.call(this);
-			}
 
-			var this$1 = this;
-			$uk.on(el, "error", function() {
-				$uk.html(el, ukAlert(this$1.errors, this$1.status));
-			});
+				var values = 0;
+				if(this.form) {
+					// Trigger submit if values present
+					var inputs = $uk.$$("input, select, textarea", $uk.$(this.form));
+					for(var i = 0; i < inputs.length; i++) {
+						if(inputs[i].value) {
+							values++;
+						}
+					}
+				}
+
+				if(values) {
+					$uk.trigger(this$1.form, "submit");
+				} else {
+					jsonRequest.call(this);
+				}
+			}
 		},
 
 		events: [
@@ -1332,6 +1759,43 @@ if(typeof UIkit === "undefined") {
 	};
 
 	/**
+	 * Parse a successful GraphQL JSON response
+	 *
+	 */
+	function jsonParseResponse() {
+		for(var key in this.response) {
+			var data = this.response[key];
+			if($uk.isArray(data)) {
+				this.config.query = key;
+				this.items = data;
+				this.count = data.length;
+			} else if(key == "getTotal") {
+				this.total = data;
+			}
+			// This can only handle a single query + getTotal;
+			if(this.count && this.total) break;
+		}
+	}
+
+	/**
+	 * Perform a new request with selectors
+	 *
+	 * @param {string} selectors
+	 *
+	 */
+	function jsonQuery(selectors) {
+		var selectors = [selectors];
+		if(this.selectors) selectors.push(this.selectors);
+		this.initQuery = false;
+		this.start = this.init;
+		this.total = 0;
+		this.variables.selectors = selectors.join(",");
+		this.variables.start = this.start;
+		$uk.html(this.$el, "");
+		jsonRequest.call(this);
+	}
+
+	/**
 	 * Request JSON data
 	 *
 	 */
@@ -1340,13 +1804,17 @@ if(typeof UIkit === "undefined") {
 		var el = this.$el;
 		var more = $("nb-json-more", el);
 
+		// Reset counts
+		this.count = 0;
+		this.remaining = 0;
+
 		// Remove previous errors
 		$uk.remove(".uk-alert", el);
 
-		// Create more button
+		// Create more element/button
 		if(!more) {
 			more = $uk.$(wrap(
-				wrap(this.more, {
+				wrap(this.loadMore, {
 					type: "button",
 					class: this.clsMoreButton
 				}, "button"),
@@ -1360,19 +1828,19 @@ if(typeof UIkit === "undefined") {
 		// Set button to loading
 		var moreButton = $uk.$("button", more);
 		$uk.attr(moreButton, "disabled", true);
-		$uk.html(moreButton, $uk.html(moreButton).replace(this.more, ukSpinner(0.467)));
+		$uk.html(moreButton, $uk.html(moreButton).replace(this.loadMore, ukSpinner(0.467)));
 
-		// Prepare data
-		var query = {};
-		query.start = this.start;
-		if($uk.isNumber(this.limit)) query.limit = this.limit;
-		for(var key in this.query) query[key] = this.query[key];
+		// Set start
+		this.variables.start = this.start;
+
+		if(!this.initQuery) {
+			this.initQuery = true;
+			$uk.trigger(el, "initQuery", this);
+		}
 
 		// Request
 		var this$1 = this;
-		ajax(this.url + "?" + Object.keys(query).map(function(key) {
-			return key + "=" + query[key];
-		}).join("&")).then(
+		graphql(this.query, this.variables).then(
 			function(result) {
 
 				this$1.status = result.status;
@@ -1385,12 +1853,18 @@ if(typeof UIkit === "undefined") {
 					$uk.removeAttr(moreButton, "disabled");
 					var spinner = $("uk-spinner", moreButton);
 					if(spinner) {
-						$uk.before(spinner, this$1.more)
+						$uk.before(spinner, this$1.loadMore)
 						$uk.remove(spinner);
 					}
 
-					// "Found" message
-					if(response.message) {
+					// Parse the data
+					jsonParseResponse.call(this$1);
+
+					// Get the number of results remaining
+					this$1.remaining = this$1.total ? (this$1.total - this$1.start - this$1.count) : -1;
+
+					// Display a message
+					if(this$1.message) {
 
 						var message = $("nb-json-message", el);
 						if(!message) {
@@ -1398,42 +1872,39 @@ if(typeof UIkit === "undefined") {
 							$uk.prepend(el, message);
 						}
 
+						var msg = this$1.message
+							.replace("{count}", (this$1.count + this$1.start - this$1.init))
+							.replace("{total}", (this$1.total - this$1.init));
+
 						$uk.html(
 							message,
-							ukAlert(
-								response.message
-									.replace("{count}", (response.count + response.start - this$1.init))
-									.replace("{total}", (response.total - this$1.init)),
-								"primary"
-							)
+							("jsonMessage" in window ? 
+								jsonMessage(msg) : ukAlert(msg, "primary"))
 						);
 					}
 
-					// Render
-					var out = jsonRender.call(this$1, response);
-					if(out) {
-						$uk.before(more, out);
+					// Output
+					if(this$1.count) {
+						$uk.before(more, jsonRender.call(this$1));
 						$uk.trigger(el, "render", this$1);
 					} else {
+						this$1.errors = [this$1.noResults];
+						this$1.status = 404;
 						$uk.trigger(el, "error", this$1);
 					}
 
 					// Process
-					if(!response.count || response.remaining === 0 || !this$1.more) {
+					if(this$1.remaining <= 0 || !this$1.count || !this$1.loadMore) {
 						// If no/all results have been found, hide button
 						more.style.display = "none";
 					} else {
-						// Set limit value
-						if($uk.isUndefined(this$1.limit)) this$1.limit = parseInt(response.limit);
 						// Set the new start value
-						this$1.start = this$1.start + this$1.limit;
+						this$1.start = this$1.start + this$1.count;
 					}
 
 					$uk.trigger(el, "complete", this$1);
 
 				} else {
-
-					this$1.errors = ["Error"];
 					$uk.trigger(el, "error", this$1);
 				}
 			},
@@ -1446,43 +1917,20 @@ if(typeof UIkit === "undefined") {
 	}
 
 	/**
-	 * Render JSON data
+	 * Render JSON items
 	 *
-	 * @param {Object} response
+	 * @param {Array} [items]
 	 * @return {string}
 	 *
 	 */
-	function jsonRender(response) {
+	function jsonRender(items) {
+		if(items === void 0) items = this.items;
 		var render = window[this.render];
-		if(!$uk.isFunction(render) || !$uk.isArray(response.items)) {
-			this.errors = ["Sorry, the items could not be rendered."];
+		if(!$uk.isFunction(render) || !$uk.isArray(items)) {
 			this.status = 500;
-			return;
+			return "";
 		}
-		if($uk.isUndefined(response.config) || !$uk.isPlainObject(response.config)) {
-			response.config = {};
-		}
-		return render.call(this, response.items, response.config);
-	}
-
-	/**
-	 * Perform a new request with specified data
-	 *
-	 * @param {Object} query
-	 *
-	 */
-	function jsonQuery(query) {
-
-		var this$1 = this;
-		if(arguments.length > 1) this$1 = UIkit.nbJson(arguments[1]);
-		var a = "data-" + this$1.$name;
-		var el = this$1.$el;
-		var request = data(el, a);
-
-		request.query = query;
-		$uk.html(el, "");
-		this$1.start = this$1.init;
-		$uk.attr(el, a, JSON.stringify(request));
+		return render.call(this, items);
 	}
 
 	UIkit.component("nbObfuscate", Obfuscate);
@@ -1498,6 +1946,7 @@ if(typeof UIkit === "undefined") {
 
 	// Options
 	NB.options = {
+		graphql: "/graphql",
 		offset: 128,
 		duration: duration,
 		ukAlert: {
@@ -1521,13 +1970,19 @@ if(typeof UIkit === "undefined") {
 		base64_encode: base64_encode,
 		data: data,
 		debounce: debounce,
+		debugTimer: debugTimer,
 		getRequestResponse: getRequestResponse,
+		graphql: graphql,
 		img: img,
 		imgBg: imgBg,
 		isTag: isTag,
 		jsonQuery: jsonQuery,
+		loadAssets: loadAssets,
+		loadStyle: loadStyle,
+		loadScript: loadScript,
 		makeTag: makeTag,
 		punctuateString: punctuateString,
+		queryString: queryString,
 		setOption: setOption,
 		ukAlert: ukAlert,
 		ukIcon: ukIcon,
