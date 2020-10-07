@@ -14,168 +14,11 @@
     }
 }
 
-.footer-top,
-.footer-middle {
-    position: relative;
-
-    >svg {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        z-index: -1;
-    }
-}
-
-.footer-top-inner {
-    background-color: $brick;
-    padding: 0 0 130px;
-    clip-path: url('#svgPathFooterTop');
-    position: absolute;
-    height: 100%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-
-.footer-top {
-    padding: 90px 0 130px;
-    position: relative;
-
-    .uk-container {
-        position: relative;
-        z-index: 1;
-    }
-
-    h2,
-    h3,
-    span,
-    p {
-        color: $white;
-    }
-
-    h2,
-    p {
-        font-weight: $light;
-    }
-
-    h2 {
-        font-size: 57px;
-        margin: 0 0 35px;
-    }
-
-    h3 {
-        font-size: 26px;
-        font-weight: $bold;
-        margin: 15px 0 10px;
-    }
-
-    p {
-        margin: 0 0 20px;
-        font-size: 16px;
-        line-height: 1.7;
-    }
-
-    span {
-        font-size: 64px;
-    }
-
-    .uk-button-default {
-        border: 0;
-
-        &::after {
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        &::before {
-            opacity: 0;
-            background-color: $brown;
-        }
-
-        @include hover {
-            &::before {
-                opacity: 1;
-            }
-        }
-    }
-
-    @media (max-width: $breakpointLarge) {
-        background-position: right;
-        padding: 90px 0 30vh;
-
-        >.uk-container {
-            padding: 0 40px;
-        }
-
-        h2 {
-            padding: 0 5px;
-        }
-    }
-
-    @media (max-width: 667px) {
-        padding: 90px 0 200px;
-    }
-
-    @media (max-width: $breakpointSmall) {
-        padding: 90px 0 35vh;
-
-        h2 {
-            font-size: 44px;
-            padding: 0;
-        }
-
-        >.uk-container {
-            padding: 0 20px;
-        }
-    }
-}
-
-.footer-top-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    &:not(:last-of-type) {
-        padding-right: 40px;
-    }
-
-    @media (max-width: $breakpointLarge) {
-        margin-bottom: 45px;
-        padding: 0 10px;
-
-        &:not(:last-of-type) {
-            padding: 0 10px 0;
-        }
-    }
-
-    @media (max-width: $breakpointSmall) {
-        margin-bottom: 50px;
-        padding: 0;
-
-        &:not(:last-of-type) {
-            padding: 0;
-        }
-
-        .uk-button {
-            min-width: 280px;
-            text-align: left;
-        }
-    }
-}
-
 .footer-middle {
     position: relative;
     padding: 55px 0;
     width: 100%;
     z-index: 0;
-
-    .shape {
-        color: $blue-light;
-        fill: $blue-light;
-    }
 
     h2 {
         font-size: 34px;
@@ -274,27 +117,6 @@
         }
     }
 
-    .footer-middle-credit {
-        padding-top: 65px;
-
-        a,
-        p {
-            color: $brown;
-            font-size: 13px;
-            font-weight: $light;
-        }
-
-        a {
-            @include hover {
-                color: $brick;
-            }
-        }
-
-        .nb-credit a {
-            font-weight: $bold;
-        }
-    }
-
     @media (max-width: $breakpointLarge) {
         padding: 60px 0 55px;
 
@@ -358,41 +180,9 @@
             }
         }
 
-        .enquiries,
-        .footer-middle-credit {
+        .enquiries {
             padding-top: 60px;
         }
-    }
-}
-
-.footer-middle-inner {
-    height: calc(100% + 85px);
-    position: absolute;
-    left: 50%;
-    width: 101.8%;
-    top: -85px;
-    bottom: 0;
-    transform: translateX(-50%);
-    z-index: -1;
-
-    >.shape {
-        color: $blue-light;
-        fill: $blue-light;
-    }
-
-    @media (max-width: $breakpointLarge) {
-        height: calc(100% + 150px);
-        top: -150px;
-    }
-
-    @media (max-width: 667px) {
-        height: calc(100% + 280px);
-        top: -280px;
-    }
-
-    @media (max-width: $breakpointSmall) {
-        height: calc(100% + 310px);
-        top: -340px;
     }
 }
 

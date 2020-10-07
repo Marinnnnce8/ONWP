@@ -1,16 +1,19 @@
 .banner-section {
     position: relative;
-    padding-top: 90px;
+    padding-top: 130px;
+    padding-left: 50px;
+    padding-right: 50px;
 
-    .banner-inner {
-        padding: 0 15px;
-    }
+    // .banner-inner {
+    //     padding: 0 15px;
+    // }
 
     &.home {
-        min-height: calc(100vh - 90px);
+        min-height: calc(100vh - 130px);
+
         .banner-inner {
             clip-path: url('#svgPathHero');
-            height: calc(100vh - 90px);
+            height: calc(100vh - 130px);
         }
 
         h1 {
@@ -19,12 +22,15 @@
         }
 
         .banner-text {
-            padding-top: 150px;
+            padding-left: 65px;
+            padding-right: 50px;
+            padding-top: 180px;
             z-index: 2;
         }
 
         .uk-button {
             z-index: 2;
+
             span {
                 padding: 13px 55px 13px 30px;
                 font-size: 18px;
@@ -34,11 +40,13 @@
 
     &.internal {
         max-height: 590px;
+
         .banner-inner {
             clip-path: url('#svgPathHeroInternal');
             max-height: 500px;
             min-height: 100%;
             height: 500px;
+
             .uk-container {
                 height: 100%;
             }
@@ -55,6 +63,7 @@
             .uk-position-bottom {
                 bottom: 200px;
             }
+
             .btn-scroll {
                 transform: translate(-50%, -115%);
             }
@@ -70,10 +79,8 @@
 
             .banner-text {
                 padding-top: 100px;
-            }
-
-            >.uk-container {
-                padding: 0 60px;
+                padding-left: 60px;
+                padding-right: 60px;
             }
         }
     }
@@ -86,6 +93,7 @@
                 bottom: 150px;
                 padding-left: 20px;
             }
+
             .btn-scroll {
                 transform: translate(-50%, -165%);
             }
@@ -101,6 +109,7 @@
             .banner-text {
                 width: 90% !important; // sass-lint:disable-line no-important
             }
+
             .btn-scroll {
                 transform: translate(-50%, -150%);
             }
@@ -117,16 +126,16 @@
         &.home {
             height: 97vh;
             padding-top: 190px;
+
             .banner-inner {
                 height: 97vh;
-            }
-            >.uk-container {
-                padding: 0 20px;
             }
 
             .banner-text {
                 padding: 0;
                 top: -35px;
+                padding-left: 35px;
+                padding-right: 35px;
             }
 
             .btn-scroll {
@@ -142,6 +151,7 @@
                 bottom: 200px;
                 padding-left: 0;
             }
+
             .btn-scroll {
                 transform: translate(-50%, -185%);
             }

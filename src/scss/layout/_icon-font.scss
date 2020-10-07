@@ -47,83 +47,89 @@
 	@if $filename == chevron-down {
 		$char: '\E007';
 	}
-	@if $filename == envelope {
+	@if $filename == donate  {
 		$char: '\E008';
 	}
-	@if $filename == ermine {
+	@if $filename == envelope {
 		$char: '\E009';
 	}
-	@if $filename == external-link {
+	@if $filename == ermine {
 		$char: '\E00A';
 	}
-	@if $filename == facebook-box {
+	@if $filename == external-link {
 		$char: '\E00B';
 	}
-	@if $filename == family {
+	@if $filename == facebook-box {
 		$char: '\E00C';
 	}
-	@if $filename == farming-and-gardening {
+	@if $filename == family {
 		$char: '\E00D';
 	}
-	@if $filename == hills {
+	@if $filename == farming-and-gardening {
 		$char: '\E00E';
 	}
-	@if $filename == instagram-logo {
+	@if $filename == hills {
 		$char: '\E00F';
 	}
-	@if $filename == live-streaming {
+	@if $filename == instagram-logo {
 		$char: '\E010';
 	}
-	@if $filename == man {
+	@if $filename == live-streaming {
 		$char: '\E011';
 	}
-	@if $filename == map-pin {
+	@if $filename == man {
 		$char: '\E012';
 	}
-	@if $filename == mission {
+	@if $filename == map-pin {
 		$char: '\E013';
 	}
-	@if $filename == newspaper-solid {
+	@if $filename == mission {
 		$char: '\E014';
 	}
-	@if $filename == play-button-arrowhead {
+	@if $filename == newspaper-solid {
 		$char: '\E015';
 	}
-	@if $filename == professions-and-jobs {
+	@if $filename == offer-land-access  {
 		$char: '\E016';
 	}
-	@if $filename == right-arrow {
+	@if $filename == play-button-arrowhead {
 		$char: '\E017';
 	}
-	@if $filename == rounded-corner-white-1 {
+	@if $filename == professions-and-jobs {
 		$char: '\E018';
 	}
-	@if $filename == rounded-corner-white {
+	@if $filename == right-arrow {
 		$char: '\E019';
 	}
-	@if $filename == sea-weasel-mammal-shape {
+	@if $filename == rounded-corner-white-1 {
 		$char: '\E01A';
 	}
-	@if $filename == stick-man {
+	@if $filename == rounded-corner-white {
 		$char: '\E01B';
 	}
-	@if $filename == stoat-orange-map-icon {
+	@if $filename == sea-weasel-mammal-shape {
 		$char: '\E01C';
 	}
-	@if $filename == time {
+	@if $filename == stick-man {
 		$char: '\E01D';
 	}
-	@if $filename == volunteer-1 {
+	@if $filename == stoat-orange-map-icon {
 		$char: '\E01E';
 	}
-	@if $filename == volunteer {
+	@if $filename == time {
 		$char: '\E01F';
 	}
-	@if $filename == weasel {
+	@if $filename == volunteer-1 {
 		$char: '\E020';
 	}
-	@if $filename == witness {
+	@if $filename == volunteer {
 		$char: '\E021';
+	}
+	@if $filename == weasel {
+		$char: '\E022';
+	}
+	@if $filename == witness {
+		$char: '\E023';
 	}
 
 	@return $char;
@@ -165,6 +171,9 @@
 .font-chevron-down {
 	@include font(chevron-down);
 }
+.font-donate  {
+	@include font(donate );
+}
 .font-envelope {
 	@include font(envelope);
 }
@@ -203,6 +212,9 @@
 }
 .font-newspaper-solid {
 	@include font(newspaper-solid);
+}
+.font-offer-land-access  {
+	@include font(offer-land-access );
 }
 .font-play-button-arrowhead {
 	@include font(play-button-arrowhead);
@@ -243,4 +255,4 @@
 .font-witness {
 	@include font(witness);
 }
-
+

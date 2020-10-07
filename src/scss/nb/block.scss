@@ -3,12 +3,6 @@
 		max-width: 740px;
 	}
 
-	.uk-text-lead {
-		font-size: 34px;
-		font-weight: $light;
-		color: $brown;
-	}
-
 	.nb-btn-label {
 		color: $brown;
 		font-weight: $light;
@@ -17,12 +11,6 @@
 
 	.uk-text-meta {
 		color: $brown;
-	}
-
-	@media (max-width: $breakpointSmall) {
-		.uk-text-lead {
-			font-size: 26px;
-		}
 	}
 }
 
@@ -500,6 +488,7 @@
 		.uk-select:not(.uk-form-danger),
 		.uk-textarea:not(.uk-form-danger) {
 			border-color: $gray-form;
+
 			&:focus {
 				border-color: $white;
 			}

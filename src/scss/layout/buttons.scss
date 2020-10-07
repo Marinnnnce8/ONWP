@@ -26,68 +26,63 @@ input[type='submit'] {
 	text-transform: none;
 	font-weight: $bold;
 	padding: 0;
-	color: $brown;
+	color: $white;
 	font-size: 16px;
 	line-height: 1.4;
 	position: relative;
 	transition: $nbSec ease-in-out;
+	border: 0;
 
-	&::before,
-	&::after {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		left: 0;
-		transition: $nbSec ease-in-out;
+	&.uk-button-text {
+		color: $brown;
+	}
+
+	&.uk-button-primary {
+		background-color: $orange;
+	}
+
+	&.uk-button-secondary {
+		background-color: $green-alt;
+	}
+
+	&.uk-button-default {
+		background-color: $brown;
 	}
 
 	&:not(.uk-button-text) {
-		clip-path: url('#svgPathButton');
+		border-radius: 5px;
+		padding: 15px 55px 16px 23px;
+		display: inline-block;
+		position: relative;
 
-		&::before,
-		&::after {
-			height: 100%;
-			top: 0;
-			width: 100%;
-		}
-
-		span {
-			z-index: 1;
-			padding: 13px 45px 13px 23px;
-			display: inline-block;
-			position: relative;
-			line-height: inherit;
-			font-size: inherit;
-			font-family: inherit;
+		&::before {
 			font-weight: inherit;
 			color: inherit;
-			width: 100%;
-
-			// &:not(.uk-icon):not([class^='font']) {
-			// 	font-size: inherit;
-			// 	font-weight: inherit;
-			// 	color: inherit;
-			// }
-			&::before {
-				font-weight: inherit;
-				color: inherit;
-				display: inline-block;
-				position: absolute;
-				right: 23px;
-				top: 50%;
-				font-size: 15px;
-				transform: translateY(-50%);
-			}
+			display: inline-block;
+			position: absolute;
+			right: 30px;
+			top: 50%;
+			font-size: 15px;
+			transform: translateY(-50%);
+			content: font-char($arrow-right);
+			font-family: 'svgicons';
 		}
 
 		@include hover {
-			background-color: transparent;
+			&:not(.uk-button-text) {
+				color: $white;
+			}
 
-			&::after {
-				height: 0;
-				left: 50%;
-				top: 50%;
-				width: 0;
+			&.uk-button-primary {
+				background-color: $brick;
+			}
+
+			&.uk-button-secondary {
+				background-color: $green-dark-alt;
+			}
+
+			&.uk-button-default {
+				background-color: $brown-dark;
 			}
 		}
 	}
@@ -97,147 +92,45 @@ input[type='submit'] {
 	}
 }
 
-
 .uk-button-text {
 	text-align: left;
 	padding: 0;
 	line-height: 2.3;
 
-	&::before,
-	&::after {
+	&::before {
 		background-color: $brown;
 		height: 3px;
 		bottom: 0;
 		border-bottom: 0;
-	}
-
-	&::before {
 		width: 0%;
 		transition: .4s ease;
-	}
-
-	&::after {
-		width: 100%;
-		transition: .6s ease;
 	}
 
 	@include hover {
 		&::before {
 			width: 100%;
 		}
-
-		&::after {
-			left: 100%;
-			width: 0%;
-			transition: .2s ease;
-		}
 	}
 }
 
 .uk-button-primary {
-	&:not(.uk-button-text) span {
-		color: $black;
-	}
-
-	&::before {
-		background-color: $orange-dark;
-	}
-
-	&::after {
-		background-color: $orange;
-	}
-
-	@include hover {
-		background-color: transparent;
-		color: $black;
-
-		span {
-			color: inherit;
-		}
-	}
 
 	&.blue {
-		color: $brown;
+		background-color: $blue-sky;
+		color: $white;
 
-		&::before {
-			background-color: transparent;
-		}
-
-		&::after {
-			background-color: $blue-sky;
-		}
 
 		@include hover {
-			&::before {
-				background-color: $orange;
-			}
-
-			span {
-				color: inherit;
-			}
-		}
-	}
-}
-
-.uk-button-secondary {
-
-	&::after {
-		background-color: $gray-secondary;
-	}
-
-	&::before {
-		background-color: $brown;
-		opacity: 0;
-	}
-
-	@include hover {
-		background-color: transparent;
-		color: $white;
-
-		&::before {
-			opacity: 1;
-		}
-
-		span {
-			color: inherit;
-		}
-	}
-}
-
-.uk-button-default {
-	border: 0;
-	&:not(.uk-button-text) {
-		&::after {
-			background-color: $white;
-			width: calc(100% - 6px);
-			height: calc(100% - 6px);
-			left: 3px;
-			top: 3px;
-		}
-	}
-
-	&::before {
-		background-color: rgba($brown, .25);
-	}
-
-	@include hover {
-		background-color: transparent;
-		color: $white;
-
-		&::before {
-			background-color: $brown;
-		}
-
-		span {
-			color: inherit;
+			background-color: $orange;
 		}
 	}
 }
 
 .uk-button-small {
-	&:not(.uk-button-text) span {
+	&:not(.uk-button-text) {
 		font-size: 13px;
 		padding: 11px 40px 11px 20px;
+
 		&::before {
 			font-size: 11px;
 			right: 20px;
@@ -246,12 +139,11 @@ input[type='submit'] {
 }
 
 .uk-button-large {
-	&:not(.uk-button-text) span {
+	&:not(.uk-button-text) {
 		font-size: 18px;
-		padding: 15px 50px 16px 30px;
+
 		&::before {
 			font-size: 16px;
-			right: 25px;
 		}
 	}
 }
@@ -305,7 +197,6 @@ input[type='submit'] {
 		box-shadow: 5px 15px 30px 0 rgba($black, .6);
 	}
 
-
 	>.shape {
 		color: $orange;
 		fill: $orange;
@@ -316,6 +207,7 @@ input[type='submit'] {
 		clip-path: none;
 		text-align: left;
 		width: 100%;
+
 		&::before {
 			right: 20px;
 		}

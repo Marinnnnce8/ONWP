@@ -1,33 +1,22 @@
 .intro-section {
+    z-index: 1;
+
     &.internal {
         padding: 10px 0 70px;
         margin-bottom: 70px;
     }
 
     &.home {
-        padding: 120px 0 100px;
+        padding: 90px 0 130px;
 
-        .uk-button-primary {
-
-            &::after {
-                background-color: $blue-dirty;
-            }
-
-            &::before {
-                opacity: 0;
-            }
-
-            @include hover {
-                &::before {
-                    opacity: 1;
-                }
-            }
+        .intro-text {
+            max-width: 970px;
+            width: 100%;
         }
     }
 
     @media (max-width: $breakpointLarge) {
 
-        &.home,
         &.internal {
             padding: 30px 0 100px;
 
@@ -38,17 +27,16 @@
                     flex-direction: column;
                 }
             }
-        }
-
-        .uk-button-primary span {
-            padding: 13px 41px 13px 23px;
-        }
-
-        &.internal {
 
             .uk-text-lead,
             .uk-breadcrumb {
                 padding-top: 0;
+            }
+        }
+
+        &.home {
+            .intro-text {
+                max-width: 100%;
             }
         }
     }
@@ -56,19 +44,6 @@
     @media (max-width: $breakpointSmall) {
         &.home {
             padding: 45px 0 390px;
-
-            >.uk-container {
-                padding: 0 20px;
-
-                >.uk-flex {
-                    flex-direction: column;
-                }
-            }
-
-            .uk-button-primary span {
-                text-align: left;
-                padding: 18px 55px 28px 30px;
-            }
         }
 
         &.internal {
@@ -82,13 +57,13 @@
 }
 
 .intro-inner {
-    color: $ochre;
-    fill: $ochre;
-    height: calc(100% + 70px);
+    color: $gray-alt;
+    fill: $gray-alt;
+    height: calc(100% + 5px);
     position: absolute;
-    left: 50.4%;
-    width: 99.3%;
-    top: -70px;
+    left: 50%;
+    width: calc(100% - 100px);
+    top: -5px;
     bottom: 0;
     transform: translateX(-50%);
     z-index: -1;
@@ -109,46 +84,7 @@
     }
 }
 
-.intro-left {
-    padding-right: 145px;
-    max-width: 890px;
-    width: 100%;
-    position: relative;
-
-    img {
-        position: absolute;
-        max-width: 270px;
-        top: 0;
-        height: auto;
-        width: 100%;
-        right: -5px;
-    }
-
-    @media (max-width: $breakpointLarge) {
-        position: static;
-        padding-right: 0;
-        max-width: 100%;
-
-        img {
-            top: unset;
-            bottom: -130px;
-            right: 45px;
-        }
-    }
-
-    @media (max-width: $breakpointSmall) {
-        img {
-            max-width: 225px;
-            right: 50px;
-            bottom: -95px;
-        }
-    }
-}
-
-.intro-right {
-    max-width: 310px;
-    padding-left: 40px;
-    width: 100%;
+.intro-bottom {
 
     p {
         padding-top: 75px;

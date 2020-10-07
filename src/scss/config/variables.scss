@@ -3,6 +3,7 @@
 
 $font-default: 'Ubuntu', sans-serif;
 $font-condensed: 'Ubuntu Condensed', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
 $bold: bold;
 $semi-bold: 600;
 $medium: 500;
@@ -20,7 +21,9 @@ $ochre-dark: #c3ba6d;
 $brown-light: #8f857c;
 $brown-medium: #8b837b;
 $brown: #4b351c;
+$brown-dark: #3d2a15;
 $brick: #c75300;
+$brick-dark: #bb5604;
 $blue-light: #dce7f3;
 $blue-dirty: #d2d291;
 $blue-pastel: #d0e2fb;
@@ -31,6 +34,7 @@ $blue-sky: #bdd0e4;
 $violet-light: #8c2d76;
 $violet-dark: #4d3243;
 $gray: #bec0c1;
+$gray-alt: #b1b2b4;
 $gray-form: #938e87;
 $gray-soft: #71675e;
 $gray-ice: #dcd8d3;
@@ -38,10 +42,12 @@ $gray-secondary: #dbd7d2;
 $gray-light: #edeae8;
 $gray-medium: #c5c1bc;
 $purple: #a7358c;
-$green: #7C662A;
+$green: #7c662a;
+$green-alt: #9a831f;
 $green-grass: #ab9120;
 $green-pastel: #d0e69b;
 $green-dark: #705f26;
+$green-dark-alt: #87741c;
 $green-golden: #9e8f20;
 $red: #ea4335;
 $red-light: #ffbb8e;
@@ -145,3 +151,4 @@ $nbSpeedLong: $nbSpeed * 2;
 $themeVar: 0; // Example, not used
 
 $chevron-down: 'chevron-down';
+$arrow-right: 'arrow-right';

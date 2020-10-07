@@ -17,13 +17,22 @@
     }
 
     .uk-button-primary {
-        margin-left: 35px;
+        margin-left: 20px;
+        padding: 15px 40px 16px 23px;
+        font-size: 18px;
+
+        &::before {
+            right: 18px;
+        }
     }
 
     .nav-top {
         li {
+            padding: 0 20px;
+
             a {
                 font-size: 16px;
+                font-family: $font-roboto;
             }
 
             &:first-of-type a {
@@ -96,7 +105,7 @@
         box-shadow: none;
         min-width: 270px;
         margin-top: 20px;
-        padding: 35px;
+        padding: 30px;
 
         &::after {
             background-color: transparent;
@@ -127,11 +136,13 @@
     }
 
     @media (max-width: $breakpointXlarge) {
-
         .uk-button-primary {
             margin-left: 0;
+            font-size: 16px;
+
             span {
                 padding: 16px 25px 16px 5px;
+
                 &::before {
                     right: 10px;
                     font-size: 15px;
@@ -142,10 +153,6 @@
         .uk-logo img {
             max-width: 110px;
         }
-
-        .nav-bottom li {
-            padding: 10px;
-        }
     }
 
     @media (max-width: $breakpointLarge) {
@@ -155,6 +162,7 @@
 
         .uk-button-primary span {
             padding: 16px 53px 16px 28px;
+
             &::before {
                 right: 30px;
             }
@@ -165,16 +173,25 @@
         }
     }
 
-    @media (max-width: $breakpointSmall) {
+    @media (max-width: $breakpointMedium) {
+        .nav-top li {
+            padding: 0 10px;
+        }
+    }
+
+    @media (max-width: $breakpointXsmallMax) {
         width: 100%;
+
         &.header-sticky {
             position: fixed !important; // sass-lint:disable-line no-important
             top: 0;
             animation: slideInSticky .5s ease-in-out forwards;
+
             >.shape {
                 color: $white;
                 fill: $white;
             }
+
             &::after {
                 background-color: transparent;
                 position: absolute;
@@ -187,10 +204,12 @@
                 box-shadow: 5px 15px 30px 0 rgba($black, .3);
             }
         }
+
         &.header-sticky-unactive {
             animation: slideOutSticky .5s ease-in-out forwards;
             position: fixed !important;
             top: 0;
+
             >.shape {
                 color: $white;
                 fill: $white;
@@ -209,12 +228,15 @@
 
 .header .nav-bottom,
 .nav-bottom {
+    >li {
+        padding: 0 10px;
+    }
 
     button,
     a {
         color: $brown;
         font-weight: $bold;
-        font-size: 20px;
+        font-size: 19px;
         line-height: 1.4;
 
         @include hover {
@@ -253,6 +275,13 @@
 
     ul li a {
         font-size: 18px;
+        padding: 8px 0;
+    }
+
+    @media (max-width: $breakpointXlarge) {
+        >li {
+            padding: 0 8px;
+        }
     }
 
     @media (max-width: $breakpointMediumMax) {
@@ -361,7 +390,7 @@
 
         button,
         a {
-            padding: 5px 25px;
+            padding: 5px 22px;
         }
 
         >li a,
@@ -370,6 +399,8 @@
         }
 
         li {
+            padding: 10px;
+
             &:not(:first-of-type) {
                 a {
                     font-size: 20px;
@@ -540,6 +571,7 @@
         transform: translateY(-105%);
         opacity: 0;
     }
+
     100% {
         transform: translateY(0);
         opacity: 1;
@@ -551,6 +583,7 @@
         transform: translateY(0);
         opacity: 1;
     }
+
     100% {
         opacity: 0;
         transform: translateY(-105%);

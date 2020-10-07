@@ -47,6 +47,25 @@
 
 
 // Template | Remove or Integrate
+@media (min-width: $breakpointLarge) {
+
+	.uk-grid-column-large,
+	.uk-grid-large {
+		margin-left: -85px;
+
+		>* {
+			padding-left: 85px;
+		}
+	}
+
+	*+.uk-grid-margin-large,
+	.uk-grid+.uk-grid-large,
+	.uk-grid+.uk-grid-row-large,
+	.uk-grid-large>.uk-grid-margin,
+	.uk-grid-row-large>.uk-grid-margin {
+		margin-top: 85px;
+	}
+}
 
 // uikit/base
 a,
@@ -112,7 +131,8 @@ a:hover {
 	background-color: $brown;
 }
 
-.uk-checkbox:focus, .uk-radio:focus {
+.uk-checkbox:focus,
+.uk-radio:focus {
 	border-color: rgba($brown, .6);
 }
 
@@ -214,4 +234,3 @@ a:hover {
 		}
 	}
 }
-

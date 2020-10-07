@@ -28,13 +28,6 @@ screen and (-ms-high-contrast: none) {
         background-color: $blue-light;
     }
 
-    .footer-top {
-        .uk-button-default {
-            background-color: $white;
-            z-index: 1;
-        }
-    }
-
     .footer-middle-inner>.shape {
         display: none;
     }
@@ -62,13 +55,6 @@ screen and (-ms-high-contrast: none) {
         }
         .banner-text {
             padding-top: 300px;
-        }
-    }
-
-    .footer-top {
-        .uk-button-default {
-            background-color: $white;
-            z-index: 1;
         }
     }
 
