@@ -47,6 +47,10 @@
 
 
 // Template | Remove or Integrate
+.uk-container-small {
+	max-width: 780px;
+}
+
 @media (min-width: $breakpointLarge) {
 
 	.uk-grid-column-large,
@@ -89,15 +93,23 @@ a:hover {
 }
 
 // uikit/breadcrumb
-.uk-breadcrumb> :last-child>* {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	display: inline-block;
-	vertical-align: middle;
+.uk-breadcrumb {
+	padding: 30px 0 50px;
+
+	> :last-child>* {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		display: inline-block;
+		vertical-align: middle;
+	}
 
 	@media (max-width: $breakpointXsmallMax) {
-		max-width: 128px;
+		padding: 20px 0 5px;
+
+		> :last-child>* {
+			max-width: 128px;
+		}
 	}
 }
 

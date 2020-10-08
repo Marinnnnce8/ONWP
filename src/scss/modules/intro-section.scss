@@ -1,10 +1,20 @@
 .intro-section {
     z-index: 1;
 
-    &.internal {
-        padding: 10px 0 70px;
-        margin-bottom: 70px;
-    }
+    // &.internal {
+    //     padding-top: 10px;
+    //     padding-bottom: 70px;
+    //     padding-left: 20px;
+    //     padding-right: 20px;
+    //     margin-bottom: 70px;
+
+    //     // .intro-inner {
+    //     //     color: $ochre;
+    //     //     fill: $ochre;
+    //     //     left: 50.1%;
+    //     //     width: calc(100% - 38px);
+    //     // }
+    // }
 
     &.home {
         padding: 90px 50px 130px;
@@ -17,22 +27,21 @@
 
     @media (max-width: $breakpointLarge) {
 
-        &.internal {
-            padding: 30px 0 100px;
+        // &.internal {
+        //     padding: 50px 20px 100px;
 
-            >.uk-container {
-                padding: 0 60px;
+        //     >.uk-container {
 
-                >.uk-flex {
-                    flex-direction: column;
-                }
-            }
+        //         >.uk-flex {
+        //             flex-direction: column;
+        //         }
+        //     }
 
-            .uk-text-lead,
-            .uk-breadcrumb {
-                padding-top: 0;
-            }
-        }
+        //     .uk-text-lead,
+        //     .uk-breadcrumb {
+        //         padding-top: 0;
+        //     }
+        // }
 
         &.home {
             .intro-text {
@@ -42,17 +51,24 @@
     }
 
     @media (max-width: $breakpointSmall) {
+        padding-left: 15px;
+        padding-right: 15px;
+
         &.home {
-            padding: 45px 20px 140px;
+            padding: 45px 15px 140px;
         }
 
-        &.internal {
-            padding: 20px 0 80px;
+        // &.internal {
+        //     padding-top: 20px;
+        //     padding-bottom: 80px;
+        //     margin-bottom: 0;
 
-            >.uk-container {
-                padding: 0 20px;
-            }
-        }
+        //     .intro-inner {
+        //         top: -70px;
+        //         left: 50%;
+        //         width: calc(100% - 28px);
+        //     }
+        // }
     }
 }
 
@@ -76,29 +92,5 @@
     @media (max-width: $breakpointSmall) {
         left: 49.5%;
         width: calc(100% - 24px);
-    }
-}
-
-.intro-bottom {
-
-    p {
-        padding-top: 75px;
-        font-size: 20px;
-    }
-
-    @media (max-width: $breakpointLarge) {
-        padding-left: 0;
-
-        p {
-            padding-top: 10px;
-        }
-    }
-
-    @media (max-width: $breakpointSmall) {
-        p {
-            padding-top: 0;
-            margin-bottom: 35px;
-            font-size: 16px;
-        }
     }
 }
