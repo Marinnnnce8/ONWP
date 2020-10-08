@@ -1,248 +1,137 @@
-.sightings-section {
-    position: relative;
-    padding-top: 90px;
+// .sightings-section {
+//     position: relative;
+//     padding-top: 90px;
 
-    .shape {
-        color: $green-grass;
-        fill: $green-grass;
-        width: calc(100% - 98px);
-        left: 55px;
-        top: -250px;
-        bottom: 0;
-        height: calc(100% + 250px);
-    }
+//     .shape {
+//         color: $green-grass;
+//         fill: $green-grass;
+//         width: calc(100% - 98px);
+//         left: 55px;
+//         top: -250px;
+//         bottom: 0;
+//         height: calc(100% + 250px);
+//     }
 
-    h2,
-    p {
-        color: $white;
-    }
+//     h2,
+//     p {
+//         color: $white;
+//     }
 
-    h2 {
-        font-size: 54px;
-    }
+//     h2 {
+//         font-size: 54px;
+//     }
 
-    p {
-        font-size: 20px;
-    }
-    @media (max-width: $breakpointLarge) {
-        >.uk-container {
-            padding: 0 60px;
-            >.uk-flex {
-                flex-direction: column;
-            }
-        }
-    }
-    @media (max-width: $breakpointSmall) {
-        >.uk-container {
-            padding: 0 20px;
-        }
-        h2 {
-            font-size: 44px;
-        }
-        p {
-            font-size: 18px;
-        }
-    }
-}
+//     p {
+//         font-size: 20px;
+//     }
+//     @media (max-width: $breakpointLarge) {
+//         >.uk-container {
+//             padding: 0 60px;
+//             >.uk-flex {
+//                 flex-direction: column;
+//             }
+//         }
+//     }
+//     @media (max-width: $breakpointSmall) {
+//         >.uk-container {
+//             padding: 0 20px;
+//         }
+//         h2 {
+//             font-size: 44px;
+//         }
+//         p {
+//             font-size: 18px;
+//         }
+//     }
+// }
 
-.sightings-inner {
-    clip-path: url('#svgPathSighting');
-    height: calc(100% + 250px);
-    position: absolute;
-    left: 50.5%;
-    width: 95.1%;
-    top: -250px;
-    bottom: 0;
-    transform: translateX(-50%);
-    z-index: -1;
-    @media (max-width: $breakpointLarge) {
-        width: calc(100% - 50px);
-        height: calc(100% + 300px);
-        top: -300px;
-        left: 33px;
-        transform: none;
-    }
-    @media (max-width: $breakpointSmall) {
-        width: calc(100% - 16px);
-        height: calc(100% + 450px);
-        top: -450px;
-        left: 9px;
-    }
-}
+// .sightings-inner {
+//     clip-path: url('#svgPathSighting');
+//     height: calc(100% + 250px);
+//     position: absolute;
+//     left: 50.5%;
+//     width: 95.1%;
+//     top: -250px;
+//     bottom: 0;
+//     transform: translateX(-50%);
+//     z-index: -1;
+//     @media (max-width: $breakpointLarge) {
+//         width: calc(100% - 50px);
+//         height: calc(100% + 300px);
+//         top: -300px;
+//         left: 33px;
+//         transform: none;
+//     }
+//     @media (max-width: $breakpointSmall) {
+//         width: calc(100% - 16px);
+//         height: calc(100% + 450px);
+//         top: -450px;
+//         left: 9px;
+//     }
+// }
 
-.sightings-bckg {
-    background-image: url('../img/sighting-hero.png');
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
+// .sightings-bckg {
+//     background-image: url('../img/sighting-hero.png');
+//     content: '';
+//     width: 100%;
+//     height: 100%;
+//     position: absolute;
+// }
 
-.sightings-text {
-    padding-bottom: 115px;
-    .uk-button {
-        font-size: 18px;
-        margin-top: 25px;
-        color: $black;
-        &:not(:first-of-type) {
-            margin-left: 20px;
-        }
-        &.brown {
-            &::after {
-                background-color: $brown;
-            }
-            span {
-                color: $white;
-                &::before {
-                    color: $white;
-                    font-size: 16px;
-                    top: 45%;
-                }
-            }
-        }
-    }
-    @media (max-width: $breakpointLarge) {
-        padding-bottom: 0;
-    }
-    @media (max-width: $breakpointSmall) {
-        >.uk-flex {
-            flex-direction: column;
-        }
-        .uk-button {
-            text-align: left;
-            margin-bottom: 15px;
-            min-width: 280px;
-            &:not(:first-of-type) {
-                margin-left: 0;
-                margin-top: 0;
-            }
-        }
-    }
-}
+// .sightings-text {
+//     padding-bottom: 115px;
+//     .uk-button {
+//         font-size: 18px;
+//         margin-top: 25px;
+//         color: $black;
+//         &:not(:first-of-type) {
+//             margin-left: 20px;
+//         }
+//         &.brown {
+//             &::after {
+//                 background-color: $brown;
+//             }
+//             span {
+//                 color: $white;
+//                 &::before {
+//                     color: $white;
+//                     font-size: 16px;
+//                     top: 45%;
+//                 }
+//             }
+//         }
+//     }
+//     @media (max-width: $breakpointLarge) {
+//         padding-bottom: 0;
+//     }
+//     @media (max-width: $breakpointSmall) {
+//         >.uk-flex {
+//             flex-direction: column;
+//         }
+//         .uk-button {
+//             text-align: left;
+//             margin-bottom: 15px;
+//             min-width: 280px;
+//             &:not(:first-of-type) {
+//                 margin-left: 0;
+//                 margin-top: 0;
+//             }
+//         }
+//     }
+// }
 
-.orkney-map {
-    position: relative;
-    max-width: 505px;
-    @media (max-width: $breakpointLarge) {
-        max-width: 100%;
-        top: -30px;
-        height: 640px;
-        z-index: -1;
-    }
-    @media (max-width: $breakpointSmall) {
-        height: 345px;
-        top: 0;
-        padding-top: 45px;
-    }
-}
-
-.sightings-pin {
-    background-color: $orange;
-    width: 75px;
-    height: 75px;
-    border-radius: 50%;
-    position: absolute;
-    left: 36%;
-    top: 44%;
-    &::before {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 38px;
-        color: $white;
-        z-index: 1;
-    }
-    @media (max-width: $breakpointSmall) {
-        width: 40px;
-        height: 40px;
-        &::before {
-            font-size: 20px;
-        }
-    }
-}
-
-.pulse {
-    background-color: transparent;
-    position: absolute;
-    border-radius: 50%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    &::before,
-    &::after {
-        position: absolute;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        content: '';
-    }
-
-    &::after {
-        border: 2px solid $orange;
-    }
-}
-
-
-$pulses: 4;
-
-@for $i from 1 through $pulses {
-    $num: 75 + (25 * $i);
-    $delay: $i * .8;
-
-    .pulse:nth-of-type(#{$i}) {
-        background-color: $orange;
-        width: 100%;
-        height: 100%;
-
-        &::after {
-            animation-name: border-pulse-#{$i};
-            @if ($i == 0) {
-                animation-delay: 0;
-            }@else if ($i % 4 == 1) {
-                animation-delay: #{$delay}s;
-            }@else {
-                animation-delay: #{$delay}s;
-            }
-            animation-duration: 4.5s;
-            animation-iteration-count: infinite;
-            animation-timing-function: ease-in-out;
-        }
-    }
-
-
-    @keyframes border-pulse-#{$i} {
-        0% {
-            background-color: rgba($orange, .8);
-            transform: scale(1);
-            border-width: 2px;
-        }
-
-        25% {
-            background-color: rgba($orange, .6);
-            transform: scale(1.5);
-            border-width: 1.5px;
-        }
-
-        50% {
-            background-color: rgba($orange, .4);
-            transform: scale(2);
-            border-width: 1px;
-        }
-
-        75% {
-            background-color: rgba($orange, .2);
-            transform: scale(2.5);
-            border-width: .5px;
-        }
-
-        100% {
-            background-color: rgba($orange, 0);
-            transform: scale(3);
-            border-color: transparent;
-        }
-    }
-}
+// .orkney-map {
+//     position: relative;
+//     max-width: 505px;
+//     @media (max-width: $breakpointLarge) {
+//         max-width: 100%;
+//         top: -30px;
+//         height: 640px;
+//         z-index: -1;
+//     }
+//     @media (max-width: $breakpointSmall) {
+//         height: 345px;
+//         top: 0;
+//         padding-top: 45px;
+//     }
+// }

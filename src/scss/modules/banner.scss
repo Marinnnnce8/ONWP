@@ -4,10 +4,6 @@
     padding-left: 50px;
     padding-right: 50px;
 
-    // .banner-inner {
-    //     padding: 0 15px;
-    // }
-
     &.home {
         min-height: calc(100vh - 130px);
         padding-left: 10px;
@@ -72,17 +68,16 @@
         }
 
         &.home {
-            height: 95vh;
-            min-height: 520px;
+            height: 100vh;
 
             .banner-inner {
-                height: 95vh;
+                height: 100%;
             }
 
             .banner-text {
                 padding-top: 100px;
-                padding-left: 60px;
-                padding-right: 60px;
+                padding-left: 30px;
+                padding-right: 30px;
             }
         }
     }
@@ -102,11 +97,6 @@
         }
 
         &.home {
-            height: 90vh;
-
-            .banner-inner {
-                height: 95vh;
-            }
 
             .banner-text {
                 width: 90% !important; // sass-lint:disable-line no-important
@@ -126,18 +116,13 @@
         }
 
         &.home {
-            height: 97vh;
             padding-top: 190px;
-
-            .banner-inner {
-                height: 97vh;
-            }
 
             .banner-text {
                 padding: 0;
                 top: -35px;
-                padding-left: 35px;
-                padding-right: 35px;
+                padding-left: 25px;
+                padding-right: 25px;
             }
 
             .btn-scroll {

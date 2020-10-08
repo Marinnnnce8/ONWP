@@ -94,12 +94,8 @@
         }
 
         ul {
-            &.uk-flex {
-                justify-content: center;
-
-                li:not(:last-of-type) {
-                    padding-right: 20px;
-                }
+            &.uk-flex li:not(:last-of-type) {
+                padding-right: 20px;
             }
         }
     }
@@ -127,7 +123,7 @@
     >a {
         color: $brown;
         font-size: 18px;
-        margin-top: 55px;
+        margin-top: 25px;
         display: block;
 
         span {
@@ -141,6 +137,12 @@
 
         &::before {
             background-color: $brick-dark;
+        }
+    }
+
+    @media(min-width: $breakpointMedium) {
+        >a {
+            margin-top: 55px;
         }
     }
 }

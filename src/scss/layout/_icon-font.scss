@@ -35,101 +35,104 @@
 	@if $filename == bird-logo {
 		$char: '\E003';
 	}
-	@if $filename == calendar {
+	@if $filename == brown-stoat {
 		$char: '\E004';
 	}
-	@if $filename == charity {
+	@if $filename == calendar {
 		$char: '\E005';
 	}
-	@if $filename == chevron-arrow-down {
+	@if $filename == charity {
 		$char: '\E006';
 	}
-	@if $filename == chevron-down {
+	@if $filename == chevron-arrow-down {
 		$char: '\E007';
 	}
-	@if $filename == donate  {
+	@if $filename == chevron-down {
 		$char: '\E008';
 	}
-	@if $filename == envelope {
+	@if $filename == donate  {
 		$char: '\E009';
 	}
-	@if $filename == ermine {
+	@if $filename == envelope {
 		$char: '\E00A';
 	}
-	@if $filename == external-link {
+	@if $filename == ermine {
 		$char: '\E00B';
 	}
-	@if $filename == facebook-box {
+	@if $filename == external-link {
 		$char: '\E00C';
 	}
-	@if $filename == family {
+	@if $filename == facebook-box {
 		$char: '\E00D';
 	}
-	@if $filename == farming-and-gardening {
+	@if $filename == family {
 		$char: '\E00E';
 	}
-	@if $filename == hills {
+	@if $filename == farming-and-gardening {
 		$char: '\E00F';
 	}
-	@if $filename == instagram-logo {
+	@if $filename == hills {
 		$char: '\E010';
 	}
-	@if $filename == live-streaming {
+	@if $filename == instagram-logo {
 		$char: '\E011';
 	}
-	@if $filename == man {
+	@if $filename == live-streaming {
 		$char: '\E012';
 	}
-	@if $filename == map-pin {
+	@if $filename == man {
 		$char: '\E013';
 	}
-	@if $filename == mission {
+	@if $filename == map-pin {
 		$char: '\E014';
 	}
-	@if $filename == newspaper-solid {
+	@if $filename == mission {
 		$char: '\E015';
 	}
-	@if $filename == offer-land-access  {
+	@if $filename == newspaper-solid {
 		$char: '\E016';
 	}
-	@if $filename == play-button-arrowhead {
+	@if $filename == offer-land-access  {
 		$char: '\E017';
 	}
-	@if $filename == professions-and-jobs {
+	@if $filename == play-button-arrowhead {
 		$char: '\E018';
 	}
-	@if $filename == right-arrow {
+	@if $filename == professions-and-jobs {
 		$char: '\E019';
 	}
-	@if $filename == rounded-corner-white-1 {
+	@if $filename == right-arrow {
 		$char: '\E01A';
 	}
-	@if $filename == rounded-corner-white {
+	@if $filename == rounded-corner-white-1 {
 		$char: '\E01B';
 	}
-	@if $filename == sea-weasel-mammal-shape {
+	@if $filename == rounded-corner-white {
 		$char: '\E01C';
 	}
-	@if $filename == stick-man {
+	@if $filename == sea-weasel-mammal-shape {
 		$char: '\E01D';
 	}
-	@if $filename == stoat-orange-map-icon {
+	@if $filename == stick-man {
 		$char: '\E01E';
 	}
-	@if $filename == time {
+	@if $filename == stoat-orange-map-icon {
 		$char: '\E01F';
 	}
-	@if $filename == volunteer-1 {
+	@if $filename == time {
 		$char: '\E020';
 	}
-	@if $filename == volunteer {
+	@if $filename == volunteer-1 {
 		$char: '\E021';
 	}
-	@if $filename == weasel {
+	@if $filename == volunteer {
 		$char: '\E022';
 	}
-	@if $filename == witness {
+	@if $filename == weasel {
 		$char: '\E023';
+	}
+	@if $filename == witness {
+		$char: '\E024';
 	}
 
 	@return $char;
@@ -158,6 +161,9 @@
 }
 .font-bird-logo {
 	@include font(bird-logo);
+}
+.font-brown-stoat {
+	@include font(brown-stoat);
 }
 .font-calendar {
 	@include font(calendar);

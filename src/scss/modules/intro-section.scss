@@ -7,7 +7,7 @@
     }
 
     &.home {
-        padding: 90px 0 130px;
+        padding: 90px 50px 130px;
 
         .intro-text {
             max-width: 970px;
@@ -43,7 +43,7 @@
 
     @media (max-width: $breakpointSmall) {
         &.home {
-            padding: 45px 0 390px;
+            padding: 45px 20px 140px;
         }
 
         &.internal {
@@ -69,18 +69,13 @@
     z-index: -1;
 
     @media (max-width: $breakpointLarge) {
-        left: 15px;
-        width: calc(100% - 20px);
-        transform: none;
-        top: -180px;
-        height: calc(100% + 180px);
+        left: 50%;
+        height: 100%;
     }
 
     @media (max-width: $breakpointSmall) {
-        left: 0;
-        width: 100%;
-        top: -200px;
-        height: calc(100% + 200px);
+        left: 49.5%;
+        width: calc(100% - 24px);
     }
 }
 
