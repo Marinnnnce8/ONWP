@@ -16,9 +16,54 @@
     }
 
     &.news {
+        padding: 90px 0 175px;
+
+        ul {
+            margin-bottom: 50px;
+        }
+
         >.shape {
             color: $brown;
             fill: $brown;
+            width: calc(100% - 80px);
+            left: 50%;
+            transform: translateX(-50.2%);
+        }
+
+        .uk-button {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &.involve {
+        padding: 285px 0 100px;
+        margin-top: -265px;
+
+        .links-inner {
+            clip-path: url('#svgPathGetInvolved');
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50px;
+            width: calc(100% - 100px);
+
+            &::after {
+                position: absolute;
+                background-color: rgba($green-dark-alt, .8);
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                content: '';
+            }
+
+            @supports (mix-blend-mode: multiply) {
+                &::after {
+                    mix-blend-mode: multiply;
+                    background-color: $green-dark-alt;
+                }
+            }
         }
     }
 
@@ -47,9 +92,13 @@
 .links-text {
     max-width: 660px;
     width: 100%;
+    z-index: 1;
+    position: relative;
 
     h2 {
         font-size: 57px;
+        margin-bottom: 30px;
+        color: $white;
     }
 
     p {
@@ -94,6 +143,10 @@
     h3 {
         margin-bottom: 0;
         font-size: 26px;
+    }
+
+    .uk-card-body {
+        padding: 35px 25px;
     }
 
     @include hover {
@@ -186,6 +239,7 @@
     .uk-card-title {
         font-size: 26px;
         line-height: 1.2;
+        margin: 5px 0;
     }
 
     .link-box-text {
@@ -207,7 +261,7 @@
         }
 
         .uk-card-body {
-            min-height: 92% !important; // sass-lint:disable-line no-important
+            min-height: 93% !important; // sass-lint:disable-line no-important
             transition: min-height 0.35s;
         }
 

@@ -10,6 +10,8 @@
 
     &.home {
         min-height: calc(100vh - 130px);
+        padding-left: 10px;
+        padding-right: 14px;
 
         .banner-inner {
             clip-path: url('#svgPathHero');

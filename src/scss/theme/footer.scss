@@ -1,214 +1,170 @@
 .footer {
-    padding: 0 30px;
+    padding: 80px 0 20px;
 
-    @media (max-width: $breakpointSmall) {
-        padding: 0;
-
-        .uk-container {
-            padding: 0 20px;
-        }
-
-        .uk-first-column {
-            padding-bottom: 25px;
-        }
-    }
-}
-
-.footer-middle {
-    position: relative;
-    padding: 55px 0;
-    width: 100%;
-    z-index: 0;
-
-    h2 {
-        font-size: 34px;
-        margin-bottom: 25px;
+    >img {
+        max-width: 120px;
+        width: 100%;
+        height: auto;
+        right: 80px;
+        top: 80px;
+        position: absolute;
     }
 
-    h2,
-    p,
-    li,
-    span {
-        font-weight: $light;
+    .uk-container {
+        max-width: 1440px;
     }
 
     h3 {
-        font-weight: $bold;
         font-size: 18px;
-        margin: 0 0 10px 0;
+        margin-bottom: 10px;
     }
 
-    p {
-        font-size: 18px;
+    ul {
+        margin-top: 12px;
     }
 
-    li,
-    a:not(.uk-button),
-    span {
-        font-size: 16px;
+    .uk-list>li:nth-child(n+2),
+    .uk-list>li>ul {
+        margin-top: 5px;
     }
 
-    li {
-        color: $brown;
+    .address li,
+    .footer-right .uk-button-text {
+        font-family: $font-roboto;
     }
 
-    .uk-button.blue {
-        text-align: left;
+    .uk-text-lead {
+        display: block;
+        font-weight: $light;
+        font-family: $font-default;
+        margin-bottom: 40px;
+    }
 
-        .font-newspaper-solid {
-            color: $brown;
-            padding: 15px 26px 15px 55px;
+    @media(min-width: $breakpointLarge) {
+        padding: 80px 200px 20px 0;
+    }
+}
 
-            &::before {
-                left: 23px;
-                right: auto;
-            }
+.footer-left {
+
+    .faq {
+        padding-right: 30px;
+        padding-bottom: 25px;
+
+        h2 {
+            margin-bottom: 40px;
         }
     }
 
-    span {
-        color: $brown;
+    .address {
 
-        a {
-            display: inline-block;
+        li {
+            font-size: 16px;
             color: $brown;
-            font-weight: $bold;
-            position: relative;
-            line-height: 1.2;
-            margin-bottom: 0;
-
-            &::before {
-                font-size: 15px;
-                color: $brown;
-                display: inline-block;
-                margin: 0 5px;
-                position: relative;
-                top: 1px;
-            }
         }
     }
 
     ul {
-        padding: 0;
-        margin: 0;
+        &.uk-flex li:not(:last-of-type) {
+            padding-right: 40px;
+        }
     }
 
-    .enquiries .uk-button-text {
-        font-weight: $light;
-        color: $brick;
+    @media(min-width: $breakpointMedium) {
+        padding-right: 40px;
+
+        .faq {
+            max-width: 460px;
+            padding-bottom: 55px;
+        }
+    }
+
+    @media(max-width: $breakpointSmallMax) {
+        >.uk-flex {
+            justify-content: flex-start;
+        }
+
+        .uk-text-lead {
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .address {
+            padding-right: 40px;
+        }
+
+        ul {
+            &.uk-flex {
+                justify-content: center;
+
+                li:not(:last-of-type) {
+                    padding-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+.footer-right {
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    .uk-button-text {
         font-size: 16px;
-        line-height: 1.5;
-        margin-bottom: 28px;
+        font-weight: 400;
+        color: $brick;
+        line-height: 1.1;
 
-        &::before,
-        &::after {
-            background-color: $brick;
+        &::before {
+            width: 100%;
             height: 1px;
-            bottom: 2px;
-        }
-
-        @include hover {
-            color: $brick;
-
-            &::before,
-            &::after {
-                border: 0;
-            }
+            background-color: $brick;
         }
     }
 
-    @media (max-width: $breakpointLarge) {
-        padding: 60px 0 55px;
+    >a {
+        color: $brown;
+        font-size: 18px;
+        margin-top: 55px;
+        display: block;
 
-        >.uk-container {
-            padding: 0 50px;
-
-            >.uk-flex {
-                flex-direction: column;
-
-                >.uk-flex-between:first-of-type {
-                    margin-bottom: 60px;
-                }
-            }
-
-            .nb-copyright {
-                padding-bottom: 35px;
-            }
+        span {
+            font-family: $font-roboto;
+            font-size: 16px;
         }
     }
-    @media (max-width: 667px) {
-        >.uk-container {
-            position: relative;
-            top: -30px;
-        }
-        
-    }
 
-    @media (max-width: $breakpointSmall) {
-        padding: 5px 0 50px;
+    @include hover {
+        color: $brick-dark;
 
-        >.uk-container {
-            padding: 0 20px;
-            top: -50px;
-
-            .uk-button-primary {
-                width: 100%;
-
-                &:not(.blue) {
-                    text-align: left;
-                    margin-top: 25px;
-                }
-
-                &.blue .font-newspaper-solid {
-                    padding: 15px 19px 15px 50px;
-
-                    &::before {
-                        left: 20px;
-                        font-size: 18px;
-                    }
-                }
-            }
-
-            >.uk-flex {
-                >.uk-flex {
-                    flex-direction: column;
-                }
-
-                >.uk-flex-between:first-of-type {
-                    margin-bottom: 50px;
-                }
-            }
-        }
-
-        .enquiries {
-            padding-top: 60px;
+        &::before {
+            background-color: $brick-dark;
         }
     }
 }
 
 .footer-bottom {
-    padding: 25px 0;
+    padding-top: 10px;
 
-    span {
-        font-size: 26px;
-        font-weight: $light;
+    a,
+    span,
+    li {
+        font-family: $font-roboto;
+        font-size: 11px;
         color: $brown;
     }
 
-    @media (max-width: $breakpointLarge) {
-        padding: 25px 0 45px;
-
-        span {
-            margin-bottom: 30px;
-            display: block;
+    li {
+        &:not(:last-of-type) {
+            padding-right: 20px;
         }
     }
 
-    @media (max-width: $breakpointSmall) {
-        span.uk-first-column {
-            padding-bottom: 0;
+    @media(max-width: $breakpointSmallMax) {
+        li {
+            margin-bottom: 10px;
         }
-
-        padding: 25px 0 20px;
     }
 }
