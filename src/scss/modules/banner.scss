@@ -58,11 +58,8 @@
     @media (max-width: $breakpointLarge) {
         &.internal {
             .uk-position-bottom {
-                bottom: 200px;
-            }
-
-            .btn-scroll {
-                transform: translate(-50%, -115%);
+                // bottom: 200px;
+                bottom: 20px;
             }
         }
 
@@ -86,12 +83,8 @@
             min-height: 460px;
 
             .uk-position-bottom {
-                bottom: 150px;
+                // bottom: 150px;
                 padding-left: 20px;
-            }
-
-            .btn-scroll {
-                transform: translate(-50%, -165%);
             }
         }
 
@@ -99,10 +92,6 @@
 
             .banner-text {
                 width: 90% !important; // sass-lint:disable-line no-important
-            }
-
-            .btn-scroll {
-                transform: translate(-50%, -150%);
             }
         }
     }
@@ -125,23 +114,14 @@
                 padding-left: 25px;
                 padding-right: 25px;
             }
-
-            .btn-scroll {
-                bottom: 70px;
-                transform: translate(-50%, -55%);
-            }
         }
 
         &.internal {
             padding-top: 100px;
 
             .uk-position-bottom {
-                bottom: 200px;
+                // bottom: 200px;
                 padding-left: 0;
-            }
-
-            .btn-scroll {
-                transform: translate(-50%, -185%);
             }
         }
     }

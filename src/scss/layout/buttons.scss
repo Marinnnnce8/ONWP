@@ -148,36 +148,6 @@ input[type='submit'] {
 	}
 }
 
-.btn-scroll {
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, -5%);
-	background-color: $ochre;
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	z-index: 2;
-	bottom: 0;
-
-	&::before {
-		position: absolute;
-		font-size: 30px;
-		color: $brown;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 1;
-	}
-
-	@include hover {
-		transform: translate(-50%, 20%);
-	}
-
-	@media (max-width: $breakpointSmall) {
-		transform: translate(-50%, -55%);
-	}
-}
-
 .sighting-btn {
 	position: fixed;
 	left: 0;
