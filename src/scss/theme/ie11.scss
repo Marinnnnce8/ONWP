@@ -109,23 +109,15 @@ screen and (-ms-high-contrast: none) {
         }
     }
 
-    .footer-middle {
-        background-color: $blue-light;
-    }
+    // .nb-credit a {
+    //     position: relative;
+    //     padding-right: 25px;
 
-    .footer-middle-inner>.shape {
-        display: none;
-    }
-
-    .nb-credit a {
-        position: relative;
-        padding-right: 25px;
-
-        img {
-            width: 15px;
-            position: absolute;
-            top: -2px;
-            right: 0;
-        }
-    }
+    //     img {
+    //         width: 15px;
+    //         position: absolute;
+    //         top: -2px;
+    //         right: 0;
+    //     }
+    // }
 }
