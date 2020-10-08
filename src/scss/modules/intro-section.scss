@@ -1,21 +1,6 @@
 .intro-section {
     z-index: 1;
 
-    // &.internal {
-    //     padding-top: 10px;
-    //     padding-bottom: 70px;
-    //     padding-left: 20px;
-    //     padding-right: 20px;
-    //     margin-bottom: 70px;
-
-    //     // .intro-inner {
-    //     //     color: $ochre;
-    //     //     fill: $ochre;
-    //     //     left: 50.1%;
-    //     //     width: calc(100% - 38px);
-    //     // }
-    // }
-
     &.home {
         padding: 90px 50px 130px;
 
@@ -26,23 +11,6 @@
     }
 
     @media (max-width: $breakpointLarge) {
-
-        // &.internal {
-        //     padding: 50px 20px 100px;
-
-        //     >.uk-container {
-
-        //         >.uk-flex {
-        //             flex-direction: column;
-        //         }
-        //     }
-
-        //     .uk-text-lead,
-        //     .uk-breadcrumb {
-        //         padding-top: 0;
-        //     }
-        // }
-
         &.home {
             .intro-text {
                 max-width: 100%;
@@ -57,18 +25,6 @@
         &.home {
             padding: 45px 15px 140px;
         }
-
-        // &.internal {
-        //     padding-top: 20px;
-        //     padding-bottom: 80px;
-        //     margin-bottom: 0;
-
-        //     .intro-inner {
-        //         top: -70px;
-        //         left: 50%;
-        //         width: calc(100% - 28px);
-        //     }
-        // }
     }
 }
 
