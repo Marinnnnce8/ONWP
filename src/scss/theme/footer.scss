@@ -118,6 +118,14 @@
             height: 1px;
             background-color: $brick;
         }
+
+        @include hover {
+            color: $brown;
+
+            &::before {
+                background-color: $brown;
+            }
+        }
     }
 
     >a {
@@ -143,6 +151,12 @@
     @media(min-width: $breakpointMedium) {
         >a {
             margin-top: 55px;
+        }
+    }
+
+    @media(max-width: $breakpointMedium) {
+        li {
+            margin-bottom: 10px;
         }
     }
 }

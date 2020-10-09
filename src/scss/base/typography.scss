@@ -98,53 +98,53 @@ sup {
 	color: inherit !important; // sass-lint:disable-line no-important
 }
 
-blockquote {
-	border-left: 3px solid $green-golden;
-	padding: 25px 60px 0;
-	position: relative;
+// blockquote {
+// 	border-left: 3px solid $green-golden;
+// 	padding: 25px 60px 0;
+// 	position: relative;
 
-	&::before {
-		content: url('../img/quotes.png');
-		background-repeat: no-repeat;
-		background-position: center;
-		background-size: cover;
-		position: absolute;
-		display: block;
-		top: 0;
-		left: 40px;
-		z-index: 1;
-		width: 100px;
-	}
+// 	&::before {
+// 		content: url('../img/quotes.png');
+// 		background-repeat: no-repeat;
+// 		background-position: center;
+// 		background-size: cover;
+// 		position: absolute;
+// 		display: block;
+// 		top: 0;
+// 		left: 40px;
+// 		z-index: 1;
+// 		width: 100px;
+// 	}
 
-	p,
-	span {
-		font-weight: $light;
-		font-style: normal;
-	}
+// 	p,
+// 	span {
+// 		font-weight: $light;
+// 		font-style: normal;
+// 	}
 
-	p {
-		font-size: 26px;
-		color: $green;
-		margin-bottom: 25px;
+// 	p {
+// 		font-size: 26px;
+// 		color: $green;
+// 		margin-bottom: 25px;
 
-		&:last-of-type {
-			margin-bottom: 10px;
-		}
-	}
+// 		&:last-of-type {
+// 			margin-bottom: 10px;
+// 		}
+// 	}
 
-	span {
-		font-size: 18px;
-		color: $brown;
-	}
+// 	span {
+// 		font-size: 18px;
+// 		color: $brown;
+// 	}
 
-	@media (max-width: $breakpointSmall) {
-		padding: 25px 25px 0;
+// 	@media (max-width: $breakpointSmall) {
+// 		padding: 25px 25px 0;
 
-		&::before {
-			left: 25px;
-		}
-	}
-}
+// 		&::before {
+// 			left: 25px;
+// 		}
+// 	}
+// }
 
 ul {
 	padding-left: 20px;

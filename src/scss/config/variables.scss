@@ -14,56 +14,38 @@ $italic: italic;
 $white: #fff;
 $black: #000;
 $orange: #ff8813;
-$orange-dark: #eb7501;
-$orange-light: #ffc489;
 $ochre: #f6ea8b;
 $ochre-dark: #c3ba6d;
-$brown-light: #8f857c;
 $brown-medium: #8b837b;
 $brown: #4b351c;
 $brown-dark: #3d2a15;
 $brick: #c75300;
 $brick-dark: #bb5604;
 $blue-light: #dce7f3;
-$blue-dirty: #d2d291;
-$blue-pastel: #d0e2fb;
 $blue-facebook: #3d599c;
 $blue-twitter: #1c9ccf;
 $blue-ice: #d7dadb;
 $blue-sky: #bdd0e4;
-$violet-light: #8c2d76;
-$violet-dark: #4d3243;
 $gray: #bec0c1;
 $gray-alt: #b1b2b4;
-$gray-form: #938e87;
 $gray-soft: #71675e;
 $gray-ice: #dcd8d3;
-$gray-secondary: #dbd7d2;
-$gray-light: #edeae8;
 $gray-medium: #c5c1bc;
-$purple: #a7358c;
 $green: #7c662a;
 $green-alt: #9a831f;
-$green-grass: #ab9120;
-$green-pastel: #d0e69b;
 $green-dark: #705f26;
 $green-dark-alt: #87741c;
 $green-golden: #9e8f20;
 $red: #ea4335;
-$red-light: #ffbb8e;
 
 $site-colors: (
 	'black': $black,
 	'white': $white,
 	'ochre': $ochre,
 	'orange': $orange,
-	'orange-light': $orange-light,
 	'brown': $brown,
 	'blue-light': $blue-light,
-	'violet-light': $violet-light,
 	'gray': $gray,
-	'violet-dark': $violet-dark,
-	'purple': $purple,
 	'green': $green
 ) !default;
 
@@ -150,5 +132,4 @@ $nbSpeedLong: $nbSpeed * 2;
 
 $themeVar: 0; // Example, not used
 
-$chevron-down: 'chevron-down';
 $arrow-right: 'arrow-right';

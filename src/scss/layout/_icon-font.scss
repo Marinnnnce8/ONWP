@@ -29,110 +29,29 @@
 	@if $filename == arrow-right {
 		$char: '\E001';
 	}
-	@if $filename == binoculars {
+	@if $filename == brown-stoat {
 		$char: '\E002';
 	}
-	@if $filename == bird-logo {
+	@if $filename == calendar {
 		$char: '\E003';
 	}
-	@if $filename == brown-stoat {
+	@if $filename == chevron-down {
 		$char: '\E004';
 	}
-	@if $filename == calendar {
+	@if $filename == donate  {
 		$char: '\E005';
 	}
-	@if $filename == charity {
+	@if $filename == envelope {
 		$char: '\E006';
 	}
-	@if $filename == chevron-arrow-down {
+	@if $filename == offer-land-access {
 		$char: '\E007';
 	}
-	@if $filename == chevron-down {
+	@if $filename == right-arrow {
 		$char: '\E008';
 	}
-	@if $filename == donate  {
-		$char: '\E009';
-	}
-	@if $filename == envelope {
-		$char: '\E00A';
-	}
-	@if $filename == ermine {
-		$char: '\E00B';
-	}
-	@if $filename == external-link {
-		$char: '\E00C';
-	}
-	@if $filename == facebook-box {
-		$char: '\E00D';
-	}
-	@if $filename == family {
-		$char: '\E00E';
-	}
-	@if $filename == farming-and-gardening {
-		$char: '\E00F';
-	}
-	@if $filename == hills {
-		$char: '\E010';
-	}
-	@if $filename == instagram-logo {
-		$char: '\E011';
-	}
-	@if $filename == live-streaming {
-		$char: '\E012';
-	}
-	@if $filename == man {
-		$char: '\E013';
-	}
-	@if $filename == map-pin {
-		$char: '\E014';
-	}
-	@if $filename == mission {
-		$char: '\E015';
-	}
-	@if $filename == newspaper-solid {
-		$char: '\E016';
-	}
-	@if $filename == offer-land-access  {
-		$char: '\E017';
-	}
-	@if $filename == play-button-arrowhead {
-		$char: '\E018';
-	}
-	@if $filename == professions-and-jobs {
-		$char: '\E019';
-	}
-	@if $filename == right-arrow {
-		$char: '\E01A';
-	}
-	@if $filename == rounded-corner-white-1 {
-		$char: '\E01B';
-	}
-	@if $filename == rounded-corner-white {
-		$char: '\E01C';
-	}
-	@if $filename == sea-weasel-mammal-shape {
-		$char: '\E01D';
-	}
-	@if $filename == stick-man {
-		$char: '\E01E';
-	}
-	@if $filename == stoat-orange-map-icon {
-		$char: '\E01F';
-	}
-	@if $filename == time {
-		$char: '\E020';
-	}
-	@if $filename == volunteer-1 {
-		$char: '\E021';
-	}
 	@if $filename == volunteer {
-		$char: '\E022';
-	}
-	@if $filename == weasel {
-		$char: '\E023';
-	}
-	@if $filename == witness {
-		$char: '\E024';
+		$char: '\E009';
 	}
 
 	@return $char;
@@ -156,23 +75,11 @@
 .font-arrow-right {
 	@include font(arrow-right);
 }
-.font-binoculars {
-	@include font(binoculars);
-}
-.font-bird-logo {
-	@include font(bird-logo);
-}
 .font-brown-stoat {
 	@include font(brown-stoat);
 }
 .font-calendar {
 	@include font(calendar);
-}
-.font-charity {
-	@include font(charity);
-}
-.font-chevron-arrow-down {
-	@include font(chevron-arrow-down);
 }
 .font-chevron-down {
 	@include font(chevron-down);
@@ -183,82 +90,13 @@
 .font-envelope {
 	@include font(envelope);
 }
-.font-ermine {
-	@include font(ermine);
-}
-.font-external-link {
-	@include font(external-link);
-}
-.font-facebook-box {
-	@include font(facebook-box);
-}
-.font-family {
-	@include font(family);
-}
-.font-farming-and-gardening {
-	@include font(farming-and-gardening);
-}
-.font-hills {
-	@include font(hills);
-}
-.font-instagram-logo {
-	@include font(instagram-logo);
-}
-.font-live-streaming {
-	@include font(live-streaming);
-}
-.font-man {
-	@include font(man);
-}
-.font-map-pin {
-	@include font(map-pin);
-}
-.font-mission {
-	@include font(mission);
-}
-.font-newspaper-solid {
-	@include font(newspaper-solid);
-}
-.font-offer-land-access  {
-	@include font(offer-land-access );
-}
-.font-play-button-arrowhead {
-	@include font(play-button-arrowhead);
-}
-.font-professions-and-jobs {
-	@include font(professions-and-jobs);
+.font-offer-land-access {
+	@include font(offer-land-access);
 }
 .font-right-arrow {
 	@include font(right-arrow);
 }
-.font-rounded-corner-white-1 {
-	@include font(rounded-corner-white-1);
-}
-.font-rounded-corner-white {
-	@include font(rounded-corner-white);
-}
-.font-sea-weasel-mammal-shape {
-	@include font(sea-weasel-mammal-shape);
-}
-.font-stick-man {
-	@include font(stick-man);
-}
-.font-stoat-orange-map-icon {
-	@include font(stoat-orange-map-icon);
-}
-.font-time {
-	@include font(time);
-}
-.font-volunteer-1 {
-	@include font(volunteer-1);
-}
 .font-volunteer {
 	@include font(volunteer);
-}
-.font-weasel {
-	@include font(weasel);
-}
-.font-witness {
-	@include font(witness);
 }
 
